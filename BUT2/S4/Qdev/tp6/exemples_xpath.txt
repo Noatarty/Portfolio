@@ -1,0 +1,62 @@
+﻿Triple-cliquez sur une ligne pour la sélectionner
+-------------------------------------------------
+
+* Requêtes de base
+
+/annonces/avion/prix
+/annonces/avion/prix/text()
+//description
+//avion/@année
+//avion/@année/text()
+//avion/@Annee
+
+
+* Requêtes simples avec des conditions
+
+//avion[@id=159]
+//avion[@année>=1990]/fabricant
+//avion[couleur="jaune"]
+//avion[couleur="jaune"][@année>1990]
+//avion[couleur="jaune" and @année>1990]
+//avion[couleur="bleu" or @année>1990]
+//avion[prix[@monnaie="$"]>50000]
+
+
+* Requêtes sur la position des éléments
+
+//avion[position()=1]/@id
+//avion[2]/@id
+//avion[position()=last()]/@id
+//avion[last()]/@id
+//modèle[last()]
+//avion[last()]/couleur[last()]
+
+
+* Présence ou absence d'attributs et de sous-éléments
+
+//avion[not(prix)]
+//avion[prix=""]
+//avion[prix!="" and description=""]
+//avion[lieu and not(lieu/pays)]
+
+
+* Utilisation des axes et des jokers
+
+//prix[.>50000]/..
+//ville[text()="Morlaix"]/../../@année
+/descendant::ville[text()="Morlaix"]/ancestor::camion/child::fabricant
+//*[@id<400]
+//avion[@id=456]/following-sibling::avion[1]
+//avion[@id=159]/preceding-sibling::*[1]
+
+
+* Fonctions
+
+//avion[count(couleur) > 1]
+//*[string-length(modèle)=1]
+//avion[contains(description, "refait")]
+
+
+* Requêtes imbriquées
+
+//avion[fabricant = //avion[modèle="CAP 10"]/fabricant ]

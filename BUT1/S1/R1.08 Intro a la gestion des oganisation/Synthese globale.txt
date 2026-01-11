@@ -1,0 +1,84 @@
+
+1. **Environnement d'une organisation** :
+   - **Définition** : Ensemble des facteurs, conditions et influences externes qui entourent et affectent une organisation. Cela comprend la concurrence, la réglementation, les tendances économiques, les préférences des consommateurs, les innovations technologiques, les facteurs sociaux, politiques et environnementaux, entre autres.
+
+2. **Niveaux d'environnement** :
+   - **Micro-environnement** : Acteurs en contact direct avec l'entreprise (clients, fournisseurs, concurrents, partenaires) et avec lesquels elle interagit régulièrement. L'entreprise a une certaine influence sur ces acteurs et vice versa.
+   - **Méso-environnement** : Acteurs ayant une influence directe sur l'entreprise, mais où l'entreprise a moins de pouvoir d'influence (régulateurs gouvernementaux, groupes de pression, associations professionnelles).
+   - **Macro-environnement** : Facteurs et tendances plus larges influençant l'entreprise, sur lesquels elle a peu ou pas de contrôle (aspects économiques, politiques, technologiques, socioculturels et environnementaux).
+
+3. **Cinq forces de Porter dans l'analyse du micro-environnement** :
+   - **Menace des nouveaux entrants**
+   - **Pouvoir de négociation des fournisseurs**
+   - **Pouvoir de négociation des clients**
+   - **Menace des produits de substitution**
+   - **Degré de rivalité entre les concurrents existants**
+
+4. **Méthode PESTEL pour analyser le macro-environnement** :
+   - **Politique**
+   - **Économique**
+   - **Socioculturel**
+   - **Technologique**
+   - **Écologique**
+   - **Légal**
+
+5. **Exemples d'interactions environnement sur organisation** :
+   - **Réglementations gouvernementales strictes** : Obligation pour une entreprise de modifier ses pratiques pour se conformer aux normes.
+   - **Changements démographiques** : Influence sur la demande des consommateurs, conduisant l'entreprise à ajuster sa stratégie marketing.
+   - **Évolution technologique** : Obligation pour une entreprise de mettre à jour ses processus de production pour rester compétitive.
+
+6. **Exemples d'interactions organisation sur environnement** :
+   - **Campagne de sensibilisation à l'environnement** : Engagement envers la durabilité.
+   - **Influence sur les régulateurs** : Pour obtenir des réglementations favorables.
+   - **Investissement dans la R&D** : Stimuler l'innovation technologique.
+
+7. **Veille** :
+   - **Définition** : Surveiller proactivement l'environnement externe pour identifier les tendances, menaces et opportunités. Essentiel pour rester compétitif et prendre des décisions éclairées.
+
+8. **Intelligence économique** :
+   - **Définition** : Processus de collecte, analyse et exploitation d'informations sur l'environnement économique pour des décisions éclairées et pour renforcer la compétitivité.
+
+9. **Méthodes de veille** :
+   - **Surveillance des médias sociaux**
+   - **Analyse des données de ventes et de l'activité en ligne**
+   - **Abonnement à des publications sectorielles et rapports de recherche**
+   - **Participation à des groupes de discussion et réseaux professionnels**
+   - **Utilisation d'outils de veille en ligne (alertes Google, agrégateurs de contenu, logiciels d'analyse de données)**
+
+1. **Stratégie** :
+   - **Définition** : Détermination des buts et des objectifs à long terme d'une entreprise, avec les moyens d'action et l'allocation des ressources nécessaires pour les atteindre. Vise à aligner les ressources de l'entreprise avec sa mission pour réduire l'écart entre les deux.
+
+2. **Étapes de la planification stratégique** :
+   - **Définition** : Comprend la définition des objectifs stratégiques, l'analyse et le diagnostic stratégique, la conception et l'action stratégique, ainsi que le contrôle stratégique pour évaluer et corriger les écarts.
+
+3. **Niveaux de stratégie** :
+   - **Stratégie globale (Corp Strategy)** : Dirige l'ensemble de l'entreprise, déterminant sa direction générale.
+   - **Stratégie concurrentielle (Business Strategy)** : Englobe les choix spécifiques pour chaque activité ou marché de l'entreprise.
+
+4. **Analyse stratégique externe** :
+   - **Environnement** : Éléments externes influençant directement ou indirectement l'entreprise.
+   - **Macro-environnement** : Éléments éloignés, influençant indirectement l'entreprise.
+   - **Micro-environnement** : Acteurs ou parties prenantes directement impliqués dans la vie de l'entreprise.
+
+5. **Méthodes d'analyse** :
+   - **Diagnostic PESTEL** : Identifie les éléments politiques, économiques, socioculturels, technologiques, écologiques et législatifs influençant la stratégie.
+   - **Cinq forces de Porter** : Identifie les forces influençant l'environnement proche de l'entreprise : concurrents, clients, fournisseurs, produits de substitution et nouveaux entrants.
+
+6. **Analyse stratégique interne** :
+   - **Ressources à analyser** : Humaines, matérielles, financières, informationnelles et immatérielles.
+   - **Compétences** : Capacité de l'entreprise à allouer et mobiliser ses ressources pour obtenir un avantage concurrentiel.
+
+7. **Chaîne de valeur** :
+   - **Définition** : Ensemble des activités créant de la valeur ajoutée, de l'acquisition des matières premières à la livraison du produit final au client.
+
+8. **Évaluation du diagnostic externe** :
+   - **Objectif** : Évaluer les opportunités et menaces externes pouvant influencer la stratégie.
+
+9. **Évaluation du diagnostic interne** :
+   - **Objectif** : Évaluer les forces et faiblesses internes de l'entreprise pour définir ses atouts et les domaines nécessitant des améliorations.
+
+10. **Matrice SWOT** :
+    - **Forces (Strengths)**
+    - **Faiblesses (Weaknesses)**
+    - **Opportunités (Opportunities)**
+    - **Menaces (Threats)**

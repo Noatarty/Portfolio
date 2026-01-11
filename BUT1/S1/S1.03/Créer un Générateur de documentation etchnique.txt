@@ -1,0 +1,86 @@
+Créer un Générateur de documentation technique par l’analyse d’un lot de codes sources
+(fichiers .c) et la production d’une page HTML contenant la documentation
+technique formatée suivant les principes détaillés ensuite : (Documentation technique
+Vous devrez construire une documentation à partir des commentaires trouvés dans les
+codes sources.
+Vos codes sources seront des fichiers C et sont deja crées.
+Vous devrez fournir un jeu d’essai complet avec au moins 3 fichiers sources en .c.
+Vous ne serez pas notés sur le contenu du code C utilisé comme exemple.
+Voici les parties qu’un code source peut contenir et qui, quand elles apparaissent,
+devront faire être intégrées de la documentation technique générée.
+En rouge ce qui permet de localiser les éléments à extraire pour construire la
+documentation. La documentation doit faire apparaître l’intégralité de l’information,
+c’est-à-dire le commentaire mais également l’élément associé au commentaire, bien
+entendu, sinon le commentaire manquera de contexte à la lecture de la documentation.
+Vous allez voir que les commentaires sont généralement encadrés par /**...*/. Il s’agit
+d’extraire ces commentaires pour faire une présentation propre et agréable à lire. Cela
+signifie que les ouvertures et fermetures de commentaires, qui sont ici des tags
+spécifiques au langage C, devront être omises au profit d’un formatage en CSS. Vous
+avez toute liberté dans votre présentation mais vous serez aussi notés sur votre effort de
+présentation de l’information.
+En-tête de code
+Un en-tête qui doit apparaître dès la ligne 1 du code. Sans cet en-tête, le code n’est pas
+analysé et aucune documentation n’est générée :
+/**
+* Un texte qui décrit ce que fait le fichier source.
+* Par exemple ça peut être une série de fonction
+* utilitaires pour le produit, ou encore le programme
+* complet d’un jeu de Puissance 4 ou d’un Sudoku !
+*/
+Defines
+Les #define définissent des constantes. Exemple :
+#define NB_NOTES 8 /** Nombre de notes du bulletin */
+Tous les #define et leur commentaire associé doivent être groupés dans la
+documentation dans un chapitre DEFINES. Le mot clé #define n’est pas à afficher, seuls
+le nom, la valeur et le commentaire sont à afficher.
+Structures
+Les structures définissent de nouveaux types. Exemple :
+typedef struct {
+char nom[SZ_NOM + 1]; /** Nom de l'étudiant·e */
+char groupe_td; /** Lettre indiquant son groupe TD */
+int num_tp; /** Numéro de son groupe TP (1 ou 2) */
+} str_etu; /** Structure d'un·e étudiant·e */
+Toutes les structures et leur commentaire associé doivent être groupés dans la
+documentation dans un chapitre STRUCTURES. Elles doivent apparaître intégralement
+avec chaque attribut suivi de son commentaire. Le commentaire associé à la structure
+doit être placé avant le détail de la structure.
+Variables globales
+Les variables globales sont donc extérieures à toute fonction. Exemple :
+int notes[NB_NOTES]; /** Liste des notes d’un étudiant */
+Toutes les variables globales et leur commentaire associé doivent être groupés dans la
+documentation dans un chapitre GLOBALES.
+Fonctions
+Les fonctions ont plusieurs caractéristiques. Voici un exemple complet. Il peut y avoir
+certains informations absentes selon la nature de la fonction :
+/**
+* \brief Ajoute étudiant·e (Résumé court du rôle de la fonction)
+* \detail Un descriptif détaillé de ce que fait la fonction
+* entrant dans les détails de ses caractéristiques,
+* des conditions particulières d'utilisation,
+* faisant apparaître éventuellement :
+* - un formatage sommaire
+* - sous forme de listes
+*
+* et de sauts de lignes
+* \return int Numéro d'identité de l'étudiant·e ajouté·e
+* \param char* nom Nom de l'étudiant·e.
+* \param char groupe_td Son groupe TD
+* \param int num_tp Son numéro de groupe TP
+*/
+int ajoute_etu(char *nom, char groupe_td, int num_tp) {
+…
+Les caractéristiques de chaque fonction ainsi que son nom doivent être groupées dans
+un chapitre FONCTIONS.
+).
+Le générateur doit être écrit en PHP.
+Les fichiers à traiter doivent être placés, par le développeur, au même endroit
+que le script par une commande de copie de l’hôte vers le conteneur.
+Le script doit traiter tous les fichiers .c qu’il trouve.
+Un unique fichier HTML doit être généré au même endroit que le script et doit
+s’appeler doc-tech-<version>.html. N’oubliez pas de prévoir la gestion des
+versions par le passage d’un paramètre à votre script, comme évoqué au
+paragraphe Versions au début du sujet.
+Le générateur doit être lancé manuellement par le développeur en se connectant
+dans le conteneur et en lançant le script.
+Image Docker à utiliser : sae103-php.
+rendu : un script autonome gendoc-tech.php

@@ -1,0 +1,15 @@
+\nWHERE \n    ips.rentree_scolaire = '2022'\n    AND col.rentree_scolaire = '2022'\n    AND etab.ep_2022_2023 = 'OUI'
+set schema 'colleges2'
+\nDROP VIEW IF EXISTS colleges_consolide
+\nCREATE VIEW colleges_consolide AS\nSELECT \n    ips.ips, \n    ips.ecart_type_de_l_ips, \n    etab.nombre_d_eleves, \n    indic.taux_de_reussite_g, \n    ips.secteur, \n    col.nombre_eleves_total\nFROM \n    _temp_fr_en_ips_colleges_ap2022 ips\nJOIN \n    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai\nJOIN \n    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai\nJOIN \n    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college\nWHERE \n    ips.rentree_scolaire = '2022'\n    AND col.rentree_scolaire = '2022'\n    AND etab.ep_2022_2023 = 'OUI'
+\nWbExport -file=colleges.csv\n         -outputDir=.\n         -type=text\n         -sourceTable=colleges_consolide\n         -schema=colleges2\n         -delimiter=';'\n         -header=true\n         -dateFormat='d/M/y'\n         -timestampFormat='d/M/y HⓂ️s'
+set schema 'colleges2'
+\nDROP VIEW IF EXISTS colleges_consolide
+\nCREATE VIEW colleges_consolide AS\nSELECT \n    ips.ips, \n    ips.ecart_type_de_l_ips, \n    etab.nombre_d_eleves, \n    indic.taux_de_reussite_g, \n    ips.secteur, \n    col.nombre_eleves_total\nFROM \n    _temp_fr_en_ips_colleges_ap2022 ips\nJOIN \n    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai\nJOIN \n    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai\nJOIN \n    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college\nWHERE \n    ips.rentree_scolaire = '2022'\n    AND col.rentree_scolaire = '2022'\n    AND etab.ep_2022_2023 = 'OUI'
+\nWbExport -file=colleges.csv\n         -outputDir=C:\\Users\\pomme\\Documents\\IUT\n         -type=text\n         -sourceTable=colleges_consolide\n         -schema=colleges2
+\n\nselect * from colleges_consolide
+set schema 'colleges2'
+\nDROP VIEW IF EXISTS colleges_consolide
+\nCREATE VIEW colleges_consolide AS\nSELECT \n    i.ips, \n    i.ecart_type_de_l_ips, \n    etab.nombre_d_eleves, \n    indic.taux_de_reussite_g, \n    i.secteur, \n    col.nombre_eleves_total\nFROM \n    _temp_fr_en_ips_colleges_ap2022 i\nJOIN \n    _temp_fr_en_etablissements_ep etab ON i.uai = etab.uai\nJOIN \n    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON i.uai = indic.uai\nJOIN \n    _temp_fr_en_college_effectif_niveau_sexe_lv col ON i.uai = col.numero_college\nWHERE \n    i.rentree_scolaire = '2022'\n    AND col.rentree_scolaire = '2022'\n    AND etab.ep_2022_2023 = 'OUI'
+\nWbExport -file=colleges.csv\n         -outputDir=C:\\Users\\pomme\\Documents\\IUT\n         -type=text\n         -sourceTable=colleges_consolide\n         -schema=colleges2
+\n\nselect * from colleges_consolide

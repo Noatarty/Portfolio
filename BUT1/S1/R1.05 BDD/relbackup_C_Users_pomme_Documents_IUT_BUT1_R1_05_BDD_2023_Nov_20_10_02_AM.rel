@@ -1,0 +1,29 @@
+/*** Rel Database Backup ***/
+
+// Created in Rel Version 3.016.0
+// Using DatabaseToScript version 0.3.8
+
+BEGIN TRANSACTION;
+
+CALL SET_UNIQUE_NUMBER(174);
+
+ANNOUNCE 'var pays';
+VAR pays REAL RELATION {nomp CHARACTER, superficie INTEGER, pop INTEGER} KEY {nomp};
+
+ANNOUNCE 'var ville';
+VAR ville REAL RELATION {nomv CHARACTER, nomp CHARACTER} KEY {nomv};
+
+ANNOUNCE 'var mer';
+VAR mer REAL RELATION {nomm CHARACTER, surface INTEGER} KEY {nomm};
+
+ANNOUNCE 'var fleuve';
+VAR fleuve REAL RELATION {nomf CHARACTER, longueur INTEGER, nomm CHARACTER} KEY {nomf};
+
+ANNOUNCE 'constraint Ville_FK1';
+CONSTRAINT Ville_FK1 ville { nomp } <= pays { nomp };
+
+COMMIT;
+
+/*** End of Rel Database Backup ***/
+ANNOUNCE 'End of Script.';
+

@@ -1,0 +1,113 @@
+@use "sass:color";
+
+a {
+    &:link {
+        color: green;
+    }
+    &:visited {
+        color: pink;
+    }
+    &:hover{
+        color:yellow;
+    }
+}
+
+$mobile: "screen and (max-width: 680px)";
+$tablette: "screen and (max-width: 960px)";
+
+h1 {
+    font: {
+        size: 3em;
+        weight: bold;
+    }
+    @media #{$tablette} {
+        font: {
+            size: 2em;
+            weight: normal;
+        }
+    }
+}
+
+$GdeMg: (40px 20px);
+$PteMg: (10px 5px);
+$Mg: join($GdeMg, $PteMg);
+$nouvMg: index($Mg, 20px);
+$Mg: append($Mg, $nouvMg+px);
+main {
+    margin: $GdeMg;
+    section {
+        margin: $PteMg;
+        article {
+            margin: $PteMg;
+            p {
+                margin: length($Mg)+px nth($Mg, 5);
+            }
+        }
+    }
+}
+
+.bouton {
+    border-radius: 10px 0;
+    box-shadow: 5px 2px black;
+}
+figure, h1 {
+    @extend .bouton;
+    margin: {
+        left: auto;
+        right: auto;
+    }
+    width: 50%;
+}
+
+
+@mixin posit-f($float) {
+    border: black solid 1px;
+    float: $float;
+    margin: {
+        top: 10px;
+        #{$float}: 10px;
+    }
+}
+
+img {
+    @include posit-f(right);
+}
+h1 {
+    @include posit-f(left);
+}
+
+@mixin ombre($dec: 10, $blur: 5px) {
+    box-shadow: $dec $dec*-1 $blur red;
+}
+
+img {
+    @include ombre();
+}
+h1 {
+    @include ombre(8, 3px);
+}
+
+
+h1 {
+    // définition de couleurs selon différents modes colorimétriques
+    $col: rgb(115, 255, 255, 0.8); 
+    // modification selon un % : 
+    // + 50% de rouge et – 80% de bleu
+    background-color: color.scale($col, $red: 50%, $blue: -80%);
+    // attribution d’une valeur par caractéristique :
+    // redéfinition du rouge à 0 et d’alpha à 1
+    border-color: color.change($col, $red: 0, $alpha: 1);
+}
+
+@mixin coulTxtFond($couleur) {
+    color: $couleur;
+
+    @if (lightness($couleur) > 50) {
+        background-color: color.adjust($couleur, $blackness: 40%);
+    } else {
+        background-color: color.adjust($couleur, $lightness: 40%);
+    }
+}
+h1 {
+    @include coulTxtFond(red);
+}

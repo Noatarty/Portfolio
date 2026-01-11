@@ -1,0 +1,39 @@
+services:
+  web:
+    image: bigpapoo/r408-php:8.2-apache
+    container_name: td3_web
+    ports:
+      - "8050:80"
+    volumes:
+      - vol_td3_web:/var/www/html
+    networks:
+      - rezo_td3_web
+
+  db:
+    image: bigpapoo/r408-mysql:5.7
+    container_name: td3_db
+    environment:
+      MYSQL_DATABASE: td3
+      MYSQL_USER: toto
+      MYSQL_PASSWORD: lulu
+      MYSQL_ROOT_PASSWORD: root123
+    networks:
+      - rezo_td3_web
+
+  phpmyadmin:
+    image: bigpapoo/r408-phpmyadmin:5.2
+    container_name: td3_pma
+    ports:
+      - "8060:80"
+    environment:
+      PMA_HOST: td3_db
+    networks:
+      - rezo_td3_web
+
+networks:
+  rezo_td3_web:
+    name: rezo_td3_web
+
+volumes:
+  vol_td3_web:
+    name: vol_td3_web

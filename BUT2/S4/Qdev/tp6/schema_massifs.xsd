@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <!-- Définition des types -->
+    <xs:simpleType name="TypeLongueur">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.5"/>
+            <xs:maxExclusive value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeSurface">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="2"/>
+            <xs:fractionDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeNumeroDept">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9][0-9]|2[AB]"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeNomDept">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="TypeLacNaturel">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="oui"/>
+            <xs:enumeration value="non"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <!-- Définition des éléments -->
+    <xs:element name="massifs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="massif" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="département" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:string">
+                                            <xs:attribute name="numéro" type="TypeNumeroDept" use="required"/>
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:choice>
+                                <xs:sequence>
+                                    <xs:element name="massif" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                                <xs:sequence>
+                                    <xs:element name="sommet" minOccurs="0" maxOccurs="unbounded"/>
+                                    <xs:element name="glacier" minOccurs="0" maxOccurs="unbounded"/>
+                                    <xs:element name="lac" minOccurs="0" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:choice>
+                        </xs:sequence>
+                        <xs:attribute name="nom" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,34 @@
+PROCÉDURE Parcours_Missionnaires_Cannibales :
+    // 1. INITIALISATION
+    Frontière ← [ Noeud( État:(3, 3, 'gauche'), Parent:NULL, Action:NULL ) ]
+    Explorés ← { } // Ensemble vide pour éviter les cycles
+
+    // 2. BOUCLE DE RECHERCHE
+    TANT QUE Frontière N'EST PAS VIDE FAIRE :
+        
+        // Choisir un noeud selon la stratégie (FIFO pour Largeur, LIFO pour Profondeur)
+        Noeud_Courant ← Extraire(Frontière)
+        État_Courant ← Noeud_Courant.État (mg, cg, barque)
+
+        // 3. TEST DE BUT
+        SI État_Courant == (0, 0, 'droite') ALORS
+            RETOURNER Reconstruire_Solution(Noeud_Courant)
+
+        // Ajouter l'état aux explorés
+        Ajouter État_Courant à Explorés
+
+        // 4. EXPANSION (Génération des successeurs)
+        POUR CHAQUE Action POSSIBLE (dm, dc) PARMI {(1,0), (2,0), (0,1), (0,2), (1,1)} :
+            
+            // Calcul du nouvel état (Transition)
+            SI barque == 'gauche' ALORS
+                Nouvel_État ← (mg - dm, cg - dc, 'droite')
+            SINON
+                Nouvel_État ← (mg + dm, cg + dc, 'gauche')
+
+            // 5. FILTRAGE ET VALIDATION
+            SI EST_VALIDE(Nouvel_État) ET Nouvel_État N'EST PAS DANS Explorés ALORS
+                Nouveau_Noeud ← Noeud( État:Nouvel_État, Parent:Noeud_Courant, Action:(dm, dc) )
+                Ajouter Nouveau_Noeud à Frontière
+
+    RETOURNER ÉCHEC // Aucune solution trouvée

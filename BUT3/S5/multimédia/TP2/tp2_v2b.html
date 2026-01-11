@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dessin SVG avec d3.js</title>
+  <!-- voir https://d3js.org/getting-started -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+  <!-- dessin SVG créé et modifié par les scripts JS -->
+  <svg xmlns="http://www.w3.org/2000/svg" id="dessin"></svg>
+
+  <script type="module">
+
+// voir https://stackoverflow.com/a/65056488 (append if not exist)
+d3.selection.prototype.appendIfAbsent = function(selector, type) {
+  const element = this.select(selector)
+  return element.empty() ? this.append(type) : element
+}
+
+// luminance d'une couleur, voir https://fr.wikipedia.org/wiki/Luminance
+function getLuminance(color) {
+  // composantes HSL, voir https://d3js.org/d3-color, L = luminance
+  const hsl = d3.hsl(color)
+  return hsl.l
+}
+
+const colors = d3.scaleOrdinal()
+
+// ici, il y aura les scripts d3.js pour créer, modifier et animer l'image SVG (enlever ce commentaire)
+// source https://survey.stackoverflow.co/2025/technology#1-programming-scripting-and-markup-languages
+const data1 = [
+  {name: "JavaScript",   value: 68.8},
+  {name: "Python",       value: 54.8},
+  {name: "HTML/CSS",     value: 63.0},
+  {name: "SQL",          value: 61.3},
+  {name: "TypeScript",   value: 48.8},
+  {name: "Bash/Shell",   value: 48.8},
+  {name: "C#",           value: 29.9},
+]
+
+/**
+ * Arbre des données
+ *
+ * chaque branche est de la forme :
+{
+  name: "NAME", children: [
+    BRANCHES ou FEUILLES
+  ]
+},
+ *
+ * chaque feuille est de la forme :
+{
+  name: "NAME", value: VALUE
+},
+*/
+
+// source: Perplexity interrogé pour un tableau comparatif des vitesses d'exécution
+// plus value est petite, plus le langage est rapide
+// NB: les données peuvent être fantaisistes, mais ça n'a aucune conséquence pour le TP
+const data2 = [
+  {
+    name: "Langages interprétés", children: [
+      {name: "JavaScript",   value: 55},
+      {name: "Ruby",         value: 210},
+      {name: "Python",       value: 110},
+    ]
+  },
+  {
+    name: "Langages compilés", children: [
+      {name: "C++",          value: 10},
+      {name: "Rust",         value: 11},
+      {name: "Dart",         value: 60},
+      {name: "C#",           value: 30},
+    ]
+  }
+]
+
+// source : ChatGPT interrogé sur les langages les plus utilisés dans le développement de logiciels.
+// plus value est grande, plus le langage est utilisé. NB: un même logiciel peut faire intervenir
+// plusieurs langages, donc la somme des valeurs peut dépasser 100 pour un domaine.
+// NB: les données peuvent être fantaisistes, mais ça n'a aucune conséquence pour le TP
+const data3 = [
+  {
+    name: "Logiciels Web", children: [
+      {
+        name: "Côté serveur", children: [
+          {name: "Python",      value: 45},
+          {name: "JavaScript",  value: 95},
+          {name: "PHP",         value: 40},
+        ]
+      },
+      {
+        name: "Côté client", children: [
+          {name: "JavaScript",  value: 100},
+          {name: "TypeScript",  value: 30},
+          {name: "Dart",        value: 10},
+        ]
+      },
+    ]
+  },
+  {
+    name: "Applications natives", children: [
+      {
+        name: "Applications de bureau", children: [
+          {name: "C#",          value: 35},
+          {name: "C++",         value: 30},
+          {name: "Java",        value: 20},
+          {name: "Swift",       value: 15},
+        ]
+      },
+      {
+        name: "Applications scientifiques", children: [
+          {name: "Python",      value: 70},
+          {name: "C++",         value: 25},
+          {name: "Fortran",     value: 10},
+          {name: "Matlab",      value: 10},
+          {name: "R",           value: 15},
+        ]
+      },
+      {
+        name: "Applications système", children: [
+          {name: "C",           value: 80},
+          {name: "C++",         value: 15},
+          {name: "Rust",        value: 10},
+          {name: "ASM",         value: 5},
+        ]
+      },
+    ]
+  },
+  {
+    name: "Gestion de données", children: [
+      {
+        name: "Big Data", children: [
+          {name: "Scala",       value: 30},
+          {name: "Python",      value: 50},
+          {name: "Java",        value: 50},
+        ]
+      },
+      {
+        name: "Data", children: [
+          {name: "SQL",           value: 90},
+          {name: "R",             value: 15},
+          {name: "SPARQL",        value: 12},
+          {name: "XQuery",        value: 10},
+        ]
+      },
+      {
+        name: "API Web", children: [
+          {name: "GraphQL",       value: 40},
+          {name: "REST",          value: 80},
+          {name: "gRPC",          value: 15},
+          {name: "SOAP",          value: 12},
+        ]
+      },
+    ]
+  },
+]
+
+    function HierarchicBoxes(unit_height=4) {
+      function _prepareData(data, x=0, y0=0, nextid=0) {
+        let maxwidth=0, maxheight=0, y=y0
+        for (const d of data) {
+          d.id = ++nextid   // pré-incrémentation
+          d.x = x
+          d.y = y
+          if (d.children !== undefined) {
+            const dimensions = _prepareData(d.children, x+1, y+unit_height, nextid)
+            d.width = dimensions.maxwidth + 2
+            d.height = dimensions.maxheight + unit_height
+            nextid = dimensions.nextid
+            // 2e identifiant de couleur = dernier des enfants
+            d.id2 = nextid
+            y += d.height
+          } else {
+            d.width = d.value
+            d.height = unit_height
+            y += d.height
+          }
+          if (d.width > maxwidth) maxwidth = d.width
+        }
+        maxheight = y - y0
+        return {maxwidth, maxheight, nextid}
+      }
+
+      // retourne toutes les données qui sont des branches dans une liste à plat
+      function _getBranches(data) {
+        const branches = []
+        for (const d of data) {
+          if (d.children !== undefined) {
+            // ajouter d à la liste
+            branches.push(d)
+            // ajouter récursivement les branches des enfants de d
+            branches.push(..._getBranches(d.children))
+          }
+        }
+        return branches
+      }
+
+      // retourne la couleur de fond à utiliser pour l'identifiant id
+      function getBGcolor(id) {
+        // couleur au format HSL
+        const hslColor = d3.hsl(colors(id))
+        // diminuer la luminosité et la saturation
+        hslColor.l *= 0.8
+        hslColor.s *= 0.8
+        return hslColor
+      }
+
+      // ajoute un gradient dans la section <defs> de l'élément <svg>
+      function _defGradients(svg, data) {
+        svg.appendIfAbsent("defs", "defs")
+          .selectAll('linearGradient')
+            .data(_getBranches(data), d => d.id)
+            .join('linearGradient')
+            .attr('id', (d, i) => 'gradient' + d.id)
+            .attr('x1', '0%')
+            .attr('y1', '0%')
+            .attr('x2', '0%')
+            .attr('y2', '100%')
+            .each(function(d) {
+              d3.select(this).selectAll('stop').remove()
+              d3.select(this).append('stop')
+                .attr('offset', '0%')
+                .attr('stop-color', getBGcolor(d.id))
+              d3.select(this).append('stop')
+                .attr('offset', '100%')
+                .attr('stop-color', getBGcolor(d.id2))
+            })
+      }
+
+      function _drawBoxes(parent, data) {
+        const g = parent.append("g")
+        g.selectAll("rect")
+          .data(data)
+          .join("rect")
+          .attr("x", d => d.x)
+          .attr("y", d => d.y)
+          .attr("width", d => d.width)
+          .attr("height", d => d.height)
+          .attr("fill", d => d.children ? `url(#gradient${d.id})` : colors(d.id))
+          .attr("stroke", d => d.children ? 1 : "none")
+          .attr("stroke-width", 0.02)
+
+        g.selectAll("text")
+          .data(data)
+          .join("text")
+          .text(d => d.name)
+          .attr("x", d => d.x + d.width/2)
+          .attr("y", d => d.y + d.height/2)
+          .attr("text-anchor", "middle")
+          .attr("dominant-baseline", "middle")
+          .attr("fill", d => getLuminance(d.children ? getBGcolor(d.id) : colors(d.id)) < 0.6 ? "white" : "black")
+          .attr("font-size", unit_height * 0.4)
+
+        for (const d of data) {
+          if (d.children !== undefined) {
+            _drawBoxes(g, d.children)
+          }
+        }
+      }
+
+      function _drawAll(svg, data) {
+        // détermination de la position et la taille des rectangles
+        const {maxwidth, maxheight, nextid} = _prepareData(data, 0, 0, 0)
+        // plage de couleurs : https://d3js.org/d3-scale-chromatic/diverging
+        colors.range(d3.quantize(d3.interpolateRainbow, Math.max(2, nextid)))
+        // enregistrer toutes les couleurs
+        for (let i = 0; i <= nextid; i++) colors(i)
+        // définir les gradients
+        _defGradients(svg, data)
+        svg.attr("viewBox", `-1 -1 ${maxwidth+2} ${maxheight+2}`)
+        _drawBoxes(svg, data)
+      }
+
+      function drawAll(selection) {
+        selection.each(function(datum) {
+          _drawAll(d3.select(this), datum)
+        })
+      }
+      return drawAll
+    }
+
+    const dessin = d3.select("#dessin")
+    const boxes = HierarchicBoxes()
+    dessin.datum(data3).call(boxes)
+  </script>
+</body>
+</html>

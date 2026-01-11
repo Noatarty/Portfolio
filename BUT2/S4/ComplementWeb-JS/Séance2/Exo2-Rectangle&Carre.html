@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+    <head>
+        <meta charset="utf-8" >
+        <title>Exercice 2 : Formes, Rectangles et Carrés</title>
+        <meta name="description" content="" >
+        <meta name="keywords" content="" >
+    </head>
+
+    <body>
+        <script>
+            class Rectangle {
+                constructor(longueur, largeur) {
+                    this.setDimensions(longueur, largeur);
+                }
+
+                setDimensions(longueur, largeur) {
+                    if (longueur < largeur) {
+                        [longueur, largeur] = [largeur, longueur];
+                    }
+                    this._longueur = longueur;
+                    this._largeur = largeur;
+                }
+
+                get longueur() { return this._longueur; }
+
+                set longueur(value) { this.setDimensions(value, this._largeur); }
+
+                get largeur() { return this._largeur; }
+                
+                set largeur(value) { this.setDimensions(this._longueur, value); }
+
+                calcPerimetre() {
+                    return 2 * (this._longueur + this._largeur);
+                }
+
+                aire() {
+                    return this._longueur * this._largeur;
+                }
+
+                estCarre() {
+                    return this._longueur === this._largeur;
+                }
+
+                toString() {
+                    return this.estCarre() 
+                        ? `Carré (${this._longueur}cm de côté)`
+                        : `Rectangle (${this._longueur}cm X ${this._largeur}cm)`;
+                }
+
+                static comparer(rect1, rect2) {
+                    return rect1.calcPerimetre() >= rect2.calcPerimetre() ? rect1 : rect2;
+                }
+            }
+
+            class Carre extends Rectangle {
+                constructor(cote) {
+                    super(cote, cote);
+                }
+
+                set longueur(value) {
+                    this._longueur = this._largeur = value;
+                }
+
+                set largeur(value) {
+                    this._longueur = this._largeur = value;
+                }
+
+                toString() {
+                    return `Carré (${this._longueur}cm de côté)`;
+                }
+            }
+
+            // Données JSON décrivant des formes d'après les dimensions (en cm) de leurs côtés : valeur1 et valeur2 
+            const jsonData = `[
+              { "dimensions": { "valeur1": 10, "valeur2": 20 } },
+              { "dimensions": { "valeur1": 17, "valeur2": 17 } },
+              { "dimensions": { "valeur1": 5, "valeur2": 8 } },
+              { "dimensions": { "valeur1": 12, "valeur2": 12 } },
+              { "dimensions": { "valeur1": 5, "valeur2": 5 } },
+              { "dimensions": { "valeur1": 18, "valeur2": 25 } },
+              { "dimensions": { "valeur1": 10, "valeur2": 22 } },
+              { "dimensions": { "valeur1": 15, "valeur2": 15 } },
+              { "dimensions": { "valeur1": 5, "valeur2": 8 } },
+              { "dimensions": { "valeur1": 11, "valeur2": 12 } },
+              { "dimensions": { "valeur1": 19, "valeur2": 19 } },
+              { "dimensions": { "valeur1": 2, "valeur2": 2 } },
+              { "dimensions": { "valeur1": 17, "valeur2": 22 } }
+            ]`;
+
+            const tabFormes = JSON.parse(jsonData).map(({ dimensions }) => 
+                dimensions.valeur1 === dimensions.valeur2 
+                    ? new Carre(dimensions.valeur1) 
+                    : new Rectangle(dimensions.valeur1, dimensions.valeur2)
+            );
+            console.log(tabFormes);
+
+            let maxAireForme = tabFormes.reduce((max, forme) => forme.aire() > max.aire() ? forme : max, tabFormes[0]);
+            console.log("Forme avec la plus grande aire:", maxAireForme.toString());
+
+            const tabCarres = tabFormes.filter(forme => forme instanceof Carre);
+            console.log(tabCarres);
+
+            const maxCarre = tabCarres.reduce((max, carre) => (carre.aire() > max.aire() ? carre : max), tabCarres[0]);
+            console.log("Carré avec la plus grande aire:", maxCarre.toString());
+        </script>
+    </body>
+</html>

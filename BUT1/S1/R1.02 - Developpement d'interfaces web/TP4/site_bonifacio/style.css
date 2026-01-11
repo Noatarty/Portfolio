@@ -1,0 +1,19 @@
+body {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    background-color: #cceeff;
+}
+
+header  {
+    background-color: #6699ff;
+}
+
+main {
+    background-color: #99ccff;
+}
+  
+figure {
+    display: inline-block; /* Mettez les figures en ligne les unes à côté des autres */
+    margin: 0 10px; /* Ajoutez une marge horizontale entre les figures si nécessaire */
+    vertical-align: top; /* Alignez le haut des figures (pour que les légendes soient alignées) */
+ }
+  

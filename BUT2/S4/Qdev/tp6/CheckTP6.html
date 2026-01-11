@@ -1,0 +1,263 @@
+<!--
+  Cette page permet de vérifier le rendu du TP6 : ReponsesTP6.txt
+
+  Auteur Pierre Nerzic novembre 2015, en s'inspirant de http://www.w3schools.com/xsl/xpath_examples.asp
+
+  Licence Common Creative BY-NC-SA
+
+  Cette page ne fonctionne pas sur Microsoft Internet Explorer. Pas question pour moi d'écrire un programme pour un navigateur qui ne respecte aucune des normes du W3C.
+
+  Sur Firefox, voir about:config  mettre la clé privacy.file_unique_origin à false
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Vérification TP6</title>
+        <style>
+        code {
+            background-color: #e2f3f5;
+            font-family: courier, monospace;
+        }
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            width: 70%;
+            margin-left: 10%;
+            padding: 20px;
+        }
+        #drop-area.highlight {
+            border: 4px dashed lightgreen;
+            padding: 18px;
+        }
+        </style>
+        <script type="text/javascript">
+
+
+// transforme un Node en chaîne
+
+var serializer = new XMLSerializer();
+
+function replaceEntities(xml)
+{
+    xml = xml.replace(/&/g, "&amp;");
+    xml = xml.replace(/</g, "&lt;");
+    xml = xml.replace(/>/g, "&gt;");
+    xml = xml.replace(/\"/g, "&quot;");
+    xml = xml.replace(/\'/g, "&apos;");
+    return xml;
+}
+
+// transforme un Node en chaîne acceptable pour HTML
+function Serialize(node)
+{
+    var xml = serializer.serializeToString(node);
+    return replaceEntities(xml);
+}
+
+
+// cette fonction retourne une chaîne affichant le node
+function NodeToString(node)
+{
+    switch (node.nodeType) {
+        case Node.ATTRIBUTE_NODE:
+            return node.nodeName+"=\""+node.nodeValue+"\"";
+        case Node.TEXT_NODE:
+            return "\""+node.nodeValue+"\"";
+        //case Node.DOCUMENT_NODE:
+        //case Node.ELEMENT_NODE:
+        //    return Serialize(node);
+        default:
+            return Serialize(node);
+            //console.error(node);
+            //return "nodeType="+node.nodeType+" inconnu";
+    }
+}
+
+
+// fonction appelée quand le fichier XML devient disponible
+function CalculerExpression(numligne, question, titre, xml, xpath)
+{
+    var resultats = document.getElementById("resultats");
+    resultats.innerHTML += "<h4>Question "+question+" : "+titre+"</h4><ul>";
+
+    try {
+        // calcul de l'expression XPath
+        var nodes = xml.evaluate(xpath, xml, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+
+        // parcours des réponses et construction d'une liste HTML
+        var resultat = "<li><ul>";
+        var nombre = 0;
+        while (node = nodes.iterateNext()) {
+            resultat += "<li><pre>";
+            resultat += NodeToString(node);
+            resultat += "</pre></li>";
+            nombre++;
+        }
+        resultat += "</ul></li>";
+        switch (nombre) {
+            case 0: resultat = "<code>["+numligne+"]: "+xpath+"</code> &rarr; aucun résultat"; break;
+            case 1: resultat = "<code>["+numligne+"]: "+xpath+"</code> &rarr; "+nombre+" résultat&nbsp;:<br/>"+resultat; break;
+            default: resultat = "<code>["+numligne+"]: "+xpath+"</code> &rarr; "+nombre+" résultats&nbsp;:<br/>"+resultat;
+        }
+    } catch (e) {
+        var resultat = "<code>["+numligne+"]: "+xpath+"</code> &rarr; <span style='background-color:#ffd1b3;'>"+e.message+"</span><br/>Vérifiez sa syntaxe. Cette réponse peut toutefois vous rapporter quelques fractions de points s'il n'y a qu'une petite erreur.";
+    }
+
+    // affichage des résultats dans le <div id="resultat"> sous le formulaire
+    resultats.innerHTML += resultat;
+}
+
+
+// charge le fichier xml et lance le calcul de l'expression xpath fournie
+function VerifierReponse(numligne, question, titre, fichier, xpath)
+{
+    try {
+        var requete = new XMLHttpRequest();
+        requete.onreadystatechange = function() {
+            if (requete.readyState == 4 && requete.status == 200) {
+                CalculerExpression(numligne, question, titre, requete.responseXML, xpath);
+            }
+        }
+        requete.open("GET", fichier, false);
+        requete.send();
+    } catch (e) {
+        alert("Blocage CORS par le navigateur :\nIl refuse un accès à "+fichier+" parce qu'il n'est pas au même endroit que cette page.\nVoir https://fr.wikipedia.org/wiki/Cross-origin_resource_sharing\nPour ignorer cette erreur dans Firefox,\nouvrir about:config et mettre privacy.file_unique_origin à false\nN'oubliez pas de remettre à true car ça protège contre des attaques pirates.");
+    }
+}
+
+
+function VerifierReponses(reponses)
+{
+    // div dans lequel mettre les résultats
+    let resultats = document.getElementById("resultats");
+    resultats.innerHTML = '';
+
+    // on attend le nom d'une question au format Question n° fichier : titre
+    var question = null;
+    var titre = null;
+    var fichier = null;
+
+    let numligne = 0;
+    for (let ligne of reponses.split('\n')) {
+        numligne += 1;
+        ligne = ligne.trim()
+        // est-ce une ligne vide (fin de la question courante) ?
+        if (ligne.length == 0) {
+            question = null;
+            titre = null;
+            fichier = null;
+        } else
+        // est-ce un commentaire, un message pour le correcteur ?
+        if (ligne.startsWith("##")) {
+            resultats.innerHTML += "<p style='background-color:#ffb3e6;'>"+ligne+"</p>"
+        } else
+        if (ligne.startsWith("#")) {
+            resultats.innerHTML += "<p style='background-color:#e6ff99;'>"+ligne+"</p>"
+        } else
+        // est-ce le titre d'une question ?
+        if (ligne.startsWith("Question ")) {
+            let mots = ligne.split(' : ');
+            titre = replaceEntities(mots[1]);
+            mots = mots[0].split(' ', 4);
+            question = mots[1];
+            fichier = mots[2];
+        } else
+        // est-ce une réponse ?
+        if (ligne.startsWith("/")) {
+            if (question == null || fichier == null) {
+                resultats.innerHTML += "<h4 style='background-color:#ffd1b3;'>ATTENTION ! il y a un pb avec la ligne "+numligne+"</h4><p>La requête XPath <code>["+numligne+"]: "+ligne+"</code> n'est pas précédée d'un titre de question. Est-ce que vous avez mis une ligne vide avant, par erreur, ou alors il y a quelque chose d'incorrect sur la ligne précédente ?</p><p>Chaque réponse XPath doit être précédée par une ligne de titre <em>Question numéro fichierxml : libellé</em> et il peut y avoir plusieurs réponses à la suite, mais dès que vous mettez une ligne vide, ça passe à la question suivante. Voici le modèle à suivre&nbsp;:</p><pre>Question 4.3.a chevaux.xml : poneys\n//cheval[@type='nepo']\n//poney/@nom\n\nQuestion 4.3.b chevaux.xml : alezans\n...</pre>";
+            } else
+            if (ligne == "/...") {
+                resultats.innerHTML += "<h4 style='background-color:#ffd9b3;'>Question "+question+" : aucune réponse</h4>"
+            }
+            else {
+                VerifierReponse(numligne, question, titre, fichier, ligne);
+            }
+        }
+    }
+}
+
+
+// fonction principale, appelée par le bouton submit du formulaire
+function main()
+{
+    let fichier = document.getElementById("reponses").files[0];
+    LireReponsesTxt(fichier);
+}
+
+function LireReponsesTxt(fichier)
+{
+    let reader = new FileReader();
+    reader.onload = function(event) {
+        VerifierReponses(reader.result);
+    };
+    reader.readAsText(fichier);
+}
+
+function PreventDefaults(e)
+{
+    e.preventDefault();
+    e.stopPropagation();
+}
+
+function Highlight(e)
+{
+    let droparea = document.getElementById('drop-area');
+    droparea.classList.add('highlight');
+}
+
+function UnHighlight(e)
+{
+    let droparea = document.getElementById('drop-area');
+    droparea.classList.remove('highlight');
+}
+
+function HandleDrop(e)
+{
+    let dt = e.dataTransfer;
+    let fichiers = dt.files;
+    console.log(fichiers[0]);
+    LireReponsesTxt(fichiers[0]);
+}
+
+function InitDragDrop()
+{
+    // drag-drop
+    let droparea = document.getElementById('drop-area');
+
+    droparea.addEventListener('dragenter',  PreventDefaults, false);
+    droparea.addEventListener('dragenter',  Highlight, false);
+
+    droparea.addEventListener('dragover',   PreventDefaults, false);
+    droparea.addEventListener('dragover',   Highlight, false);
+
+    droparea.addEventListener('dragleave',  PreventDefaults, false);
+    droparea.addEventListener('dragleave',  UnHighlight, false);
+
+    droparea.addEventListener('drop',       PreventDefaults, false);
+    droparea.addEventListener('drop',       UnHighlight, false);
+    droparea.addEventListener('drop',       HandleDrop, false);
+}
+        </script>
+    </head>
+    <body onLoad="InitDragDrop();">
+        <p>Ce document vous permet de voir si votre fichier ReponsesTP6.txt est recevable, c'est à dire si
+        vous avez respecté les directives de mise en page : le titre de la question suivi de votre réponse, éventuellement d'autres réponses pour la même question, suivi d'une ligne vide.</p>
+        <!-- formulaire pour fournir le fichier ReponsesTP6.txt à vérifier -->
+        <div id="drop-area">
+          <p>Déposez votre <code>ReponsesTP6.txt</code> ici ou choisissez-le avec les boutons ci-dessous.</p>
+          <form id="form" action="javascript:main()">
+            <p><b>Votre ReponsesTP6.txt : <input type="file" id="reponses"/>
+            <input id="btnsubmit" type="submit" value="vérifier"></b></p>
+          </form>
+        </div>
+
+        <!-- zone pour contenir les réponses, voir la fin de VerifierReponses -->
+        <div id="resultats">
+            <p>Chacune de vos réponses sera testée et les erreurs seront indiquées ici.</p>
+            <p>Votre fichier ne sera envoyé nulle part, il est traité en local. Seuls les fichiers xml sont téléchargés. Le source de cette page est
+            entièrement consultable et ne contient aucun corrigé.</p>
+        </div>
+    </body>
+</html>

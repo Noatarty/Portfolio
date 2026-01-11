@@ -1,0 +1,80 @@
+// Tableau de relevés météorologiques mondiaux
+// Pays, Capitale, Température minimale en °C, Température maximale en °C, Pluviométrie minimale en mm, Pluviométrie maximale en mm
+        let dataMeteo = [
+            ['Grande-Bretagne',  'Edimbourg',  -12,  11,  500,  100000 ],
+            ['France',  'Paris',  -5,  32,  600,  800 ],
+            ['Ukraine',  'Kyiv',  -18,  34,  200,  1000 ],
+            ['Egypte',  'Le Caire',  0,  43,  20,  100 ],
+            ['Afrique du Sud',  'Pretoria',  0,  35,  100,  600 ],
+            ['Inde',  'New Delhi',  0,  40,  500,  1200 ],
+            ['Japon',  'Tokyo',  -1,  30,  1000,  2000 ],
+            ['Australie',  'Canberra',  -10,  39,  200,  600 ],   
+            ['Canada',  'Ottawa',  -20,  31,  200,  800 ],
+            ['États-Unis',  'Washington D.C.',  -5,  35,  300,  1200 ],
+            ['Brésil',  'Brasilia',  -15,  40,  800,  1600 ]
+        ];
+
+        // Suppression du premier relevé et ajout de l'Angleterre
+        dataMeteo.shift();
+        dataMeteo.unshift(['Angleterre', 'Londres', -8, 30, 500, 180]);
+
+        // Vérification si toutes les températures minimales sont <= 0°C
+        const toutesTempsNegatives = dataMeteo.every(releve => releve[2] <= 0);
+        console.log('Toutes les températures minimales <= 0°C:', toutesTempsNegatives);
+
+        // Vérification si toutes les valeurs pluviométriques sont entre 0 et 3000
+        const pluviometrieValide = dataMeteo.every(releve => releve[4] >= 0 && releve[4] <= 3000 && releve[5] >= 0 && releve[5] <= 3000);
+        console.log('Toutes les pluviométries entre 0 et 3000:', pluviometrieValide);
+
+        // Création du nouveau tableau avec températures max +2°C
+        const dataMeteoRectif = dataMeteo.map(releve => [...releve.slice(0, 3), releve[3] + 2, ...releve.slice(4)]);
+
+        // Vérification des températures > 40°C et création de paysTMax
+        const tempsElevees = dataMeteoRectif.some(releve => releve[3] > 40);
+        if (tempsElevees) {
+            const premierPaysChaud = dataMeteoRectif.find(releve => releve[3] > 40);
+            console.log('Premier pays avec temp > 40°C:', premierPaysChaud[0]);
+            
+            const paysTMax = dataMeteoRectif
+                .filter(releve => releve[3] > 40)
+                .map(releve => ({
+                    pays: releve[0],
+                    capitale: releve[1],
+                    tempMax: releve[3]
+                }));
+            console.log('Pays avec temp > 40°C:', paysTMax);
+        }
+
+        // Affichage du tableau au chargement du DOM
+        window.onload = () => {
+            const tableau = document.createElement('table');
+            
+            // Création de l'en-tête
+            const enTete = document.createElement('thead');
+            enTete.innerHTML = `
+                <tr>
+                    <th>Pays</th>
+                    <th>Capitale</th>
+                    <th>Temp. Min (°C)</th>
+                    <th>Temp. Max (°C)</th>
+                    <th>Pluv. Min (mm)</th>
+                    <th>Pluv. Max (mm)</th>
+                </tr>
+            `;
+            tableau.appendChild(enTete);
+
+            // Création du corps du tableau
+            const corps = document.createElement('tbody');
+            dataMeteoRectif.forEach(releve => {
+                const ligne = document.createElement('tr');
+                releve.forEach(cellule => {
+                    const td = document.createElement('td');
+                    td.textContent = cellule;
+                    ligne.appendChild(td);
+                });
+                corps.appendChild(ligne);
+            });
+            tableau.appendChild(corps);
+
+            document.body.appendChild(tableau);
+        };

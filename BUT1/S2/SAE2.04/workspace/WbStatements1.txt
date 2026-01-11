@@ -1,0 +1,451 @@
+##sqlwb.pos=0
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissement_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateur_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceQuery="SELECT ips.ips, ips.ecart_type_de_l_ips, etab.nombre_d_eleves, indic.taux_de_reussite_g, ips.secteur, col.nombre_eleves_total FROM _temp_fr_en_ips_colleges_ap2022 ips JOIN _temp_fr_en_etablissement_ep etab ON ips.uai = etab.uai JOIN _temp_fr_en_indicateur_valeur_ajoutee_colleges indic ON ips.uai = indic.uai JOIN _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college WHERE ips.rentree_scolaire = '2022' AND col.rentree_scolaire = '2022' AND etab.ep_2022_2023 = 'OUI';"
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y H:m:️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=236
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissement_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateur_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceQuery="SELECT ips.ips, ips.ecart_type_de_l_ips, etab.nombre_d_eleves, indic.taux_de_reussite_g, ips.secteur, col.nombre_eleves_total FROM _temp_fr_en_ips_colleges_ap2022 ips JOIN _temp_fr_en_etablissement_ep etab ON ips.uai = etab.uai JOIN _temp_fr_en_indicateur_valeur_ajoutee_colleges indic ON ips.uai = indic.uai JOIN _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college WHERE ips.rentree_scolaire = '2022' AND col.rentree_scolaire = '2022' AND etab.ep_2022_2023 = 'OUI';"
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y H:m:️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=262
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateur_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceQuery="SELECT ips.ips, ips.ecart_type_de_l_ips, etab.nombre_d_eleves, indic.taux_de_reussite_g, ips.secteur, col.nombre_eleves_total FROM _temp_fr_en_ips_colleges_ap2022 ips JOIN _temp_fr_en_etablissement_ep etab ON ips.uai = etab.uai JOIN _temp_fr_en_indicateur_valeur_ajoutee_colleges indic ON ips.uai = indic.uai JOIN _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college WHERE ips.rentree_scolaire = '2022' AND col.rentree_scolaire = '2022' AND etab.ep_2022_2023 = 'OUI';"
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y H:m:️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=0
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceQuery="SELECT ips.ips, ips.ecart_type_de_l_ips, etab.nombre_d_eleves, indic.taux_de_reussite_g, ips.secteur, col.nombre_eleves_total FROM _temp_fr_en_ips_colleges_ap2022 ips JOIN _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai JOIN _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai JOIN _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college WHERE ips.rentree_scolaire = '2022' AND col.rentree_scolaire = '2022' AND etab.ep_2022_2023 = 'OUI';"
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y H:m:️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=0
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceQuery="SELECT ips.ips, ips.ecart_type_de_l_ips, etab.nombre_d_eleves, indic.taux_de_reussite_g, ips.secteur, col.nombre_eleves_total FROM _temp_fr_en_ips_colleges_ap2022 ips JOIN _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai JOIN _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai JOIN _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college WHERE ips.rentree_scolaire = '2022' AND col.rentree_scolaire = '2022' AND etab.ep_2022_2023 = 'OUI';"
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y H:m:️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=0
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y HⓂ️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=0
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college;
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y HⓂ️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=545
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college;
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y HⓂ️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=0
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y HⓂ️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=707
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=.
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         -delimiter=';'
+         -header=true
+         -dateFormat='d/M/y'
+         -timestampFormat='d/M/y HⓂ️s'
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=0
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=C:\Users\pomme\Documents\IUT
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         ;
+----------- WbStatement -----------
+##sqlwb.pos=835
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    ips.ips, 
+    ips.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    ips.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 ips
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON ips.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON ips.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON ips.uai = col.numero_college
+WHERE 
+    ips.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=C:\Users\pomme\Documents\IUT
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         ;
+
+select * from colleges_consolide;
+----------- WbStatement -----------
+##sqlwb.pos=98
+##sqlwb.selStart=0
+##sqlwb.selEnd=0
+set schema 'colleges2';
+DROP VIEW IF EXISTS colleges_consolide;
+CREATE VIEW colleges_consolide AS
+SELECT 
+    i.ips, 
+    i.ecart_type_de_l_ips, 
+    etab.nombre_d_eleves, 
+    indic.taux_de_reussite_g, 
+    i.secteur, 
+    col.nombre_eleves_total
+FROM 
+    _temp_fr_en_ips_colleges_ap2022 i
+JOIN 
+    _temp_fr_en_etablissements_ep etab ON i.uai = etab.uai
+JOIN 
+    _temp_fr_en_indicateurs_valeur_ajoutee_colleges indic ON i.uai = indic.uai
+JOIN 
+    _temp_fr_en_college_effectif_niveau_sexe_lv col ON i.uai = col.numero_college
+WHERE 
+    i.rentree_scolaire = '2022'
+    AND col.rentree_scolaire = '2022'
+    AND etab.ep_2022_2023 = 'OUI';
+WbExport -file=colleges.csv
+         -outputDir=C:\Users\pomme\Documents\IUT
+         -type=text
+         -sourceTable=colleges_consolide
+         -schema=colleges2
+         ;
+
+select * from colleges_consolide;
+----------- WbStatement -----------

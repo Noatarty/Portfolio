@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+ 
+<head> 
+    <meta charset="utf-8"> 
+    <title>Ajax</title> 
+    <!--<link rel="stylesheet" href="style.css"> 
+    <script src="script.js"></script>--> 
+</head> 
+ 
+<body> 
+    <h1>The XMLHttpRequest Object</h1>  
+ <button type="button" onclick="loadPage()">Request data</button>
+ <button type="button" onclick="loadOne()">Request user 2</button>   
+ <button type="button" onclick="createOne()">Create one</button>  
+ <button type="button" onclick="deleteOne()">Delete one</button>  
+ <button type="button" onclick="modifyOne()">Modify one</button>  
+ <button type="button" onclick="modifyOne2()">Modify one 2</button> 
+    <p id="demo"></p> 
+    <script> 
+        function loadPage() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://reqres.in/api/users?page=2", true);
+            xhttp.setRequestHeader("x-api-key", "reqres-free-v1");
+            xhttp.send();
+        } 
+        function loadOne() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://reqres.in/api/users/2", true);
+            xhttp.setRequestHeader("x-api-key", "reqres-free-v1");
+            xhttp.send();
+        } 
+        function createOne() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 201) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("POST", "https://reqres.in/api/users", true);
+            xhttp.setRequestHeader("x-api-key", "reqres-free-v1");
+            xhttp.send(JSON.stringify({
+                "username":"eve",
+                "email": "eve.uxu@reqres.in",
+                "password": "1234"
+            }));
+        } 
+        function deleteOne() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 204) {
+                    document.getElementById("demo").innerHTML = this.status;
+                }
+            };
+            xhttp.open("Delete", "https://reqres.in/api/users/495", true);
+            xhttp.setRequestHeader("x-api-key", "reqres-free-v1");
+            xhttp.send();
+        } 
+        function modifyOne() {} 
+        function modifyOne2() {} 
+    </script> 
+</body> 
+</html>

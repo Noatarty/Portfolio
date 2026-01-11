@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dessin SVG dynamique</title>
+  <!-- voir https://greensock.com/docs/v3/Installation#installer -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+  <!-- dessin SVG créé et modifié par les scripts JS -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+        width="960" height="540"
+        viewBox="0 0 16 9"
+        id="dessin">
+        <!-- SVG sera rempli par JavaScript -->
+  </svg>
+
+  <!-- utilisation du mixin SVGelement -->
+  <script src="svgelement.js"></script>
+
+  <script>
+// compléments à la librairie Math
+Math.radians = (deg) => deg * Math.PI / 180
+Math.degrees = (rad) => rad / Math.PI * 180
+
+
+class Voilier {
+  constructor(parent) {
+    // groupe pour englober le voilier
+    const g = parent.appendElement("g")
+    
+    // Voile
+    g.appendElement("path", {
+      d: "M 9 5 L 6 0.5 L 4 5 Z",
+      fill: "white",
+      stroke: "black",
+      "stroke-width": "0.02"
+    })
+    
+    // Mât
+    g.appendElement("rect", {
+      x: "6",
+      y: "0.5", 
+      width: "0.2",
+      height: "5",
+      fill: "lightgray"
+    })
+    
+    // Coque
+    g.appendElement("path", {
+      d: "M 9 5 L 3.5 5.3 L 3 6.5 L 8 6.5 Z",
+      fill: "brown"
+    })
+  }
+}
+
+class Paysage {
+  constructor(parent) {
+    // groupe pour le paysage
+    const g = parent.appendElement("g")
+    
+    // Fond
+    g.appendElement("rect", {
+      x: "0",
+      y: "0",
+      width: "16", 
+      height: "9",
+      fill: "LightCyan"
+    })
+    
+    // Mer
+    g.appendElement("rect", {
+      x: "0",
+      y: "6",
+      width: "16",
+      height: "3", 
+      fill: "blue"
+    })
+    
+    // Soleil
+    g.appendElement("circle", {
+      cx: "13",
+      cy: "1.5",
+      r: "1",
+      fill: "yellow"
+    })
+    
+    // Voilier
+    const voilier = new Voilier(g)
+  }
+}
+
+// Initialisation de la scène
+const svg = SVGelement.fromSelector("#dessin")
+new Paysage(svg)
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Propriétés FlexBox</title>
+    <style type="text/css">
+        article,
+        h1,
+        h2 {
+            margin: 0.5em;
+            padding: 0.25em;
+            border-radius: 0.5em;
+        }
+
+        body {
+            text-align: center;
+            background-color: #000;
+        }
+
+        h2 {
+            background-color: #47b9d7;
+        }
+
+        h1 {
+            background-color: #466dd7;
+        }
+        header{
+            background-color: #47b9d7;
+        }
+        main {
+            background-color: #466dd7 ;
+        }
+        section {
+            align-content: flex-end;
+            align-items: flex-end;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        footer {
+            background-color: #47b9d7;
+        }
+        article {
+            flex-basis: 10em;
+            background-color: #52f7ee;
+        }
+        #art3 {
+            height: 3em;
+            flex-grow: 2;
+        }
+
+        #art2 {
+            height: 9em;
+            flex-shrink: 0;
+        }
+
+        #art1 {
+            height: 6em;
+            flex-grow: 1;
+        }
+
+        /*------------------------------------------------------------------*/
+        /*	                      POSITIONNEMENT	FLEX	     			*/
+        /*------------------------------------------------------------------*/
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>L'Egypte</h1>
+    </header>
+    <main>
+        <h2>Les Pharaons egyptiens</h2>
+        <section>
+            <article id="art1">
+                <h3>Toutânkhamon</h3>
+            </article>
+            <article id="art2">
+                <h3>Ramsès</h3>
+            </article>
+            <article id="art3">
+                <h3>Cléopâtre</h3>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <address>Webmaster : <a href="mailto:nom.etudiant@etudiant.univ-rennes1.fr">nom.etudiant@etudiant.univ-rennes1.fr</a></address>
+    </footer>
+</body>
+
+</html>

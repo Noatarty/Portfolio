@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.CtrlModifierEmploye">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Label minWidth="100.0" text="Matricule * : " />
+            <TextField fx:id="txtMatricule" disable="true" prefWidth="100.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0">
+         <children>
+            <Label minWidth="100.0" text="Nom employé * : " />
+            <TextField fx:id="txtNom" minWidth="250.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="65.0">
+         <children>
+            <Label minWidth="100.0" text="Poste : " />
+            <TextField fx:id="txtPoste" minWidth="250.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="110.0">
+         <children>
+            <Label minWidth="100.0" text="Supérieur : " />
+            <ComboBox fx:id="cbSuperieur" minWidth="100.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="155.0">
+         <children>
+            <Label minWidth="100.0" text="Date embauche * : " />
+            <DatePicker fx:id="dpDateEmbauche" promptText="25/04/2024" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="200.0">
+         <children>
+            <Label minWidth="100.0" text="Salaire : " />
+            <TextField fx:id="txtSalaire" minWidth="100.0" />
+            <Label text="  euros" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="245.0">
+         <children>
+            <Label minWidth="100.0" text="Prime : " />
+            <TextField fx:id="txtPrime" minWidth="100.0" />
+            <Label text="  euros" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="290.0">
+         <children>
+            <Label minWidth="100.0" text="Département * : " />
+            <ComboBox fx:id="cbDepartement" prefWidth="70.0" promptText="10" />
+         </children>
+      </HBox>
+      <HBox spacing="20.0">
+         <children>
+            <Button fx:id="bnOK" mnemonicParsing="false" onAction="#clicOK" prefWidth="100.0" text="OK" />
+            <Button fx:id="bnAnnuler" mnemonicParsing="false" onAction="#clicAnnuler" prefWidth="100.0" text="Annuler" />
+         </children>
+         <padding>
+            <Insets left="100.0" top="20.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,14 @@
+Notes d'installation d'environment
+
+1. Installer Python
+2. Créer un env virtuel: 
+python -m venv /path/to/new/virtual/environment
+3. Activer l'environnement
+source /path/to/new/virtual/environment/bin/activate
+4. Créer un fichier requirements qui contient toutes les dépendances dans le repo de travail
+ipykernel
+scikit-learn
+numpy
+pandas
+5. Installer les dépendances
+pip install -r requirements.txt

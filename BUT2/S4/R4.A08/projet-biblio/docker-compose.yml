@@ -1,0 +1,60 @@
+services:
+  php_apache:
+    image: r408-php:8.2-apache-pdo
+    container_name: php_apache
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5555:80"
+    volumes:
+      - ./www:/var/www/html
+    networks:
+      - app_network
+
+  mysql:
+    image: bigpapoo/r408-mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: biblio
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_vol:/var/lib/mysql
+      - ./init_biblio.sql:/docker-entrypoint-initdb.d/init_biblio.sql
+    networks:
+      - app_network
+
+  phpmyadmin:
+    image: bigpapoo/r408-phpmyadmin:5.2
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - "8080:80"
+    networks:
+      - app_network
+
+  ftp:
+    image: bigpapoo/r408-pure-ftpd:1.0
+    container_name: ftp_server
+    environment:
+      FTP_USER_NAME: bibliotekr
+      FTP_USER_PASS: poipoi
+      FTP_USER_HOME: /home/bibliotekr
+    ports:
+      - "9021:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - ftp_vol:/home/bibliotekr
+    networks:
+      - ftp_network
+
+volumes:
+  mysql_vol:
+  ftp_vol:
+
+networks:
+  app_network:
+  ftp_network:

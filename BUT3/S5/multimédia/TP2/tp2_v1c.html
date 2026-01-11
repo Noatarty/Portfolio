@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dessin SVG avec d3.js</title>
+  <!-- voir https://d3js.org/getting-started -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+  <!-- dessin SVG créé et modifié par les scripts JS -->
+  <svg xmlns="http://www.w3.org/2000/svg" id="dessin"></svg>
+
+  <script type="module">
+
+// voir https://stackoverflow.com/a/65056488 (append if not exist)
+d3.selection.prototype.appendIfAbsent = function(selector, type) {
+  const element = this.select(selector)
+  return element.empty() ? this.append(type) : element
+}
+
+// ici, il y aura les scripts d3.js pour créer, modifier et animer l'image SVG (enlever ce commentaire)
+const data1 = [
+  {name: "JavaScript", value: 68.8},
+  {name: "Python",     value: 54.8},
+  {name: "HTML/CSS",   value: 63},
+  {name: "SQL",        value: 61.3},
+  {name: "TypeScript", value: 48.8},
+  {name: "Bash/Shell", value: 48.8},
+  {name: "C#",         value: 29.9},
+]
+
+function Boxes(svg, data, unit_height=4) {
+      function _prepareData(data) {
+        let maxwidth = 0
+        let maxheight = 0
+        let y = 0
+        for (const d of data) {
+        // géométrie du rectangle
+          d.x = 0
+          d.y = y
+          d.width = d.value
+          d.height = unit_height
+          if (d.width > maxwidth) maxwidth = d.width
+          y += d.height
+        }
+        maxheight = y
+        return {maxwidth, maxheight} // résultat = objet
+      }
+
+      const {maxwidth, maxheight} = _prepareData(data)
+      svg.attr("viewBox", `-1 -1 ${maxwidth+2} ${maxheight+2}`)
+
+      const gRects = svg.appendIfAbsent("g", "g").attr("class","boxes")
+      gRects.selectAll("rect")
+        .data(data)
+        .join("rect")
+        .attr("x", d => d.x)
+        .attr("y", d => d.y)
+        .attr("width", d => d.width)
+        .attr("height", d => d.height)
+        .attr("fill", "#FFD54F")
+        .attr("stroke", "#222")
+        .attr("stroke-width", 1 / Math.max(1, maxwidth))
+
+      const gTexts = svg.appendIfAbsent("g", "g").attr("class","labels")
+      gTexts.selectAll("text")
+        .data(data)
+        .join("text")
+        .text(d => d.name)
+        .attr("x", d => d.x + d.width / 2)
+        .attr("y", d => d.y + d.height / 2)
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .attr("fill", "#000")
+        .attr("font-size", unit_height * 0.4)
+    }
+
+    const dessin = d3.select("#dessin")
+    Boxes(dessin, data1)
+  </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!--
+  Cette page permet de calculer une expression XPath sur un fichier
+
+  Auteur Pierre Nerzic novembre 2015, en s'inspirant de http://www.w3schools.com/xsl/xpath_examples.asp
+
+  Licence Common Creative BY-NC-SA
+
+  Cette page ne fonctionne pas sur Microsoft Internet Explorer. Pas question pour moi d'écrire un programme pour un navigateur qui ne respecte aucune des normes du W3C.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Évaluation XPath</title>
+        <script type="text/javascript">
+
+
+// transforme un Node en chaîne
+
+var serializer = new XMLSerializer();
+
+function replaceEntities(xml)
+{
+    xml = xml.replace(/&/g, "&amp;");
+    xml = xml.replace(/</g, "&lt;");
+    xml = xml.replace(/>/g, "&gt;");
+    xml = xml.replace(/\"/g, "&quot;");
+    xml = xml.replace(/\'/g, "&apos;");
+    return xml;
+}
+
+// transforme un Node en chaîne acceptable pour HTML
+function Serialize(node)
+{
+    var xml = serializer.serializeToString(node);
+    return replaceEntities(xml);
+}
+
+
+// cette fonction retourne une chaîne affichant le node
+function NodeToString(node)
+{
+    switch (node.nodeType) {
+        case Node.ATTRIBUTE_NODE:
+            return node.nodeName+"=\""+node.nodeValue+"\"";
+        case Node.TEXT_NODE:
+            return "\""+node.nodeValue+"\"";
+        //case Node.DOCUMENT_NODE:
+        //case Node.ELEMENT_NODE:
+        //    return Serialize(node);
+        default:
+            return Serialize(node);
+            //console.error(node);
+            //return "nodeType="+node.nodeType+" inconnu";
+    }
+}
+
+
+// fonction appelée quand le fichier XML sera disponible
+function CalculerExpression(xml, xpath)
+{
+    try {
+        // calcul de l'expression XPath
+        var nodes = xml.evaluate(xpath, xml, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+
+        // parcours des réponses et construction d'une liste HTML
+        var resultat = "<ul>";
+        var nombre = 0;
+        while (node = nodes.iterateNext()) {
+            resultat += "<li><pre>";
+            resultat += NodeToString(node);
+            resultat += "</pre></li>";
+            nombre++;
+        }
+        resultat += "</ul>";
+        resultat = nombre+" résultat(s)&nbsp;:<br/>"+resultat;
+    } catch (e) {
+        var resultat = "Il y a un problème avec l'expression XPath : "+e.message;
+    }
+
+    // affichage des résultats dans le <div id="resultat"> sous le formulaire
+    var resultats = document.getElementById("resultats");
+    resultats.innerHTML = resultat;
+}
+
+
+// charge le fichier xml et lance le calcul de l'expression xpath fournie
+function Traiter(fichier, xpath)
+{
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        var parser = new DOMParser();
+        var xml = parser.parseFromString(reader.result, "text/xml");
+        CalculerExpression(xml, xpath);
+    };
+    reader.readAsText(fichier);
+}
+
+
+// fonction principale, appelée par le bouton submit du formulaire
+function main()
+{
+    var fichier = document.getElementById("fichier").files[0];
+    var xpath = document.getElementById("xpath").value;
+    Traiter(fichier, xpath);
+}
+
+
+// affiche le document XML dans le <div id="resultats">
+function display()
+{
+    var fichier = document.getElementById("fichier").files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        var resultats = document.getElementById("resultats");
+        resultats.innerHTML = "<pre>"+replaceEntities(reader.result)+"</pre>";
+    };
+    reader.readAsText(fichier);
+}
+
+        </script>
+    </head>
+    <body>
+        <!-- formulaire pour saisir le fichier XML et l'expression XPath à évaluer -->
+        <form id="form" action="javascript:main()">
+            <table>
+                <tr>
+                    <td>Nom du fichier XML</td>
+                    <td><input type="file" id="fichier" value="albums.xml"/></td>
+                    <td><input id="btndisplay" type="button" value="afficher" onclick="display()"></td>
+                </tr>
+                <tr>
+                    <td>Expression XPath</td>
+                    <td><input type="text" id="xpath" value="/" size="80"/></td>
+                    <td><input id="btnsubmit" type="submit" value="évaluer"></td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- zone pour contenir les réponses, voir la fin de CalculerExpression -->
+        <div id="resultats" style="background: lightgray;">
+            <p>Si rien ne s'affiche, c'est que le fichier xml n'est pas au bon endroit. Par sécurité, votre navigateur retourne des chemins vides, donc essayez de déplacer le fichier xml dans le dossier de téléchargement ou téléchargez ce formulaire au même endroit que le fichier XML.</p>
+        </div>
+    </body>
+</html>

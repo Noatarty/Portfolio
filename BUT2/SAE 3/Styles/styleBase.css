@@ -1,0 +1,3705 @@
+/*
+L'intégralité du contenu de ce fichier doit être placé dans votre style.css pour vos tests
+Ce fichier servira de base au .css final donc ADAPTEZ votre code en fonction de ce code au lieu de le MODIFIER
+*/
+
+/* --- CREATION DES VARIABLES --- */
+
+:root {
+    /* Couleurs du site*/
+    --couleur-primaire: #4180de;
+    --couleur-secondaire: #049B7F;
+    --couleur-annulation: #DB7979;
+    --couleur-attente: orange;
+    --couleur-obligatoire: rgba(255, 0, 0, 0.75);
+
+    --couleur-bordure-bouton: rgba(0, 0, 0, 0.25);
+    --couleur-bordure-input: rgba(0, 0, 0, 0.5);
+    --couleur-placeholder: rgba(0, 0, 0, 0.3);
+
+    /* Taille de polices du site de base (Ordinateur) */
+    --taille-police-h1: 60px;
+    --taille-police-h2: 40px;
+    --taille-police-h3: 36px;
+    --taille-police-h4: 32px;
+    --taille-police-h5: 24px;
+    --taille-police-h6: 20px;
+    --taille-police-p: 30px;
+
+    /* Taille de polices du site de base (Téléphone) */
+    --taille-police-tel-h1: 40px;
+    --taille-police-tel-h2: 30px;
+    --taille-police-tel-h3: 24px;
+    --taille-police-tel-h4: 20px;
+    --taille-police-tel-h5: 14px;
+    --taille-police-tel-h6: 10px;
+    --taille-police-tel-p: 16px;
+}
+
+/* --- IMPLEMENTATION DES POLICES --- */
+
+/* MONTSERRAT */
+
+@font-face {
+    font-family: 'montserrat-black';
+    src: url('Fonts/Montserrat/Black/montserrat-black.woff2') format('woff2'),
+         url('Fonts/Montserrat/Black/montserrat-black.woff') format('woff'),
+         url('Fonts/Montserrat/Black/montserrat-black.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-extrabold';
+    src: url('Fonts/Montserrat/ExtraBold/montserrat-extrabold.woff2') format('woff2'),
+         url('Fonts/Montserrat/ExtraBold/montserrat-extrabold.woff') format('woff'),
+         url('Fonts/Montserrat/ExtraBold/montserrat-extrabold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-bold';
+    src: url('Fonts/Montserrat/Bold/montserrat-bold.woff2') format('woff2'),
+         url('Fonts/Montserrat/Bold/montserrat-bold.woff') format('woff'),
+         url('Fonts/Montserrat/Bold/montserrat-bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-semibold';
+    src: url('Fonts/Montserrat/SemiBold/montserrat-semibold.woff2') format('woff2'),
+         url('Fonts/Montserrat/SemiBold/montserrat-semibold.woff') format('woff'),
+         url('Fonts/Montserrat/SemiBold/montserrat-semibold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-medium';
+    src: url('Fonts/Montserrat/Medium/montserrat-medium.woff2') format('woff2'),
+         url('Fonts/Montserrat/Medium/montserrat-medium.woff') format('woff'),
+         url('Fonts/Montserrat/Medium/montserrat-medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-regular';
+    src: url('Fonts/Montserrat/Regular/montserrat-regular.woff2') format('woff2'),
+         url('Fonts/Montserrat/Regular/montserrat-regular.woff') format('woff'),
+         url('Fonts/Montserrat/Regular/montserrat-regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-light';
+    src: url('Fonts/Montserrat/Light/montserrat-light.woff2') format('woff2'),
+         url('Fonts/Montserrat/Light/montserrat-light.woff') format('woff'),
+         url('Fonts/Montserrat/Light/montserrat-light.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-extralight';
+    src: url('Fonts/Montserrat/ExtraLight/montserrat-extralight.woff2') format('woff2'),
+         url('Fonts/Montserrat/ExtraLight/montserrat-extralight.woff') format('woff'),
+         url('Fonts/Montserrat/ExtraLight/montserrat-extralight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'montserrat-thin';
+    src: url('Fonts/Montserrat/Thin/montserrat-thin.woff2') format('woff2'),
+         url('Fonts/Montserrat/Thin/montserrat-thin.woff') format('woff'),
+         url('Fonts/Montserrat/Thin/montserrat-thin.otf') format('opentype');
+}
+
+/* QUATTROCENTO SANS */
+
+@font-face {
+    font-family: 'quattrocento-sans-bold';
+    src: url('Fonts/QuattrocentoSans/Bold/quattrocentosans-bold.woff2') format('woff2'),
+         url('Fonts/QuattrocentoSans/Bold/quattrocentosans-bold.woff') format('woff'),
+         url('Fonts/QuattrocentoSans/Bold/quattrocentosans-bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'quattrocento-sans-italic';
+    src: url('Fonts/QuattrocentoSans/Italic/quattrocentosans-italic.woff2') format('woff2'),
+         url('Fonts/QuattrocentoSans/Italic/quattrocentosans-italic.woff') format('woff'),
+         url('Fonts/QuattrocentoSans/Italic/quattrocentosans-italic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'quattrocento-sans-bolditalic';
+    src: url('Fonts/QuattrocentoSans/BoldItalic/quattrocentosans-bolditalic.woff2') format('woff2'),
+         url('Fonts/QuattrocentoSans/BoldItalic/quattrocentosans-bolditalic.woff') format('woff'),
+         url('Fonts/QuattrocentoSans/BoldItalic/quattrocentosans-bolditalic.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'quattrocento-sans-regular';
+    src: url('Fonts/QuattrocentoSans/Regular/quattrocentosans-regular.woff2') format('woff2'),
+         url('Fonts/QuattrocentoSans/Regular/quattrocentosans-regular.woff') format('woff'),
+         url('Fonts/QuattrocentoSans/Regular/quattrocentosans-regular.otf') format('opentype');
+}
+
+
+
+/* --- INITIALISATION DES STYLES DE BALISES COMMUNES --- */
+
+h1{
+    font-size: var(--taille-police-h1);
+    font-family: 'montserrat-bold';
+}
+
+h2{
+    font-size: var(--taille-police-h2);
+}
+
+h3{
+    font-size: var(--taille-police-h3);
+}
+
+h4{
+    font-size: var(--taille-police-h4);
+}
+
+p{
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+}
+
+h5{
+    font-size: var(--taille-police-h5);
+}
+
+h6{
+    font-size: var(--taille-police-h6);
+}
+
+button{
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+
+    color: white;
+    border-color: var(--couleur-bordure-bouton);
+}
+
+input{
+    border-radius: 20px;
+    border-color: var(--couleur-bordure-input);
+
+    padding-left: 20px;
+}
+
+input::placeholder{
+    font-family: 'quattrocento-sans-italic';
+    color: var(--couleur-placeholder);
+}
+
+/* --- AFFICHAGE DE LA FENÊTRE --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER ET FOOTER --- */
+
+/* -- HEADER -- */
+
+/* - Entête - */
+
+header {
+    background-color: var(--couleur-primaire); 
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+header img {
+    height: 50px;
+    width: 50px;
+    margin-right: 9%;
+    border-radius: 50%;
+}
+
+header p {
+    font-family: 'quattrocento-sans-regular';
+}
+
+/* - Barre de recherche - */
+
+.recherche_boite {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 70%;
+    margin-left: 20%;
+    max-width: 40em;
+}
+
+.recherche_boite input {
+    width: 100%;
+    padding: 10px;
+    
+    border-radius: 10px;
+    font-size: var(--taille-police-h6);
+}
+
+.recherche_boite button {
+    background-color: var(--couleur-primaire);
+    border: none;
+
+    cursor: pointer;
+    margin-right: 20%;
+}
+
+.recherche_boite button img {
+    width: 35px;
+    height: 35px;
+    margin-top: 8px;
+}
+
+/* - Bouton de connexion - */
+
+#login_btn {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 20%;
+    position: absolute;
+    right: 20px;
+}
+
+#login_btn img {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+}
+
+#login_btn a{
+    color: #ffff;
+    text-decoration: none;
+}
+
+#login_btn p{
+    font-size: var(--taille-police-h6);
+    font-family: 'quattrocento-sans-bold';
+}
+
+/* - Dropdown de deconnexion - */
+
+.dropdown {
+    max-width: 300px;
+    height: 63px;
+    border-radius: 5px;
+    margin: 100px auto;
+    color: #f1f1f1;
+    background: var(--couleur-primaire);
+    transition: height 0.4s ease-in-out;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    z-index: 1000;
+    margin: 10px 0;
+}
+
+.bloc-top {
+    padding: 20px;
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: var(--taille-police-h6);
+    font-family: 'quattrocento-sans-bold';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--couleur-primaire);
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius:  5px;
+}
+.bloc-top img {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+}
+
+.bloc-links {
+    padding: 0 22px;
+}
+
+.bloc-links li {
+    list-style-type: none;
+    padding: 5px 0;
+}
+
+.bloc-links li a {
+    font-size: var(--taille-police-h6);
+    color: #f1f1f1;
+    margin-left: 5px;
+    text-decoration: none;
+    font-family: 'quattrocento-sans-bold';
+}
+.bloc-links li:last-child{
+    padding-bottom: 25px;
+}
+
+/* Variante professionnel */
+#header_pro{
+    background-color: var(--couleur-secondaire);
+}
+
+/* - Barre de recherche - */
+
+#recherche_boite_pro {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 70%;
+    margin-left: 20%;
+}
+
+#recherche_boite_pro input {
+    width: 100%;
+    padding: 10px;
+    
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#recherche_boite_pro button {
+    background-color: var(--couleur-secondaire);
+    border: none;
+
+    cursor: pointer;
+    margin-right: 20%;
+}
+
+#recherche_boite_pro button img {
+    width: 35px;
+    height: 35px;
+    margin-top: 8px;
+}
+
+.dropdown_pro {
+    max-width: 300px;
+    height: 63px;
+    border-radius: 5px;
+    margin: 100px auto;
+    color: #f1f1f1;
+    background: var(--couleur-secondaire);
+    transition: height 0.4s ease-in-out;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    z-index: 1000;
+    margin: 10px 0;
+}
+
+.bloc-top_pro {
+    padding: 20px;
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--couleur-secondaire);
+    color: #f1f1f1;
+    cursor: pointer;
+    border-radius:  5px;
+}
+
+.bloc-top_pro img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+}
+
+.bloc-links_pro {
+    padding: 0 22px;
+}
+
+.bloc-links_pro li {
+    list-style-type: none;
+    padding: 5px 0;
+}
+
+.bloc-links_pro li a {
+    font-size: 18px;
+    color: #f1f1f1;
+    margin-left: 5px;
+    text-decoration: none;
+    font-family: quattrocento-sans-bold;
+}
+.bloc-links_pro li:last-child{
+    padding-bottom: 25px;
+}
+
+/* -- Footer -- */
+/* Variante membre et visiteur */
+footer {
+    background-color: var(--couleur-primaire);
+    padding: 20px;
+    color: white;
+}
+
+footer a, footer p {
+    font-family: 'quattrocento-sans-regular';
+}
+
+footer h3{
+    font-family: 'quattrocento-sans-bold';
+}
+
+#footer_container {
+    display: flex;
+    margin: 0;
+    padding: 5px;
+}
+
+#footer_logo {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 7px;
+    margin-left: 2em;
+}
+
+/* Variante professionnel */
+#footer_pro {
+    background-color: var(--couleur-secondaire);
+    padding: 20px;
+    color: white;
+}
+
+#contact_info {
+    margin-left: 10%;
+    flex-grow: 1;
+}
+
+#contact_info h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#contact_info p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+#contact_info a {
+    color: white;
+    text-decoration: none;
+}
+
+#contact_info a:hover {
+    text-decoration: underline;
+}
+
+#footer_right{
+    margin-left: 10%;
+    margin-right: 25%;
+}
+
+#footer_right h3 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+#footer_right ul {
+    list-style: none;
+}
+
+#footer_right ul li {
+    margin-bottom: 5px;
+}
+
+#footer_right ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#footer_right ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Page détails d'une Offre Pro */
+
+/* MAIN */
+main {
+    width: 95%;
+    margin: 2em;
+}
+
+main h1 {
+    font-family: 'montserrat-bold';
+}
+
+main h4 {
+    font-family: 'montserrat-bold';
+}
+
+main p, main td {
+    font-family: 'quattrocento-sans-regular';
+    font-size: var(--taille-police-p);
+}
+
+/* BOUTONS MODIFIER PRO */
+main button {
+    background-color: #049B7F;
+    font-family: 'quattrocento-sans-bold';
+    width: 5.5em;
+    height: 1.25em;
+    box-shadow: 0 0 1em grey;
+    border-radius: 20px;
+}
+
+main button img {
+    width: 30px;
+    height: 30px;
+}
+
+main div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main article {
+    margin: 1em;
+}
+
+main section div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+/* LOGOS MAIN */
+#retour {
+    width: 45px;
+    height: 45px;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+}
+
+
+/* IMAGES APERÇU */
+#images-apercu {
+    text-align: end;
+}
+
+#images-apercu button {
+    margin-bottom: 1em;
+}
+
+/* DIAPORAMA */
+
+.custom-slider {
+    display: none;
+}
+
+.slide-container {
+    max-width: 45%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.6s ease;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slide-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    text-align: center;
+}
+
+.slide-dot {
+    text-align: center;
+    justify-content: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #999999;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #111111;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+/* SECTIONS "INFOS" */
+#section-infos {
+    display: flex;
+    flex-direction: column;
+}
+
+#titre {
+    display: block;
+}
+
+#liens {
+    width: 75%;
+}
+
+/* SECTIONS "BLOC" */
+.bloc, .petit-bloc {
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2em;
+    border-radius: 25px;
+    padding: 2em;
+    margin: 1em;
+    box-shadow: 0.5em 0.5em 3em grey;
+    width: 100%;
+}
+
+.petit-bloc {
+    width: 47.75%;
+}
+
+.bloc iframe {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.bloc h3, .petit-bloc h3 {
+    font-family: 'quattrocento-sans-bold';
+}
+
+.bloc h4, .petit-bloc h4 {
+    font-family: 'montserrat-bold';
+}
+
+/* ENSEMBLE */
+.ensemble {
+    justify-content: start;
+}
+
+.ensemble img {
+    margin-right: 0.5em;
+}
+
+/* DETAILS */
+#details {
+    display: block;
+    height: 100%;
+}
+
+#details .ensemble {
+    display: block;
+    padding-bottom: 10%;
+}
+
+/* HORAIRES */
+table {
+    width: 100%;
+}
+
+td {
+    padding-bottom: 1em;
+}
+
+main a {
+    color: black;
+    text-decoration: none; /* retire le soulignement si nécessaire */
+}
+
+main a:visited {
+    color: black;
+}
+
+main a:hover {
+    color: black;
+}
+
+main a:active {
+    color: black;
+}
+
+/* Page détails d'une Offre Membre */
+
+/* MAIN */
+main {
+    width: 95%;
+    margin: 2em;
+}
+
+main h1 {
+    font-family: 'montserrat-bold';
+}
+
+main h4 {
+    font-family: 'montserrat-bold';
+}
+
+main p, main td {
+    font-family: 'quattrocento-sans-regular';
+    font-size: var(--taille-police-p);
+}
+
+
+
+main div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main article {
+    margin: 1em;
+}
+
+main section div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+a {
+    color: black;
+    text-decoration: none; /* retire le soulignement si nécessaire */
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  a:hover {
+    color: black;
+  }
+
+  a:active {
+    color: black;
+  }
+
+/* LOGOS MAIN */
+#retour {
+    width: 45px;
+    height: 45px;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+}
+
+
+/* LOGOS MAIN */
+#retour {
+    width: 45px;
+    height: 45px;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+}
+
+
+/* SECTIONS "INFOS" */
+#section-infos {
+    display: flex;
+    flex-direction: column;
+}
+
+#section-infos figure {
+    margin-top: -2em;
+}
+
+#section-infos figure img {
+    width: 100%;
+}
+
+#titre {
+    display: block;
+}
+
+#liens {
+    width: 50%;
+}
+
+/* SECTIONS "BLOC" */
+.bloc, .petit-bloc {
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2em;
+    border-radius: 25px;
+    padding: 2em;
+    margin: 1em;
+    box-shadow: 0.5em 0.5em 3em grey;
+    width: 100%;
+}
+
+.petit-bloc {
+    width: 47%;
+}
+
+.bloc figure img {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 100%;
+}
+
+.bloc h3, .petit-bloc h3 {
+    font-family: 'quattrocento-sans-bold';
+}
+
+.bloc h4, .petit-bloc h4 {
+    font-family: 'montserrat-bold';
+}
+
+/* ENSEMBLE */
+.ensemble {
+    justify-content: start;
+}
+
+.ensemble img {
+    margin-right: 0.5em;
+}
+
+/* DETAILS */
+#details {
+    display: block;
+    height: 100%;
+}
+
+#details .ensemble {
+    display: block;
+    padding-bottom: 10%;
+}
+
+/* HORAIRES */
+table {
+    width: 100%;
+}
+
+td {
+    padding-bottom: 1em;
+}
+
+/* IMAGES APERÇU */
+#images-apercu {
+    text-align: end;
+}
+
+#images-apercu button {
+    margin-bottom: 1em;
+}
+
+/* DIAPORAMA */
+
+.custom-slider {
+    display: none;
+}
+
+.slide-container {
+    max-width: 45%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.6s ease;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slide-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    text-align: center;
+}
+
+.slide-dot {
+    text-align: center;
+    justify-content: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #999999;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #111111;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Modification d'une Offre Pro */
+
+/*------------------------------*/
+
+main {
+    padding: 2em;
+}
+
+main h1 {
+    color: var(--couleur-secondaire);
+    text-align: center;
+}
+
+main #parcours {
+    text-align: center;
+}
+
+/* Chemin étape par étape (fait par Nidhish) */
+main h2 {
+    text-align: center;
+    color: #00b894;
+}
+
+/* Container for the stepper */
+/* Les étapes du processus */
+
+#parcours .container {
+    display: flex; /* Utilisation de flexbox pour la mise en page */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: flex-start; /* Aligner les éléments en haut */
+    position: relative; /* Position relative pour les éléments enfants */
+    margin-top: 10px; /* Marge supérieure de 10px */
+    margin-bottom: 20px; /* Marge inférieure de 20px */
+}
+
+#parcours .etape {
+    display: flex; /* Utilisation de flexbox pour chaque étape */
+    align-items: center; /* Centrer verticalement les éléments */
+    flex-direction: column; /* Disposition en colonne */
+    flex-wrap: wrap; /* Permet le passage à la ligne si nécessaire */
+    position: relative; /* Position relative pour les éléments enfants */
+    margin-right: 60px; /* Marge à droite de 60px */
+    z-index: 2; /* S'assurer que les étapes sont au-dessus des autres éléments */
+    width: 150px; /* Largeur fixe de chaque étape */
+    text-align: center; /* Centrer le texte à l'intérieur de chaque étape */
+}
+
+#parcours .circle {
+    width: 30px; /* Largeur du cercle */
+    height: 30px; /* Hauteur du cercle */
+    border-radius: 50%; /* Arrondir les bords pour créer un cercle */
+    border: 2px solid #d3d3d3; /* Bordure grise */
+    background-color: white; /* Couleur de fond blanche */
+    color: #d3d3d3; /* Couleur du texte dans le cercle */
+    display: flex; /* Utilisation de flexbox pour centrer le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    font-weight: bold; /* Mettre le texte en gras */
+    margin-right: 10px; /* Marge à droite de 10px */
+}
+
+#parcours .circle-fini{
+    width: 30px; /* Largeur du cercle */
+    height: 30px; /* Hauteur du cercle */
+    border-radius: 50%; /* Arrondir les bords pour créer un cercle */
+    border: 2px solid var(--couleur-secondaire); /* Bordure grise */
+    background-color: var(--couleur-secondaire); /* Couleur de fond blanche */
+    color: var(--couleur-secondaire); /* Couleur du texte dans le cercle */
+    display: flex; /* Utilisation de flexbox pour centrer le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    font-weight: bold; /* Mettre le texte en gras */
+    margin-right: 10px; /* Marge à droite de 10px */
+
+}
+
+#parcours .active {
+    border: 2px solid var(--couleur-secondaire); /* Bordure de la couleur secondaire */
+    background-color: white; /* Couleur de fond blanche pour l'élément actif */
+    color: var(--couleur-secondaire); /* Couleur du texte selon la variable CSS */
+}
+
+#parcours .active-text {
+    font-size: var(--taille-police-h6); /* Taille de police pour le texte actif */
+    font-family: 'montserrat-medium';
+    color: var(--couleur-secondaire); /* Couleur du texte selon la variable CSS */
+    text-align: center; /* Centrer le texte */
+    word-wrap: break-word; /* Permet de casser les mots longs */
+    max-width: 100%; /* Largeur maximale de 100% */
+}
+
+#parcours .line {
+    position: absolute; /* Position absolue pour créer une ligne entre les étapes */
+    width: 13em; /* Largeur de la ligne */
+    height: 4px; /* Hauteur de la ligne */
+    top: 14px; /* Position verticale de la ligne */
+    background-color: #d3d3d3; /* Couleur de la ligne */
+    margin-left: 11em; /* Marge à gauche pour positionner la ligne */
+    z-index: -1; /* Placer la ligne derrière les étapes */
+}
+
+#parcours .line1{
+    position: absolute; /* Position absolue pour créer une ligne entre les étapes */
+    width: 13em; /* Largeur de la ligne */
+    height: 4px; /* Hauteur de la ligne */
+    top: 14px; /* Position verticale de la ligne */
+    background-color: var(--couleur-secondaire); /* Couleur de la ligne */
+    margin-left: 11em; /* Marge à gauche pour positionner la ligne */
+    z-index: -1; /* Placer la ligne derrière les étapes */
+
+}
+#parcours .text {
+    font-size: var(--taille-police-h6); /* Taille de police pour le texte des étapes */
+    font-family: 'montserrat-medium';
+    color: #d3d3d3; /* Couleur du texte */
+    text-align: center; /* Centrer le texte */
+    word-wrap: break-word; /* Permet de casser les mots longs */
+    max-width: 100%; /* Largeur maximale de 100% */
+}
+
+
+#parcours .etape:last-child {
+    margin-right: 0; /* Pas de marge à droite pour la dernière étape */
+}
+
+
+/* Formulaire 1 */
+
+#formulaire1 {
+    padding: 2em;
+}
+
+#formulaire1 div {
+    margin-bottom: 1em;
+}
+
+.labelh2 {
+    font-size: var(--taille-police-h2);
+    font-family: 'montserrat-bold';
+    margin-right: 0.5em;
+}
+
+.labelh3 {
+    font-size: var(--taille-police-h3);
+    font-family: 'montserrat-bold';
+    margin-right: 0.5em;
+}
+
+main input {
+    width: 20em;
+    height: 2em;
+    border-radius: 15px;
+    font-size: var(--taille-police-p);
+}
+
+main input[type="radio"] {
+    width: 1em;
+    height: 1em;
+}
+
+#bloc-date {
+    margin-left: 3em;
+}
+
+main input[type="date"] {
+    width: 15em;
+}
+
+.labelRadio {
+    font-size: var(--taille-police-h3);
+    font-family: 'quattrocento-sans-regular';
+    margin-right: 3em;
+}
+
+main input[id="duree"] {
+    width: 5em;
+}
+
+main input[type="submit"] {
+    color: white;
+    background-color: var(--couleur-secondaire);
+    font-family: 'quattrocento-sans-bold';
+    width: 10em;
+    height: 2em;
+    box-shadow: 0 0 1em grey;
+    position: absolute;
+    margin-top: 0.65em; /* C'EST BANCAL */
+}
+
+main select {
+    width: 10em;
+    height: 2em;
+    font-family: 'montserrat-regular';
+    font-size: var(--taille-police-p);
+    border-color: var(--couleur-secondaire);
+    background-color: white;
+}
+
+main button {
+    color: white;
+    background-color: var(--couleur-annulation);
+    font-family: 'quattrocento-sans-bold';
+    width: 9.5em;
+    height: 2em;
+    box-shadow: 0 0 1em grey;
+}
+
+main .zoneBoutons {
+    display: flex;
+    justify-content: end;
+    margin-top: 2em;
+}
+
+/* ZONES DE CARACTÉRISTIQUES D'OFFRE */
+
+/* ZONES DE CARACTÉRISTIQUES D'OFFRE --> Restaurant */
+#zoneCaractéristiquesRestaurant {
+    display: none;
+    margin-left: 2em;
+}
+
+#zoneCaractéristiquesRestaurant .labelp {
+    margin-right: 3em;
+}
+
+#zoneCaractéristiquesRestaurant section {
+    margin-bottom: 3em;
+}
+
+
+/* ZONES DE CARACTÉRISTIQUES D'OFFRE --> Activité */
+#zoneCaractéristiquesActivite {
+    display: none;
+    margin-left: 2em;
+}
+
+#zoneCaractéristiquesActivite .labelp {
+    margin-right: 3em;
+}
+
+#zoneCaractéristiquesActivite section {
+    margin-bottom: 3em;
+}
+
+#zoneCaractéristiquesActivite input[type="number"] {
+    width: 3em;
+}
+
+
+/* ZONES DE CARACTÉRISTIQUES D'OFFRE --> Spectacle */
+#zoneCaractéristiquesSpectacle {
+    display: none;
+    margin-left: 2em;
+}
+
+#zoneCaractéristiquesSpectacle .labelp {
+    margin-right: 3em;
+}
+
+#zoneCaractéristiquesSpectacle section {
+    margin-bottom: 3em;
+}
+
+#zoneCaractéristiquesSpectacle input[type="number"] {
+    width: 3em;
+}
+
+
+/* ZONES DE CARACTÉRISTIQUES D'OFFRE --> Attraction */
+#zoneCaractéristiquesAttraction {
+    display: none;
+    margin-left: 2em;
+}
+
+#zoneCaractéristiquesAttraction section {
+    margin-bottom: 3em;
+}
+
+
+/* ZONES DE CARACTÉRISTIQUES D'OFFRE --> Visite */
+#zoneCaractéristiquesVisite {
+    display: none;
+    margin-left: 2em;
+}
+
+#zoneCaractéristiquesVisite .labelp {
+    margin-right: 3em;
+}
+
+#zoneCaractéristiquesVisite section {
+    margin-bottom: 3em;
+}
+
+#zoneCaractéristiquesVisite input[type="number"] {
+    width: 3em;
+}
+
+/* Formulaire 2 */
+
+#formulaire2 {
+    padding: 2em;
+}
+
+main input[type="file"] {
+    font-family: 'quattrocento-sans-regular';
+    font-size: var(--taille-police-p);
+}
+
+textarea {
+    width: 100%;
+    height: 7.5em;
+    border-radius: 20px;
+    font-family: 'quattrocento-sans-regular';
+    font-size: var(--taille-police-p);
+    padding: 1em;
+}
+
+textarea[id="description"] {
+    height: 10em;
+}
+
+/* Formulaire 3 */
+
+#formulaire3 .bloc {
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2em;
+    border-radius: 25px;
+    padding: 2em;
+    margin-top: 5em;
+    box-shadow: 0.5em 0.5em 3em grey;
+}
+
+#formulaire3 .bloc h4 {
+    font-family: 'montserrat-bold';
+    margin-bottom: 1em;
+}
+
+#formulaire3 .bloc img {
+    width: 65px;
+    height: 65px;
+}
+
+#formulaire3 .bloc input {
+    margin: 0.5em;
+}
+
+#formulaire3 #codePostal {
+    width: 10%;
+}
+
+#formulaire3 #ville {
+    width: 22%;
+}
+
+#formulaire3 #numRue {
+    width: 15%;
+}
+
+#formulaire3 #nomRue {
+    width: 30%;
+}
+
+#formulaire3 #zoneCompAdr {
+    margin-left: 5%;
+}
+
+#formulaire3 #complementAdr {
+    width: 83%;
+}
+
+#formulaire3 #email, #formulaire3 #siteWeb {
+    width: 83%;
+}
+
+#formulaire3 #telephone {
+    width: 20%;
+}
+
+/* Formulaire 4 */
+
+#formulaire4 .bloc {
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2em;
+    border-radius: 25px;
+    padding: 2em;
+    margin-top: 5em;
+    box-shadow: 0.5em 0.5em 3em grey;
+}
+
+#formulaire4 .bloc h4 {
+    font-family: 'montserrat-bold';
+    margin-bottom: 1em;
+}
+
+#formulaire4 .bloc img {
+    width: 65px;
+    height: 65px;
+}
+
+#formulaire4 .bloc input {
+    margin: 0.5em;
+}
+
+main input[type="checkbox"] {
+    width: 0.75em;
+    height: 0.75em;
+}
+
+.horaireJour {
+    margin-bottom: 5em;
+}
+
+/* HORAIRES DE DEBUT ET FIN */
+
+.labelp {
+    font-family: 'quattrocento-sans-regular';
+    font-size: var(--taille-police-p);
+}
+
+input[type="time"] {
+    width: 5em;
+}
+
+/* display: none chaque horaire de chaque jour */
+
+
+#limitesPrix {
+    display: flex;
+    flex-direction: row;
+}
+
+#limitesPrix h4 {
+    font-family: 'quattrocento-sans-regular';
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
+
+#prixMini {
+    width: 10%;
+}
+
+
+/* Formulaire 5 "CONFIRMATION" */
+
+#confirmation {
+    text-align: center;
+}
+
+#confirmation button {
+    background-color: var(--couleur-secondaire);
+    height: 3.5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+/* Page Connexxion a un Compte*/
+/* -- Style global -- */
+
+#connexionCompte{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 7.5vh 0;
+    gap: 2em;
+}
+
+#connexionCompte input{
+    width: 15.625em;
+    height: 2.188em;
+}
+
+#connexionCompte input, .connexion button{
+    font-size: var(--taille-police-h4);
+}
+
+.connexion, .connexion form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3em;
+}
+
+.connexion h1, .connexion p{
+    text-align: center;
+}
+
+.connexion>h1, .connexion>p{
+    white-space: nowrap;
+}
+
+.connexion a{
+    text-decoration: none;
+}
+
+.connexion button{
+    min-width: 13.063em;
+    max-width: 14.063em;
+    height: 2.5em;
+    border-radius: 20px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.connexion button>p{
+    color: white;
+
+    font-family: 'quattrocento-sans-bold';
+    font-size: 32px;
+}
+
+.connexion button{
+    transition: all 0.3s ease;
+}
+
+.connexion button:hover{
+    transform: scale(1.2);
+}
+
+#connexionMembre button:focus {
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--couleur-primaire);
+}
+
+#connexionProfessionnel button:focus {
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--couleur-secondaire);
+}
+
+#erreur{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin : 1em 0 -2em;
+}
+
+#erreur>p{
+    font-family: 'quattrocento-sans-bold';
+    color: var(--couleur-annulation);
+    
+    text-align: center;
+}
+
+/* -- Style spécifique à chaque type de connexion -- */
+
+/* - Connexion au compte membre - */
+
+#connexionMembre > h1, #connexionMembre a{
+    color: var(--couleur-primaire);
+}
+
+#connexionMembre button{
+    background-color: var(--couleur-primaire);
+}
+
+/* - Connexion au compte professionnel - */
+
+#connexionProfessionnel > h1, #connexionProfessionnel a{
+    color: var(--couleur-secondaire);
+}
+
+#connexionProfessionnel button{
+    background-color: var(--couleur-secondaire);
+}
+
+/* Page Création d'un Compte */
+
+/* --- STYLE DE LA PAGE DE CREATION DE COMPTE PROFESSIONNEL --- */
+
+#creationComptePro, #creationCompteMembre{
+    margin: 2em 0 2em;
+}
+
+#creationComptePro>h1, #creationCompteMembre>h1{
+    text-align: center;
+}
+
+#creationComptePro>h1{
+    color: var(--couleur-secondaire);
+}
+
+#creationCompteMembre>h1{
+    color: var(--couleur-primaire);
+}
+
+.creaForm>input, .creaForm>select{
+    width: 15.625em;
+    height: 2.188em;
+    
+    border-width: thin;
+    background-color: white;
+
+    font-size: var(--taille-police-h4);
+}
+
+.creaCompte{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3em;
+    margin: 2em 0 3em;
+}
+
+.h2Pro, .h2Membre{
+    font-family: 'montserrat-medium';
+}
+
+.h2Pro{
+    color:var(--couleur-secondaire);
+}
+
+.h2Membre{
+    color:var(--couleur-primaire);
+}
+
+.creaCompte>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    gap:3em;
+}
+
+.creaForm{
+    position: relative; /* Pour que le label soit positionné par rapport à ce parent */
+}
+
+.creaForm>input[required]+label{
+    position: absolute;
+    left: 0.7em;
+    top: 0.5em;
+
+    font-family: 'quattrocento-sans-italic';
+    color: var(--couleur-placeholder);
+
+    font-size: var(--taille-police-h4);
+}
+
+.creaForm>input[required] + label:after {
+    content:'*';
+    color: var(--couleur-obligatoire);
+}
+
+
+/*On montre le label quand il n'y a pas de contenu*/
+.creaForm>input[required]:invalid + label {
+    display: inline-flex;
+}
+
+/*
+On cache le label quand du contenu est tapé*/
+.creaForm>input[required]:valid + label{
+    display: none;
+}
+
+.selectTypeOrga, #selectionPays{
+    border-color: var(--couleur-bordure-input);
+    border-radius: 10px;
+    padding-left: 20px;
+
+    font-family: 'quattrocento-sans-regular';
+}
+
+#selectionPays{
+    position: absolute;
+    right: 175vh;
+    width: 8em;
+    height: 2.188em;
+    
+    border-width: thin;
+    background-color: white;
+
+    font-size: var(--taille-police-p);
+}
+
+#inputSiren{
+    display: none; /* On cache le champ de saisie au début */
+}
+
+#numTelFrance{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    right: 20.5em;
+
+    padding:1em 1.75em;
+
+    border-radius: 20px;
+    border: thin solid var(--couleur-bordure-input);
+
+    gap: 0.5em;
+}
+
+#MDP>input, #MDPConfirm>input, #pseudoDiv>input{
+    width: 20em;
+}
+
+.boutonPro, .boutonMembre{
+    max-width: 14.063em;
+    height: 3em;
+    border-radius: 20px;
+
+    text-align: center;
+
+    padding: 0 0.5em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.boutonMembre{
+    background-color: var(--couleur-primaire);
+}
+
+.boutonPro{
+    background-color: var(--couleur-secondaire);
+}
+
+.creaCompte>.infosMDP{
+    flex-direction: column;
+
+    margin-top: -2.5em;
+    gap : 0.5em;
+}
+
+.infosMDP>p{
+    align-self: flex-start;
+    font-size: var(--taille-police-h6);
+}
+
+#numTelPro{
+    width: 10em;
+}
+
+.creaForm>#codePostalPro, .creaForm>#codePostalMembre, .creaForm>#numRuePro, .creaForm>#numRueMembre{
+    width: 6.9em;
+}
+
+#villePro, #villeMembre, #nomRuePro, #nomRueMembre{
+    width: 24.4em;
+}
+
+.creaForm>#complementAdrMembre, .creaForm>#complementAdrPro{
+    width: 32.8em;
+}
+
+.erreurCreaPro, .erreurCreaMembre{
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    gap: 0.5em;
+}
+
+.erreurCreaPro>img, .erreurCreaMembre>img{
+    width: 3em;
+    height: auto;
+}
+
+.erreurCreaPro>p, .erreurCreaMembre>p{
+    color: var(--couleur-annulation);
+    font-family: 'quattrocento-sans-italic';
+    font-size: var(--taille-police-h6);
+}
+
+#validationMDP{
+    position: absolute;
+    left : 40em;
+
+    display: none;
+}
+
+#MDPConfirm{
+    display: none;
+}
+
+#boutonCreationPro, #boutonCreationMembre{
+    display: none;
+}
+
+.testMDP{
+    color:red;
+}
+
+#testInfosMDP{
+    color: green;
+}
+
+#checkboxShowMDP{
+    position: absolute;
+    left: 42em;
+
+    gap : 1em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#checkboxShowMDP>input{
+    width: 2em;
+    height: 2em;
+}
+
+#checkboxShowMDP>p{
+    width: 7em;
+    font-size: var(--taille-police-h5);
+}
+
+#boutonCreationMembre, #boutonCreationPro{
+    transition: all 0.3s ease;
+}
+
+#boutonCreationMembre:hover, #boutonCreationPro:hover{
+    transform: scale(1.2);
+}
+
+#boutonCreationMembre:focus{
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--couleur-primaire);
+}
+
+#boutonCreationPro:focus{
+    transform: scale(1);
+    box-shadow: 0 0 10px var(--couleur-secondaire);
+}
+
+/* Page Liste des Offres */
+
+/* -- Main -- */
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* -- Mise en page de la liste des offres -- */
+/* Variante membre et visiteur */
+#liste_offres{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10em;
+    margin-bottom: 5.5em;
+    gap: 2.5em;
+}
+
+/* -- Mise en page d'une vignette d'offre -- */
+#boite_apercu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'quattrocento-sans-regular';
+    width: 61em;
+    padding: 1.5em;
+    border-radius: 2.5em;
+    box-shadow: 0.5em 0.5em 3em black;
+}
+
+/* -- Réglage de la taille de l'image d'apperçu de l'offre -- */
+#boite_apercu img {
+    margin-right: 5px;
+    margin-bottom: 3px;
+    /* -- Alignement du texte avec le centre de l'image -- */
+    vertical-align: middle;
+}
+
+#droite_boite{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+/* -- Définition de la taille de l'image d'ilustration de l'offre -- */
+#image_offre{
+    border-radius: 30px;
+}
+
+/* -- Mise en page des infos, du bouton de détails de l'offre et de l'état de l'offre -- */
+#infos_bouton_etat{
+    margin-left: 1.5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 28em;
+}
+
+/* -- Mise en page du titre de l'offre -- */
+#titre_offre{
+    width: 12em;
+}
+
+/* -- Mise en page du résumé de l'offre -- */
+#resume_offre{
+    margin-top: 0.8em;
+    margin-bottom: 1.25em;
+    width: 22em;
+}
+
+/* -- Changement de la police pour la categorie et le titre de l'offre -- */
+#categorie_offre, #titre_offre{
+    font-family: 'montserrat-bold';
+}
+
+/* -- Changement de la police pour le nom du professionnel a l'origine de l'offre -- */
+#nom_pro_offre{
+    font-family: 'quattrocento-sans-bolditalic';
+}
+
+/* -- Mise en page de la localisation de l'offre et du prix -- */
+#loc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+}
+
+/* -- Réglage de la taille de l'image de la localisation -- */
+#loc img{
+    width: 3em;
+    height: 3em;
+
+    /* -- Ajustement de l'alignement avec le texte -- */
+    margin-right: -1em;
+}
+
+/* -- Réglage de la taille de l'image de la localisation -- */
+#loc h5 img{
+    width: 1.5em;
+    height: 1.5em;
+
+    /* -- Ajustement de l'alignement avec le texte -- */
+    margin-right: 0em;
+    margin-bottom: 0.2em;
+}
+
+/* -- Mise en page de l'état de l'offre et du bouton détails -- */
+#bouton_etat{
+    /* -- Deplacement en bas a droite de la vignette d'offre -- */
+    position: relative;
+    left: 15em;
+    /* -- Fin du deplacement en bas a droite de la vignette d'offre -- */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: auto;
+    gap: 1em;
+}
+
+/* -- Style du bouton détails -- */
+#btn_details{
+    width: 10em;
+    height: 4.5em;
+}
+
+#btn_details input{
+    width: 4.7em;
+    height: 2.2em;
+    border-radius: 20px;
+    border-width: 0;
+    background-color: var(--couleur-primaire);
+    box-shadow: 0.1em 0.1em 0.5em gray;
+    color: #FFFFFF;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding-left: 0;
+}
+
+/* -- Changement de style du bouton détails au survol -- */
+#btn_details input:hover{
+    background-color: white;
+    color: black;
+}
+
+#note_avis img{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/* -- Fin de la mise en page d'une vignette d'offre -- */
+/* Variante professionnel */
+
+#liste_offres_pro{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10em;
+    margin-bottom: 5.5em;
+    gap: 2.5em;
+}
+
+
+#btn_creer_offre_pro{
+    width: 20em;
+    height: 4.5em;
+}
+
+#btn_creer_offre_pro input{
+    width: 8em;
+    height: 2.2em;
+    border-radius: 20px;
+    border-width: 0;
+    background-color: var(--couleur-secondaire);
+    box-shadow: 0.1em 0.1em 0.5em gray;
+    color: #FFFFFF;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding-left: 0;
+}
+
+/* -- Changement de style du bouton détails au survol -- */
+#btn_creer_offre_pro input:hover{
+    background-color: white;
+    color: black;
+}
+
+/* -- Mise en page d'une vignette d'offre -- */
+#boite_apercu_pro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'quattrocento-sans-regular';
+    width: 61em;
+    padding: 1.5em;
+    border-radius: 2.5em;
+    box-shadow: 0.5em 0.5em 3em black;
+}
+
+#image_offre_pro{
+    border-radius: 30px;
+}
+
+/* -- Mise en page de la date de derniere mise à jour de l'offre, du type d'offre, de l'image d'illustration et du bouton de mise "en ligne"/"hors ligne -- */
+#droite_boite_pro {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+#droite_boite_pro h6{
+    opacity: 50%;
+}
+
+/* -- A VOIR AVEC MATHEO POUR LES COMS -- */
+.switch {
+    display: inline-block;
+    position: relative;
+    margin-top: 0.5em;
+    width: 14.3em;
+    height: 4em;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.switch input {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 0;
+    height: 0;
+}
+
+.switch input + span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border-radius: 99px;
+    border: 2px solid #DB7979;
+}
+
+.switch input:checked + span {
+    background: #FFFFFF;
+    border: 2px solid #049B7F;
+}
+
+.switch input + span:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 0.5em;
+    width: 3em;
+    height: 3em;
+    background: #DB7979;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all .5s;
+}
+
+.switch input:checked + span:before {
+    left: 10.5em;
+    background: #049B7F;
+}
+
+.switch input + span:after {
+    content: "HORS LIGNE";
+    font-size: 1.5em;
+    font-family: 'montserrat-semibold';
+    position: absolute;
+    top: 50%;
+    left: 2.5em;
+    transform: translateY(-50%);
+    color: #DB7979;
+    transition: all .5s;
+}
+
+.switch input:checked + span:after {
+    content: "EN LIGNE";
+    font-size: 1.5em;
+    font-family: 'montserrat-semibold';
+    left: 25px; 
+    color: #049B7F;
+}
+/* -- Fin du css bouton "en ligne"/"hors ligne" -- */
+
+/* -- Réglage de la taille de l'image d'apperçu de l'offre -- */
+#boite_apercu_pro img {
+    margin-right: 0.5em;
+    margin-bottom: 3px;
+    /* -- Alignement du texte avec le centre de l'image -- */
+    vertical-align: middle;
+}
+
+/* -- Mise en page du temps de validité de l'option -- */
+#temps_option{
+    display: flex;
+    flex-direction: row;
+    opacity: 50%;
+    margin-bottom: 1em;
+}
+#option{
+    font-family: 'quattrocento-sans-bold';
+}
+
+/* -- Mise en page des infos, du bouton de détails de l'offre et de l'état de l'offre -- */
+#infos_bouton_etat_pro{
+    margin-left: 1.5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 28em;
+}
+/* -- Mise en page du titre de l'offre -- */
+#titre_offre_pro{
+    width: 12em;
+}
+
+/* -- Mise en page du résumé de l'offre -- */
+#resume_offre_pro{
+    margin-top: 0.8em;
+    margin-bottom: 1.25em;
+    width: 22em;
+}
+
+/* -- Changement de la police pour la categorie et le titre de l'offre -- */
+#categorie_offre_pro, #titre_offre_pro{
+    font-family: 'montserrat-bold';
+}
+
+/* -- Changement de la police pour le nom du professionnel a l'origine de l'offre -- */
+#nom_pro_offre_pro{
+    font-family: 'quattrocento-sans-bolditalic';
+}
+
+/* -- Mise en page de la localisation de l'offre et du prix -- */
+#loc_pro {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2em;
+    width: 33em;
+}
+
+/* -- Réglage de la taille de l'image de la localisation -- */
+#loc_pro img{
+    width: 3em;
+    height: 3em;
+
+    /* -- Ajustement de l'alignement avec le texte -- */
+    margin-right: -1em;
+}
+
+/* -- Réglage de la taille de l'image de la localisation -- */
+#loc_pro h5 img{
+    width: 1.5em;
+    height: 1.5em;
+
+    /* -- Ajustement de l'alignement avec le texte -- */
+    margin-right: 0em;
+    margin-bottom: 0.2em;
+}
+
+#loc_pro div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 14em;
+}
+
+#blocage_dispo{
+    color: var(--couleur-annulation);
+}
+
+/* -- Mise en page de l'état de l'offre et du bouton détails -- */
+#bouton_etat_pro{
+    /* -- Deplacement en bas a droite dans la vignette d'offre -- */
+    position: relative;
+    left: 14em;
+    /* -- Fin du deplacement en bas a droite de la vignette d'offre -- */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1em;
+    gap: 1em;
+}
+
+/* -- Style du bouton détails -- */
+/* Variante professionnel */
+#btn_details_pro{
+    width: 10em;
+    height: 4.5em;
+}
+
+#btn_details_pro input{
+    width: 4.7em;
+    height: 2.2em;
+    border-radius: 20px;
+    border-width: 0;
+    background-color: var(--couleur-secondaire);
+    box-shadow: 0.1em 0.1em 0.5em gray;
+    color: #FFFFFF;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding-left: 0;
+}
+
+/* -- Changement de style du bouton détails au survol -- */
+#btn_details_pro input:hover{
+    background-color: white;
+    color: black;
+}
+
+#note_avis_pro img{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+/* Page de Création d'offre */
+
+/* Style pour le titre principal */
+.titre {
+    display: flex; /* Utilisation de flexbox pour aligner le contenu */
+    flex-direction: column; /* Disposition en colonne */
+    align-items: center; /* Alignement centré sur l'axe horizontal */
+    justify-content: center; /* Alignement centré sur l'axe vertical */
+    margin-top: 50px; /* Marge supérieure de 50px */
+    margin-bottom: 20px; /* Marge inférieure de 20px */
+    color: var(--couleur-secondaire); /* Couleur du texte selon la variable CSS */
+}
+
+.typeoff {
+    margin-left: 1em;
+    font-size: var(--taille-police-h4);
+    font-family: 'montserrat-regular';
+}
+
+label {
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+}
+
+/* Les étapes du processus */
+
+.container {
+    display: flex; /* Utilisation de flexbox pour la mise en page */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: flex-start; /* Aligner les éléments en haut */
+    position: relative; /* Position relative pour les éléments enfants */
+    margin-top: 10px; /* Marge supérieure de 10px */
+    margin-bottom: 20px; /* Marge inférieure de 20px */
+}
+
+.etape {
+    display: flex; /* Utilisation de flexbox pour chaque étape */
+    align-items: center; /* Centrer verticalement les éléments */
+    flex-direction: column; /* Disposition en colonne */
+    flex-wrap: wrap; /* Permet le passage à la ligne si nécessaire */
+    position: relative; /* Position relative pour les éléments enfants */
+    margin-right: 60px; /* Marge à droite de 60px */
+    z-index: 2; /* S'assurer que les étapes sont au-dessus des autres éléments */
+    width: 150px; /* Largeur fixe de chaque étape */
+    text-align: center; /* Centrer le texte à l'intérieur de chaque étape */
+}
+
+.circle {
+    width: 30px; /* Largeur du cercle */
+    height: 30px; /* Hauteur du cercle */
+    border-radius: 50%; /* Arrondir les bords pour créer un cercle */
+    border: 2px solid #d3d3d3; /* Bordure grise */
+    background-color: white; /* Couleur de fond blanche */
+    color: #d3d3d3; /* Couleur du texte dans le cercle */
+    display: flex; /* Utilisation de flexbox pour centrer le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    font-weight: bold; /* Mettre le texte en gras */
+    margin-right: 10px; /* Marge à droite de 10px */
+}
+
+.circle-fini{
+    width: 30px; /* Largeur du cercle */
+    height: 30px; /* Hauteur du cercle */
+    border-radius: 50%; /* Arrondir les bords pour créer un cercle */
+    border: 2px solid var(--couleur-secondaire); /* Bordure grise */
+    background-color: var(--couleur-secondaire); /* Couleur de fond blanche */
+    color: var(--couleur-secondaire); /* Couleur du texte dans le cercle */
+    display: flex; /* Utilisation de flexbox pour centrer le contenu */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    font-weight: bold; /* Mettre le texte en gras */
+    margin-right: 10px; /* Marge à droite de 10px */
+
+}
+
+.active {
+    border: 2px solid var(--couleur-secondaire); /* Bordure de la couleur secondaire */
+    background-color: white; /* Couleur de fond blanche pour l'élément actif */
+    color: var(--couleur-secondaire); /* Couleur du texte selon la variable CSS */
+}
+
+.active-text {
+    font-size: var(--taille-police-h6); /* Taille de police pour le texte actif */
+    font-family: 'montserrat-medium';
+    color: var(--couleur-secondaire); /* Couleur du texte selon la variable CSS */
+    text-align: center; /* Centrer le texte */
+    word-wrap: break-word; /* Permet de casser les mots longs */
+    max-width: 100%; /* Largeur maximale de 100% */
+}
+
+.line {
+    position: absolute; /* Position absolue pour créer une ligne entre les étapes */
+    width: 13em; /* Largeur de la ligne */
+    height: 4px; /* Hauteur de la ligne */
+    top: 14px; /* Position verticale de la ligne */
+    background-color: #d3d3d3; /* Couleur de la ligne */
+    margin-left: 11em; /* Marge à gauche pour positionner la ligne */
+    z-index: -1; /* Placer la ligne derrière les étapes */
+}
+
+.line1{
+    position: absolute; /* Position absolue pour créer une ligne entre les étapes */
+    width: 13em; /* Largeur de la ligne */
+    height: 4px; /* Hauteur de la ligne */
+    top: 14px; /* Position verticale de la ligne */
+    background-color: var(--couleur-secondaire); /* Couleur de la ligne */
+    margin-left: 11em; /* Marge à gauche pour positionner la ligne */
+    z-index: -1; /* Placer la ligne derrière les étapes */
+
+}
+.text {
+    font-size: var(--taille-police-h6); /* Taille de police pour le texte des étapes */
+    font-family: 'montserrat-medium';
+    color: #d3d3d3; /* Couleur du texte */
+    text-align: center; /* Centrer le texte */
+    word-wrap: break-word; /* Permet de casser les mots longs */
+    max-width: 100%; /* Largeur maximale de 100% */
+}
+
+
+.etape:last-child {
+    margin-right: 0; /* Pas de marge à droite pour la dernière étape */
+}
+
+/*Formulaire*/
+
+/* Style pour le formulaire */
+form {
+    margin-left: 75px; /* Marge à gauche de 75px */
+    padding: 20px; /* Rembourrage de 20px autour du formulaire */
+}
+ .nom-offre{
+    margin-bottom: 2em;
+} 
+
+.marginbtm{
+    margin-bottom: 2em;
+}
+/* Style pour les entrées de nom d'offre */
+.nom-offre input {
+    width: 30%; /* Largeur de 30% pour l'entrée */
+    border-radius: 10px; /* Arrondir les bords */
+    border: 1px solid var(--couleur-bordure-input); /* Bordure de couleur définie par la variable CSS */
+    padding: 8px; /* Ajout de rembourrage à l'intérieur de l'entrée */
+    font-size: var(--taille-police-h4) ; /* Taille de police pour le texte */
+    
+}
+
+.row {
+    display: flex; /* Utilisation de flexbox pour l'alignement */
+    align-items: center; /* Aligner verticalement les éléments au centre */
+    margin-bottom: 15px; /* Espace entre les lignes */
+    
+}
+
+/* Style pour les sélecteurs dans les lignes */
+.row select {
+    margin-left: 10px; /* Marge à gauche de 10px */
+    color: #000; /* Couleur du texte */
+    border: 1px solid var(--couleur-secondaire); /* Bordure de couleur secondaire */
+    padding: 8px; /* Ajout de rembourrage */
+    width: 30%; /* Largeur de 30% pour le sélecteur */
+    border-radius: 5px; /* Arrondir les bords du sélecteur */
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+
+}
+
+.row option {
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+}
+
+.row_op{
+    margin-left: 1em;
+    /*make it row*/
+    
+}
+/* Style pour les boutons radio */
+.radio-group {
+    display: flex; /* Utilisation de flexbox pour l'alignement des boutons radio */
+    align-items: center; /* Centrer verticalement les boutons radio et les étiquettes */
+}
+
+/* Style des boutons radio */
+.radio-group input[type="radio"] {
+    -webkit-appearance: none; /* Supprimer le style par défaut sur Safari et Chrome */
+    -moz-appearance: none;    /* Supprimer le style par défaut sur Firefox */
+    appearance: none;         /* Supprimer le style par défaut pour les navigateurs modernes */
+    
+    width: 30px;              /* Largeur du cercle externe */
+    height: 30px;             /* Hauteur du cercle externe */
+    border-radius: 50%;       /* Arrondir pour créer un cercle */
+    border: 2px solid black; /* Bordure noire */
+    margin-right: 5px;        /* Espace entre le bouton radio et l'étiquette */
+    cursor: pointer;          /* Changer le curseur au survol */
+    outline: none;            /* Supprimer le contour par défaut */
+    position: relative;       /* Position relative pour le pseudo-élément */
+
+}
+
+/* Créer un cercle interne avec ::before */
+.radio-group input[type="radio"]::before {
+    content: "";              /* Nécessaire pour les pseudo-éléments */
+    position: absolute;       /* Position absolue pour placer à l'intérieur */
+    top: 50%;                 /* Centrer verticalement */
+    left: 50%;                /* Centrer horizontalement */
+    width: 15px;              /* Largeur du cercle interne */
+    height: 15px;             /* Hauteur du cercle interne */
+    border-radius: 50%;       /* Arrondir pour créer un cercle */
+    background-color: rgb(2, 2, 2);  /* Couleur du cercle interne */
+    transform: translate(-50%, -50%); /* Centrer le cercle interne */
+    opacity: 0;               /* Masquer initialement */
+    transition: opacity 0.3s; /* Transition fluide pour l'affichage */
+}
+
+/* Afficher le cercle interne lorsque le bouton radio est coché */
+.radio-group input[type="radio"]:checked::before {
+    opacity: 1;               /* Afficher le cercle interne */
+}
+
+/* Style pour les étiquettes des boutons radio */
+.radio-group label {
+    margin-right: 15px;       /* Espace entre les étiquettes pour plusieurs boutons radio */
+    font-size: var(--taille-police-h3);          /* Taille de police pour les étiquettes */
+    font-family: 'quattrocento-sans-regular'; /* Police régulière Quattrocento Sans */
+    color: #333232;              /* Couleur du texte pour les étiquettes */
+    cursor: pointer;          /* Curseur en forme de main pour une meilleure UX */
+}
+
+.radio-group1 {
+    display: flex; /* Utilisation de flexbox pour l'alignement des boutons radio */
+    align-items: center; /* Centrer verticalement les boutons radio et les étiquettes */
+}
+
+.radio-group1 input[type="radio"]{
+    -webkit-appearance: none; /* Supprimer le style par défaut sur Safari et Chrome */
+    -moz-appearance: none;    /* Supprimer le style par défaut sur Firefox */
+    appearance: none;         /* Supprimer le style par défaut pour les navigateurs modernes */
+    
+    width: 30px;              /* Largeur du cercle externe */
+    height: 30px;             /* Hauteur du cercle externe */
+    border-radius: 50%;       /* Arrondir pour créer un cercle */
+    border: 2px solid var(--couleur-secondaire); /* Bordure noire */
+    margin-right: 5px;        /* Espace entre le bouton radio et l'étiquette */
+    cursor: pointer;          /* Changer le curseur au survol */
+    outline: none;            /* Supprimer le contour par défaut */
+    position: relative;       /* Position relative pour le pseudo-élément */
+
+
+}
+.radio-group1 input[type="radio"]::before{
+    content: "";              /* Nécessaire pour les pseudo-éléments */
+    position: absolute;       /* Position absolue pour placer à l'intérieur */
+    top: 50%;                 /* Centrer verticalement */
+    left: 50%;                /* Centrer horizontalement */
+    width: 15px;              /* Largeur du cercle interne */
+    height: 15px;             /* Hauteur du cercle interne */
+    border-radius: 50%;       /* Arrondir pour créer un cercle */
+    background-color: var(--couleur-secondaire);  /* Couleur du cercle interne */
+    transform: translate(-50%, -50%); /* Centrer le cercle interne */
+    opacity: 0;               /* Masquer initialement */
+    transition: opacity 0.3s; /* Transition fluide pour l'affichage */
+
+}
+
+
+.radio-group1 input[type="radio"]:checked::before {
+    opacity: 1;               /* Afficher le cercle interne */
+}
+
+
+.radio-group1 label {
+    margin-right: 15px;       /* Espace entre les étiquettes pour plusieurs boutons radio */
+    font-size: var(--taille-police-h3);          /* Taille de police pour les étiquettes */
+    font-family: 'quattrocento-sans-regular'; /* Police régulière Quattrocento Sans */
+    color: #333232;              /* Couleur du texte pour les étiquettes */
+    cursor: pointer;          /* Curseur en forme de main pour une meilleure UX */
+}
+/* Style général pour les étiquettes */
+label {
+    color: #333; /* Couleur du texte pour les étiquettes */
+}
+
+/* Style pour les étiquettes importantes */
+.label-imp {
+    font-size: var(--taille-police-h3); /* Taille de police selon la variable CSS */
+    font-family: 'montserrat-bold'; /* Police en gras Montserrat */
+    color: black; /* Couleur noire pour les étiquettes importantes */
+}
+
+/* Style commun pour les étiquettes, sélecteurs et entrées */
+label, select, input[type="text"], input[type="date"], input[type="number"] {
+    display: block; /* Afficher en bloc pour chaque élément */
+    margin-top: 10px; /* Marge supérieure de 10px */
+    margin-bottom: 15px; /* Marge inférieure de 15px */
+    padding: 8px; /* Rembourrage pour une meilleure apparence */
+}
+
+/* Style pour les entrées de date */
+input[type="date"] {
+    border-radius: 10px; /* Arrondir les bords */
+    font-size: var(--taille-police-h4); /* Taille de police pour le texte */
+}
+
+/* Style pour les entrées de nombre */
+input[type="number"] {
+    border-radius: 10px; /* Arrondir les bords */
+    font-size: var(--taille-police-h4); /* Taille de police pour le texte */
+}
+
+/* Style pour les options dans le formulaire */
+.row-option {
+    display: flex;            /* Utilisation de flexbox pour la mise en page */
+    align-items: center;     /* Centrer verticalement les éléments */
+    margin-bottom: 15px;     /* Espace entre chaque ligne */
+    flex-direction: row;
+}
+
+/* Style pour les étiquettes des options */
+.row-option label {
+    margin-right: 10px;      /* Espace entre l'étiquette et l'entrée */
+    /* Ajuster la taille de police de l'étiquette si nécessaire */
+}
+
+/* Style pour les entrées de date dans les options */
+.row-option input[type="date"], 
+.row-option2 input[type="number"] {
+    padding: 9px;       /* Rembourrage pour une meilleure apparence */
+    font-size: var(--taille-police-h4);
+    font-family: 'quattrocento-sans-italic';
+    color: var(--couleur-bordure-input);
+}
+
+/* Style pour la deuxième ligne d'options */
+.row-option2 {
+    display: flex;            /* Utilisation de flexbox pour la mise en page */
+    align-items: center;     /* Centrer verticalement les éléments */
+    margin-bottom: 15px;     /* Espace entre chaque ligne */
+    font-size: var(--taille-police-h4);
+    font-family: 'quattrocento-sans-italic';
+}
+
+/* Style pour les étiquettes dans la deuxième ligne d'options */
+.row-option2 label {
+    margin-right: 10px;      /* Espace entre l'étiquette et l'entrée */
+}
+
+/* Style pour les entrées de nombre dans la deuxième ligne d'options */
+.row-option2 input[type="number"] {
+    width: 60px;      /* Largeur définie pour l'entrée de nombre */
+    padding: 8px;            /* Rembourrage pour une meilleure apparence */
+}
+
+.page-suiv{
+    width: 488px;
+    height: 106px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 38em;
+    background-color: var(--couleur-secondaire);
+    color: white;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Align buttons in the center */
+    margin-top: 5em;
+    margin-left: 5em;
+    margin-right: 5em;
+    margin-bottom: 2em;
+}
+
+
+
+.page-suiv1{
+    width: 488px;
+    height: 106px;
+    margin-left: 38em;
+    margin-top: 1em;
+    display: flex;
+    justify-content: end;
+    background-color: var(--couleur-secondaire);
+    color: white;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+   
+}
+
+.page-pre{
+    width: 488px;
+    height: 106px;
+    margin-bottom: 2em;
+    margin-left: 3em;
+   
+    background-color: var(--couleur-secondaire);
+    color: white;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.page-modi{
+
+    width: 30%;   
+    margin-bottom: 10px;
+    background-color: var(--couleur-secondaire);
+    color: white;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+
+.page-cree{
+    width: 30%;
+    margin-top: 90px;
+    margin-left: 25em ;
+    margin-bottom: 10px;
+    background-color: var(--couleur-secondaire);
+    color: white;
+    font-family: 'quattrocento-sans-bold';
+    font-size: var(--taille-police-h4);
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/*Restaurant*/
+
+
+.label-res{
+    font-size: var(--taille-police-h3);
+    font-family: 'quattrocento-sans-bolditalic';
+    color: black;
+    margin-left: 20px;
+}
+
+.row-res {
+    display: flex;
+    flex-direction: row;
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-ragular';
+    color: black;
+    margin-left: 20px;
+}
+
+/* Hide default checkbox appearance */
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Checkbox checked state styling */
+.custom-checkbox:checked {
+    background-color: white;
+    border-color: black;
+}
+
+.custom-checkbox:checked::after {
+    content: "\2713"; /* Unicode for checkmark */
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: -2px;
+    left: 5px;
+}
+
+
+/* Activite*/
+/* Time input field styling */
+.custom-time {
+    width: 153px;
+    height: 68px;
+    border: 2px solid var(--couleur-bordure-input);
+    border-radius: 20px;
+    padding: 6px;
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+    color: var(--couleur-bordure-input);
+    margin-bottom: 10px;
+}
+
+/* Number input field styling */
+.custom-number {
+    width: 109px;
+    height: 68px;
+    border: 2px solid var(--couleur-bordure-input);
+    border-radius: 20px;
+    padding: 5px;
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+    color: var(--couleur-bordure-input);
+    margin-bottom: 10px;
+}
+
+/* Button to add prestations */
+.ajouter-prestation {
+    background-color: white;
+    border-radius: 4px;
+    color: black;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-bolditalic';
+    display: inline-flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+
+.ajouter-prestation .icon {
+    background-color: #00a676;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+/* Dynamic prestation input field */
+.custom-prestation {
+    display: block;
+    margin: 5px 0;
+    width: 90%;
+    padding: 8px;
+    font-size: var(--taille-police-p);
+   
+    border-radius: 4px;
+}
+
+/*  Parc*/
+
+.section {
+    margin-bottom: 20px;
+}
+
+
+/* Plan du parc - file upload */
+.upload-container {
+    position: relative;
+    width: 1218px;
+    height: 342.92px;
+    background-color: #8ED1C6;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.upload-container1{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    position: relative;
+    width: 1218px;
+    height: 343px;
+    background-color: #8ED1C6;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.upload-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-text{
+    font-size: var(--taille-police-h2);
+    font-family: 'quattrocento-sans-bold';
+    z-index: 2;
+}
+
+.upload-text2{
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+    z-index: 2;
+}
+
+
+.centre-img-upload {
+    width: 132.21px;
+    height: 137px;
+    margin-right: 10px;
+    position: absolute; /* Make the image absolute */
+    top: 15px; 
+    z-index: 1;
+}
+#file-upload {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Attractions */
+.add-attraction {
+    background-color: transparent;
+    border: none;
+    font-size: var(--taille-police-p);
+    color: black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.add-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+/* Style to the "+" button */
+button.add-attraction:hover {
+    text-decoration: none;
+}
+
+/*Visite*/
+
+
+.row-vis{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.radio-group2{
+    margin-left: 20px;
+}
+
+/* Style des boutons radio */
+.radio-group2 input[type="radio"] {
+    -webkit-appearance: none; /* Supprimer le style par défaut sur Safari et Chrome */
+    -moz-appearance: none;    /* Supprimer le style par défaut sur Firefox */
+    appearance: none;         /* Supprimer le style par défaut pour les navigateurs modernes */
+    
+    width: 25px;              /* Largeur du cercle externe */
+    height: 25px;             /* Hauteur du cercle externe */
+    border-radius: 50%;       /* Arrondir pour créer un cercle */
+    border: 2px solid black; /* Bordure noire */
+    margin-right: 5px;        /* Espace entre le bouton radio et l'étiquette */
+    cursor: pointer;          /* Changer le curseur au survol */
+    outline: none;            /* Supprimer le contour par défaut */
+    position: relative;       /* Position relative pour le pseudo-élément */
+
+}
+
+/* Créer un cercle interne avec ::before */
+.radio-group2 input[type="radio"]::before {
+    content: "";              /* Nécessaire pour les pseudo-éléments */
+    position: absolute;       /* Position absolue pour placer à l'intérieur */
+    top: 50%;                 /* Centrer verticalement */
+    left: 50%;                /* Centrer horizontalement */
+    width: 12.5px;              /* Largeur du cercle interne */
+    height: 12.5px;             /* Hauteur du cercle interne */
+    border-radius: 50%;       /* Arrondir pour créer un cercle */
+    background-color: rgb(2, 2, 2);  /* Couleur du cercle interne */
+    transform: translate(-50%, -50%); /* Centrer le cercle interne */
+    opacity: 0;               /* Masquer initialement */
+    transition: opacity 0.3s; /* Transition fluide pour l'affichage */
+}
+
+/* Afficher le cercle interne lorsque le bouton radio est coché */
+.radio-group2 input[type="radio"]:checked::before {
+    opacity: 1;               /* Afficher le cercle interne */
+}
+
+/* Style pour les étiquettes des boutons radio */
+.radio-group2 label {
+    margin-right: 15px;       /* Espace entre les étiquettes pour plusieurs boutons radio */
+    font-size: var(--taille-police-h3);          /* Taille de police pour les étiquettes */
+    font-family: 'quattrocento-sans-regular'; /* Police régulière Quattrocento Sans */
+    color: #333232;              /* Couleur du texte pour les étiquettes */
+    cursor: pointer;          /* Curseur en forme de main pour une meilleure UX */
+}
+
+.margin-vis{
+    margin-left: 90px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/*Image*/
+
+.image-text{
+    
+    font-family: 'montserrat-bold';
+}
+
+/*Resumer*/
+
+/* Style des champs input et textarea */
+
+.form-group textarea {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: var(--taille-police-h4);
+}
+
+
+
+.form-group1 textarea{   
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: var(--taille-police-h4);
+}
+
+
+/* Texte en rouge pour les placeholders avec * */
+
+
+.form-group textarea::placeholder,
+.form-group1 textarea::placeholder {
+    margin-left: 20px;
+    
+    font-size: var(--taille-police-h4);
+    font-family: 'quattrocento-sans-italic';
+}
+
+/* Personnalisation de la zone de texte pour la Description */
+.form-group1 textarea {
+    resize: none; /* Désactiver le redimensionnement */
+    width: 1218px;
+    height: 429px; /* Hauteur fixe de la zone de texte */
+    margin-top: 20px; /* Marge supérieure de 20px */
+    margin-bottom: 20px; /* Marge inférieure de 20px */
+    overflow-y: auto; /* Activer le défilement vertical */
+    position: relative;
+    padding-right: 40px; /* Pour laisser de la place pour la barre de défilement */
+}
+
+.form-group textarea {
+    resize: none; /* Désactiver le redimensionnement */
+    width: 1218px;
+    height: 180px; /* Hauteur fixe de la zone de texte */
+    margin-top: 20px; /* Marge supérieure de 20px */
+    margin-bottom: 20px; /* Marge inférieure de 20px */
+    overflow-y: auto; /* Activer le défilement vertical */
+    position: relative;
+    padding-right: 40px; /* Pour laisser de la place pour la barre de défilement */
+}
+/* Style de la barre de défilement personnalisée */
+.form-group1 textarea::-webkit-scrollbar {
+    width: 58px;
+}
+
+.form-group1 textarea::-webkit-scrollbar-thumb {
+    background-color: white; /* Couleur de la barre */
+    width: 1px;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.form-group1 textarea::-webkit-scrollbar-track {
+    background-color: var(--couleur-secondaire); /* Couleur de l'arrière-plan */
+    border-radius: 20px;
+}
+
+
+.form-group2 textarea{   
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: var(--taille-police-h4);
+}
+
+
+/* Texte en rouge pour les placeholders avec * */
+
+
+
+.form-group2 textarea::placeholder {
+    margin-left: 20px;
+    color: black;
+    font-size: var(--taille-police-h4);
+    font-family: 'quattrocento-sans-italic';
+}
+
+/* Personnalisation de la zone de texte pour la Description */
+.form-group2 textarea {
+    resize: none; /* Désactiver le redimensionnement */
+    width: 1218px;
+    height: 220px; /* Hauteur fixe de la zone de texte */
+    margin-top: 20px; /* Marge supérieure de 20px */
+    margin-bottom: 20px; /* Marge inférieure de 20px */
+    overflow-y: auto; /* Activer le défilement vertical */
+    position: relative;
+    padding-right: 40px; /* Pour laisser de la place pour la barre de défilement */
+    
+}
+
+
+/* Style de la barre de défilement personnalisée */
+.form-group2 textarea::-webkit-scrollbar {
+    width: 58px;
+}
+
+.form-group2 textarea::-webkit-scrollbar-thumb {
+    background-color: white; /* Couleur de la barre */
+    width: 1px;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.form-group2 textarea::-webkit-scrollbar-track {
+    background-color: var(--couleur-secondaire); /* Couleur de l'arrière-plan */
+    border-radius: 20px;
+}
+
+textarea:disabled {
+    background-color: var(--couleur-secondaire);
+    opacity: 0.5;
+}
+
+/*page 3*/
+/* Main Container Styling */
+#formulaire3 .bloc {
+    width: 1300px;
+    height: 1200px;
+    background-color: #fff;
+
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2em;
+    border-radius: 25px;
+    padding: 2em;
+    margin: 50px auto;
+    box-shadow: 0.5em 0.5em 3em grey;
+}
+
+/* Section Title */
+#formulaire3 .bloc h4 {
+    font-family: 'montserrat-bold';
+    margin-bottom: 1em;
+}
+
+/* Google Map */
+#formulaire3 iframe {
+    border-radius: 15px;
+    margin-bottom: 2em;
+    border-color: black;
+    border-style: solid;
+
+}
+
+/* Row Layout */
+.row-res {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5em;
+}
+
+/* Input Styling */
+#formulaire3 input {
+    width: 248px; /* Input width */
+    height: 68px; /* Matches the height of the images */
+    padding: 0.5em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Address Complement Input */
+#zoneCompAdr input {
+    margin-left: 2.5em;
+    width: 83%;
+}
+
+/* Images */
+#formulaire3 .row-res img {
+    width: 50px;
+    height: 50px;
+    
+}
+#formulaire3 img {
+   margin-left: 0.5em;
+}
+
+#formulaire3 #codePostal {
+    width: 207px;
+}
+
+#formulaire3 #ville {
+    width: 248px;
+}
+
+#formulaire3 #numRue {
+    width: 207px;
+}
+
+#formulaire3 #nomRue {
+    width: 407px;
+}
+
+/* Larger Inputs (Email, Website, etc.) */
+
+
+#formulaire3 #email{
+    width: 83%;
+
+}
+
+#formulaire3 #siteWeb {
+    width: 434px; /* Large inputs fill most of the row */
+}
+
+
+#formulaire3 #telephone {
+    width: 347px; /* Phone field is smaller */
+}
+
+
+/*page 4*/
+
+#formulaire4 .bloc {
+    width: 1222px;
+    background-color: #fff;
+
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2em;
+    border-radius: 25px;
+    padding: 2em;
+    
+    box-shadow: 0.5em 0.5em 3em grey;
+}
+
+#formulaire4 .bloc h4 {
+    font-family: 'montserrat-bold';
+    margin-bottom: 1em;
+}
+
+
+.day-schedule {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    border: 2px solid var(--couleur-secondaire);
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 1px;
+    background-color: var(--couleur-secondaire);
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--couleur-secondaire);
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+    background-color: #ffffff;
+
+}
+
+.hor-label {
+    font-family: 'montserrat-medium';
+    font-size: var(--taille-police-h4);
+    margin-top: 2px;
+    
+}
+
+.ms-label{
+    font-family: 'quattrocento-sans-italic';
+    font-size: var(--taille-police-h5);
+
+}
+
+.soir{
+    margin-left: 0.9em;
+   
+}
+
+.colume-hor{
+    display: flex;
+    flex-direction: column;
+    margin-left: 12em;
+
+}
+
+.colume-hor1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10.4em;
+
+}
+
+.colume-hor2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 12.3em;
+
+}
+
+.colume-hor3{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10.4em;
+
+}
+
+.colume-hor4{
+    display: flex;
+    flex-direction: column;
+    margin-left: 11.2em;
+
+}
+
+.colume-hor5{
+    display: flex;
+    flex-direction: column;
+    margin-left: 9.8em;
+
+}
+
+.time-input input[type="time"] {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #e0f2f1;
+    width: 6em;
+}
+
+
+.time-input {
+    display: flex;
+    align-items: center;
+}
+
+
+.conteneur-prix {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    
+}
+
+.etiquette-prix {
+    
+    font-family: 'montserrat-bold';
+    font-size: var(--taille-police-h2);
+    margin-right: 10px;
+}
+
+.champs-prix {
+    display: flex;
+    align-items: center;
+    
+}
+
+.conteneur-champ {
+    position: relative;
+    display: inline-block;
+}
+
+.conteneur-champ input {
+    width: 166.87px;
+    height: 68px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.conteneur-champ input::placeholder {
+    color: #999;
+    font-size: 'quattrocento-sans-italic';
+    font-size: var(--taille-police-h4);
+}
+
+.conteneur-champ input:focus {
+    border-color: #000;
+}
+
+.obligatoire {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: red;
+    font-size: 14px;
+}
+
+.texte-a {
+    margin: 0 10px;
+    font-family: 'quattrocento-sans-regular';
+    font-size: var(--taille-police-p);
+}
+
+
+/*page 5*/
+
+/* Row Styling */
+
+
+.cat_pg5 h4{
+    font-family: 'montserrat-bold';
+    font-size: var(--taille-police-h4);
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.row_pg5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Left Section */
+.left-section h2 {
+    font-size: var(--taille-police-h2);
+    font-family: 'montserrat-bold';
+    margin: 0;
+    color: #000;
+}
+
+.left-section p {
+    font-size: var(--taille-police-p);
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Right Section */
+.right-section p {
+    font-size: var(--taille-police-p);
+    color: #444;
+    margin: 0;
+    text-align: right;
+}
+
+
+/* Flex container for the row */
+.contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+/* Individual contact items */
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    flex: 1;
+}
+
+/* Styling for logos */
+.contact-item img.logo {
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+}
+
+/* Styling for text */
+.contact-item p {
+    margin: 0;
+    font-size: var(--taille-police-p);
+    color: #333;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+
+/* DIAPORAMA */
+
+.custom-slider {
+    display: none;
+}
+
+.slide-container {
+    max-width: 45%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.6s ease;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slide-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    text-align: center;
+}
+
+.slide-dot {
+    text-align: center;
+    justify-content: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #999999;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot:hover {
+    background-color: #111111;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+
+
+/* SECTIONS "BLOC" */
+.bloc, .petit-bloc {
+    border-color: black;
+    border-style: solid;
+    border-width: 0.2em;
+    border-radius: 25px;
+    padding: 2em;
+    margin: 1em;
+    box-shadow: 0.5em 0.5em 3em grey;
+    width: 100%;
+}
+
+.petit-bloc {
+    width: 47.75%;
+}
+
+.bloc iframe {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.bloc h3, .petit-bloc h3 {
+    font-family: 'quattrocento-sans-bold';
+}
+
+.bloc h4, .petit-bloc h4 {
+    font-family: 'montserrat-bold';
+}
+
+
+/* DETAILS */
+#details {
+    display: block;
+    height: 100%;
+}
+
+#details .ensemble_pg5 {
+    display: block;
+    padding-bottom: 10%;
+}
+
+/* HORAIRES */
+table {
+    width: 100%;
+}
+
+td {
+    padding-bottom: 1em;
+    font-size: var(--taille-police-p);
+    font-family: 'quattrocento-sans-regular';
+}
+
+main a {
+    color: black;
+    text-decoration: none; /* retire le soulignement si nécessaire */
+}
+
+main a:visited {
+    color: black;
+}
+
+main a:hover {
+    color: black;
+}
+
+main a:active {
+    color: black;
+}
+
+.container_page5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}

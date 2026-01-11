@@ -1,0 +1,2 @@
+2023-12-19 09:40:45.732 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP4\Reldb] Start DB remove/truncate scan, id=1 dbId=22 dbName=relvar_141
+2023-12-19 09:40:45.733 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP4\Reldb] End DB remove/truncate scan, id=1 scanned=2 dbId=22 dbName=relvar_141

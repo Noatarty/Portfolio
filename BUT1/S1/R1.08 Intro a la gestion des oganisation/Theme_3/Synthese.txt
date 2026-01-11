@@ -1,0 +1,68 @@
+Première partie : la démarche stratégique)
+
+1) **Qu’est-ce qu’une stratégie ?**
+   Une stratégie est la détermination des buts et des objectifs à long terme d'une entreprise, ainsi que l'adoption des moyens d'action et l'allocation des ressources nécessaires pour atteindre ces objectifs. Elle relève de la direction générale de l'entreprise et vise à aligner le métier de l'entreprise (ses ressources et compétences) avec sa mission (sa raison d'être) pour réduire l'écart entre les deux.
+
+2) **Quelles sont les étapes de la planification stratégique ?**
+   Les étapes de la planification stratégique comprennent généralement :
+   - La définition des objectifs stratégiques, déclinés ensuite en objectifs tactiques et opérationnels.
+   - L'analyse et le diagnostic stratégique, permettant de mettre en lumière les forces et les faiblesses de l'entreprise, ainsi que les opportunités et les menaces de l'environnement. Ces éléments peuvent être regroupés dans un diagnostic SWOT.
+   - La conception et l'action stratégique, impliquant l'établissement de plans d'action et l'allocation des ressources nécessaires à la mise en œuvre de la stratégie. L'élaboration des budgets peut également être réalisée à cette étape.
+   - La phase de contrôle stratégique, qui sert à évaluer les décisions prises et à mesurer le degré d'atteinte des objectifs fixés. En cas d'écarts, des actions correctrices sont mises en œuvre pour réorienter la stratégie.
+
+3) **Quels sont les niveaux de stratégie ?**
+   Il existe deux niveaux principaux de stratégie :
+   - **Stratégie globale (Corp Strategy)** : Cette stratégie concerne l'entreprise dans son ensemble, même si elle comporte différentes filiales ou opère sur différents marchés. Elle détermine la direction générale de l'entreprise.
+   - **Stratégie concurrentielle (Business Strategy)** : Cette stratégie se réfère aux choix opérés pour chaque activité spécifique de l'entreprise, que ce soit pour chaque filiale ou marché. Elle vise à prendre des décisions visant à contrer la concurrence.
+
+
+Partie 2: le diagnostic stratégique de l’organisation)
+
+**Analyse stratégique externe :**
+
+4) **Définitions :**
+   - **Environnement :** L'environnement de l'entreprise est l'ensemble des éléments extérieurs à l'entreprise ayant une influence directe ou indirecte sur son activité.
+   - **Macro-environnement :** Le macro-environnement regroupe les éléments extérieurs à l'entreprise et globalement éloignés, mais qui influencent indirectement son activité.
+   - **Micro-environnement :** Le micro-environnement rassemble des acteurs ou parties prenantes qui ont des intérêts parfois antagonistes dans la vie de l'entreprise.
+
+5) **Méthode pour analyser le macro-environnement :** La méthode utilisée pour analyser le macro-environnement est le diagnostic PESTEL. Cette méthode consiste à identifier et analyser les éléments politiques, économiques, socioculturels, technologiques, écologiques et législatifs qui peuvent avoir une influence sur la stratégie de l'organisation.
+
+6) **Méthode pour analyser le micro-environnement :** L'analyse du micro-environnement se fait en utilisant l'outil des cinq forces de Porter. Cette méthode permet d'identifier les forces qui influencent l'environnement proche de l'entreprise, notamment les concurrents, les clients, les fournisseurs, les produits de substitution et les nouveaux entrants.
+
+**Analyse stratégique interne :**
+
+7) Lorsque l'on fait une analyse interne de l'organisation, on analyse les ressources et les compétences de l'entreprise.
+
+8) Les ressources à analyser comprennent :
+   - **Ressources humaines :** L'ensemble des individus de l'organisation.
+   - **Ressources matérielles :** Les biens d'équipement, machines et outils.
+   - **Ressources financières :** Les capitaux financiers disponibles pour l'entreprise.
+   - **Ressources informationnelles :** Les données du système d'information de l'organisation.
+   - **Ressources immatérielles ou intangibles :** Liées à l'image de marque ou aux brevets de l'entreprise.
+
+9) La notion de compétences évoquée dans la vidéo se réfère à la capacité de l'entreprise à allouer et mobiliser les ressources dont elle dispose. Les compétences englobent à la fois les connaissances et l'expérience accumulées au fil des années. Elles sont essentielles pour tirer le meilleur parti des ressources disponibles et obtenir un avantage concurrentiel sur le marché.
+
+10) **Expliquez la notion de chaîne de valeur :**
+    La chaîne de valeur est un concept qui représente l'ensemble des activités qu'une entreprise effectue pour créer de la valeur ajoutée à ses produits ou services, depuis l'acquisition des matières premières jusqu'à la livraison du produit final au client. Cette chaîne est composée de diverses étapes, telles que la production, la distribution, le marketing, la vente, la logistique, etc. Chaque étape contribue d'une manière ou d'une autre à la création de valeur pour le client.
+
+11) **Que permet de déterminer la chaîne de valeur ?**
+    La chaîne de valeur permet de déterminer quelles activités spécifiques dans le processus de production et de livraison d'un produit ou service ajoutent réellement de la valeur, et lesquelles sont moins efficaces ou moins rentables. Cela aide l'entreprise à identifier ses avantages concurrentiels, à améliorer ses processus, à réduire les coûts et à mieux répondre aux besoins des clients.
+
+12) **Que permet d’évaluer le diagnostic externe ?**
+    Le diagnostic externe permet d'évaluer les opportunités et les menaces de l'environnement externe de l'entreprise. Il s'agit d'analyser les facteurs externes tels que les tendances du marché, la concurrence, la réglementation, l'économie, la technologie, etc., qui peuvent influencer la stratégie de l'entreprise. L'objectif est de prendre en compte ces facteurs pour ajuster la stratégie de l'entreprise en conséquence.
+
+13) **Que permet d’évaluer le diagnostic interne ?**
+    Le diagnostic interne permet d'évaluer les forces et les faiblesses de l'entreprise. Il s'agit d'analyser les ressources tangibles et intangibles de l'entreprise, ainsi que les compétences individuelles et collectives de ses employés. Cette analyse aide l'entreprise à comprendre ses atouts internes et les domaines dans lesquels des améliorations sont nécessaires pour atteindre ses objectifs stratégiques.
+
+14) **Qu’est-ce que la matrice SWOT ?**
+    La matrice SWOT est un outil d'analyse stratégique qui synthétise les résultats du diagnostic externe et interne de l'entreprise. SWOT est l'acronyme de :
+    - **Forces (Strengths)** : Les atouts internes de l'entreprise.
+    - **Faiblesses (Weaknesses)** : Les faiblesses internes de l'entreprise.
+    - **Opportunités (Opportunities)** : Les opportunités externes à l'entreprise.
+    - **Menaces (Threats)** : Les menaces externes à l'entreprise.
+
+Travail préparatoire 
+micro envirronement
+recenser les forces de porter
+analyse macro
+recenser les composantes de l'envirronement(méthode pestel)

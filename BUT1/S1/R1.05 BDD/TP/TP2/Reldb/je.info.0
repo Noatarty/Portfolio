@@ -1,0 +1,16 @@
+2023-12-06 10:12:55.923 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=1 dbId=22 dbName=relvar_141
+2023-12-06 10:12:55.926 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=1 scanned=2 dbId=22 dbName=relvar_141
+2023-12-06 10:13:25.926 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=2 dbId=24 dbName=relvar_156
+2023-12-06 10:13:25.926 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=2 scanned=0 dbId=24 dbName=relvar_156
+2023-12-06 10:13:25.938 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=3 dbId=26 dbName=relvar_159
+2023-12-06 10:13:25.939 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=3 scanned=0 dbId=26 dbName=relvar_159
+2023-12-06 10:13:25.960 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=4 dbId=28 dbName=relvar_163
+2023-12-06 10:13:25.960 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=4 scanned=0 dbId=28 dbName=relvar_163
+2023-12-06 10:13:25.990 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=5 dbId=30 dbName=relvar_168
+2023-12-06 10:13:25.990 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=5 scanned=0 dbId=30 dbName=relvar_168
+2023-12-06 10:13:26.003 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=6 dbId=32 dbName=relvar_171
+2023-12-06 10:13:26.003 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=6 scanned=0 dbId=32 dbName=relvar_171
+2023-12-06 10:13:26.033 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=7 dbId=34 dbName=relvar_176
+2023-12-06 10:13:26.033 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=7 scanned=0 dbId=34 dbName=relvar_176
+2023-12-06 10:13:26.044 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] Start DB remove/truncate scan, id=8 dbId=36 dbName=relvar_179
+2023-12-06 10:13:26.045 UTC INFO [C:\Users\pomme\Documents\IUT\BUT1\R1.05 BDD\TP\TP2\Reldb] End DB remove/truncate scan, id=8 scanned=0 dbId=36 dbName=relvar_179

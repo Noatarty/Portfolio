@@ -1,0 +1,8 @@
+Impression générale du CV : une base agréable à lire, mais à améliorer en suivant les remarques et les conseils du cours.			
+Identité : zoom sur la photo un peu fort, mais le sourire est à garder !			
+Forme : revoir l'ordre des rubriques, mettre leur titre en majuscules, homogénéiser les dates dans toutes les rubriques, le plus récent d'abord. Attention, trop de fautes d'orthographe!		
+Diplômes et formations : inverser les 2 formations, mettre en valeur les diplômes non les établissements. Ajouter la 2ème spécialité de Bac et un descriptif pour le BUT (1 ligne).			
+Compétences en informatique : organiser en grands domaines (Web, BDD,…), compléter les technos.			
+Projets :choisir des titres explicites (ex : site responsif de streaming), donner les étapes de travail (ex : conception, maquettage,…),ne pas mélanger compétences techniques et Soft Skills.
+Langues : revoir les explications.
+Centres d'intérêt : rubrique absente mais importante pour une image dynamique auprès des recruteurs.

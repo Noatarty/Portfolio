@@ -1,0 +1,3 @@
+# Notes
+
+## Partie 1

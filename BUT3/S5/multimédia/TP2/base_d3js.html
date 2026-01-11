@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dessin SVG avec d3.js</title>
+  <!-- voir https://d3js.org/getting-started -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+  <!-- dessin SVG créé et modifié par les scripts JS -->
+  <svg xmlns="http://www.w3.org/2000/svg" id="dessin"></svg>
+
+  <script type="module">
+
+// voir https://stackoverflow.com/a/65056488 (append if not exist)
+d3.selection.prototype.appendIfAbsent = function(selector, type) {
+  const element = this.select(selector)
+  return element.empty() ? this.append(type) : element
+}
+
+// ici, il y aura les scripts d3.js pour créer, modifier et animer l'image SVG (enlever ce commentaire)
+const data1 = [
+  {name: "JavaScript", value: 68.8},
+  {name: "Python",     value: 54.8},
+  {name: "HTML/CSS",   value: 63},
+  {name: "SQL",        value: 61.3},
+  {name: "TypeScript", value: 48.8},
+  {name: "Bash/Shell", value: 48.8},
+  {name: "C#",         value: 29.9},
+]
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+VAR competition BASE RELATION{
+    num_compet  INTEGER,
+    date_compet CHAR
+} KEY {num_compet};
+
+VAR competiteur REAL RELATION{
+    num_compet      INTEGER,
+    idcompetiteur   INTEGER
+} KEY {num_compet, idcompetiteur};
+CONSTRAINT competiteur_fk_compet
+    competiteur{num_compet} 
+        <= competition{num_compet};
+
+VAR epreuve BASE RELATION{
+    num_compet  INTEGER,
+    num_epreuve INTEGER,
+    heure_epr   CHAR
+} KEY{num_compet,num_epreuve};
+CONSTRAINT epreuve_fk_compet
+    epreuve{num_compet} <= competition{num_compet};
+
+VAR ligne_eau REAL RELATION{
+    no_ligne    INTEGER
+} KEY {no_ligne};
+
+VAR participe REAL RELATION{
+    num_compet      INTEGER,
+    num_epreuve     INTEGER,
+    idcompetiteur   INTEGER,
+    no_ligne        INTEGER
+} KEY {num_compet, num_epreuve, no_ligne}
+  KEY {num_compet, idcompetiteur, num_epreuve};
+CONSTRAINT participe_fk_ligne
+    participe{no_ligne} <= ligne_eau{no_ligne};
+CONSTRAINT participe_fk_competiteur
+    participe{num_compet,idcompetiteur}
+        <= competiteur{num_compet,idcompetiteur};
+CONSTRAINT participe_fk_epreuve
+    participe{num_compet,num_epreuve}
+        <= epreuve{num_compet,num_epreuve};
+
+VAR gagne REAL RELATION{
+    num_compet      INTEGER,
+    num_epreuve     INTEGER,
+    idcompetiteur   INTEGER,
+    chrono          TIME
+} KEY {num_compet,num_epreuve};
+CONSTRAINT gagne_fk_participe
+    gagne{num_compet,num_epreuve,idcompetiteur}
+        <= participe{num_compet,num_epreuve,idcompetiteur};

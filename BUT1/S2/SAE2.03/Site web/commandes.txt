@@ -1,0 +1,6 @@
+Permissions et Redémarrage du Serveur
+
+sudo chown -R www-data:www-data /var/www/html/mon_site
+sudo chmod -R 755 /var/www/html/mon_site
+
+sudo systemctl restart apache2

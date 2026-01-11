@@ -1,0 +1,51 @@
+body{
+    font-family: 'Arimo', Arial, sans-serif ;
+    font-size: 1em;
+    background-color: #f6f8ca;
+    padding: 0.8em;
+}
+
+h1,h2 {
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+h1 {
+    /*color: #1f8A70; */
+    font-size: 4em;
+}
+
+h2,p,li,figcaption,address {
+    color: #f6f8ca; 
+}
+img {
+    margin: 1em,0.5em;
+}
+nav {
+    background-color: #f6f8ca;
+}
+section {
+    background-color: #1f8A70;
+}
+header {
+    background-color: #1f8A70;
+    margin: 0.5em;
+    padding: 0.8em;
+    border-radius: 10px;
+}
+main {
+    margin: 0.5em;
+    padding: 0.8em;
+    border-radius: 10px;
+}
+footer {
+    background-color: #1f8A70;
+    font-size: 0.8em;
+    margin: 0.5em;
+    padding: 0.8em;
+    border-radius: 10px;
+}
+aside {
+    margin: 0.5em;
+    padding: 0.8em;
+    border-radius: 10px;
+}

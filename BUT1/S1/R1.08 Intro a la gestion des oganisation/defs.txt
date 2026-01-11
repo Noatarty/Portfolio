@@ -1,0 +1,204 @@
+Entreprise
+Organisation qui produit des biens et des services.
+Entreprise individuelle
+Une personne exerçant une activité économique à titre individuel, sans créer de société commerciale.
+EURL / SARL
+Société à responsabilité limitée (un seul actionnaire / plusieurs actionnaires).
+SA (Sociétés Anonymes)
+Forme juridique d'entreprise où le capital est divisé en actions détenues par des actionnaires (7 associés + capital minimal de 37%).
+Micro-entreprises
+< 10 salariés.
+Petites et moyennes entreprises
+250 > salariés > 10.
+Entreprises de taille intermédiaire
+5000 > salariés > 250.
+Grandes entreprises
+Salariés > 5000.
+Auto-entrepreneur
+Même chose que EI mais avec simplification des démarches administratives et fiscales.
+Denomination sociale
+Nom donné à une organisation (pour les sociétés commerciales).
+Raison sociale
+Nom donné à une organisation (pour les organisations de la société civile).
+Fonds semi-publics
+Les fonds semi-publics sont des organismes financés à la fois par l'argent public et des investissements privés.
+Besoin solvable
+Le client paye le prix.
+Besoin non solvable
+L'adhérent ou l'usager paye une partie du prix.
+Besoin sociétal
+Nécessaire au fonctionnement de la vie en société.
+Secteur primaire
+Activités productrices de matières non transformées : agriculture, pêche, mines.
+Secteur secondaire
+Activités consistant en une transformation des matières premières : industries manufacturières, construction, etc.
+Secteur tertiaire
+Le reste, surtout les services.
+Environnement d'une organisation
+Contexte externe qui a des conséquences sur l'entreprise.
+Micro-environnement
+Composé des partenaires de l'entreprise sur son marché, ce sont les acteurs qui influencent l'entreprise mais sur lesquels elle a aussi un pouvoir d'influence (clients, fournisseurs, concurrents).
+Macro-environnement
+Constitué des facteurs qui influencent l'entreprise mais que celle-ci peut difficilement influencer (environnement législatif, technologique et social).
+Les 5 forces de Porter
+Les partenaires (parties prenantes) sont les Fournisseurs, les Salariés, les Clients, les Banques et enfin les Concurrents.
+Méthode PESTEL
+Les éléments Politiques, Economiques, Sociologiques, Technologiques, Ecologiques et Légaux.
+Veille
+Collecter, analyser et interpréter des informations stratégiques sur son environnement (marché, concurrents, tendances) pour anticiper les évolutions et prendre des décisions éclairées.
+Etapes de la planification stratégique
+Définition des objectifs (rentabilité, pérennité, croissance) | Analyse et le diagnostic (Forces, faiblesses, opportunités, menaces (SWOT)) | Conception et action (Plans d'action et allouer des ressources) | Contrôle (Évaluation des actions et corrections).
+Stratégie globale
+Appliquée à toute l'entreprise (Développement d'une stratégie permettant à l'ensemble de l'entreprise de se développer).
+Stratégie concurrentielle
+Appliquée à chaque activité (Définir la stratégie opérée à l'échelon d'un DAS (domaine d'activité stratégique)).
+Chaîne de valeur
+Ensemble des activités qu'une entreprise entreprend pour concevoir, produire, commercialiser et soutenir ses produits ou services.
+Intelligence économique
+L'utilisation stratégique de l'information pour prendre des décisions éclairées (vise à soutenir la prise de décision stratégique et protéger les intérêts de l'entreprise).
+Une stratégie
+Détermination des buts et des objectifs à long terme d'une entreprise, l'adoption des moyens d'action et l'allocation des ressources nécessaires pour atteindre ces objectifs.
+Croissance interne (ou organique)
+Se développer à partir de ses propres ressources sans faire appel à une autre firme.
+Croissance externe
+Se développer via l'acquisition d'autres firmes.
+Croissance conjointe
+Se développer par alliance ou par partenariat en partageant des ressources ou des compétences afin de développer un projet en commun.
+Une décision
+Choisir entre différentes alternatives.
+Décisions stratégiques
+Mobilisent beaucoup de ressources, vision à long terme, prises par la direction.
+Décisions tactiques
+Affectation des ressources, moyen terme.
+Décisions opérationnelles
+Fonctionnement quotidien, court terme.
+Rationalité limitée
+Idée selon laquelle la capacité de décision d'un individu est altérée par un ensemble de contraintes comme le manque d'information, des biais cognitifs ou encore le manque de temps.
+Pouvoir
+Capacité de produire ou modifier les résultats ou effets organisationnels.
+Style de direction
+Façon pour un dirigeant de gérer ses relations avec ses subordonnés.
+Partie prenante
+Acteur ou groupe d'acteurs ayant une influence directe ou indirecte sur la vie de l'entreprise (interne: salariés, actionnaires, syndicats / externe: clients, fournisseurs, concurrents).
+Gouvernance actionnariale
+Favorise les actionnaires (maximisation de la richesse créée pour les actionnaires).
+Gouvernance partenariale
+Le dirigeant prend en compte les conséquences que peuvent avoir ses décisions/actions sur les parties prenantes de l'entreprise.
+RSE
+Contribution volontaire des entreprises aux enjeux du développement durable, aussi bien dans leurs activités que dans leurs interactions avec leurs parties prenantes.
+Structure
+Concept qui se réfère à la manière dont une entreprise est organisée, hiérarchisée et divisée en différents départements, unités ou équipes.
+Division horizontale
+Organiser le travail des ouvriers en application du deuxième principe de l'OST : la parcellisation des tâches. Le travail de l'ouvrier est découpé en tâches élémentaires, simples, répétitives et cadencées.
+Division verticale
+Séparation stricte entre le travail de conception et le travail d'exécution.
+Structure fonctionnelle
+Une hiérarchie par fonction.
+Coordination des tâches
+Définir le meilleur agencement de tâches préalablement réparties en vue d'élaborer un ensemble cohérent.
+Théorie de la contingence
+Les théories de la contingence considèrent que la structure d'une organisation dépend à la fois de ses caractéristiques propres et de l'environnement dans lequel elle agit.
+Structure divisionnelle
+Division stratégique du management, prises par les managers.
+Structure matricielle
+Découpage encore plus poussé.
+Structure par projet
+Une seule hiérarchie.
+Input
+Ressources utilisées dans la production de l'output.
+Production
+Fabrication des produits répondant aux besoins des clients.
+Output
+Bien qui résulte du processus.
+Planification
+Prévision des ressources nécessaires à la fabrication.
+Conditionnement
+Rassembler et protéger les produits ensemble.
+Conditionnement
+Rassembler et protéger les produits ensemble.
+Packaging
+Élément matériel permettant de contenir le produit, déclencher l'achat et véhiculer un message.
+Logistique
+Transport de ressources et de produits pour approvisionner les troupes afin de conserver une capacité opérationnelle optimale.
+Approvisionnement
+Fait de chercher à acquérir, auprès de fournisseurs, des biens et services au bon moment et au meilleur coût en vue d'assurer la production et la livraison de ces produits ou services.
+Bureau des études
+Conçoit et ingénie des produits et/ou des projets, en créant des plans techniques et en respectant les normes.
+Bureau des méthodes
+Optimise les processus de production en recherchant l'efficacité, la productivité et la qualité tout en réduisant les coûts.
+Bureau d'ordonnancement
+Planifie et gère les ressources pour s'assurer une réalisation efficace des projets ou de la production en respectant les délais.
+Services opérationnels
+Unité ou division administrative dont les activités concourent directement à la réalisation des objectifs de l'entreprise ou de l'organisme.
+Production en continu
+Les produits sont transformés par des opérations successives non découpables (comme dans la chimie).
+Production en discontinu
+Les opérations successives peuvent être interrompues (comme dans la fabrication des voitures ou ordinateurs).
+Production unitaire
+Production qui résulte de la commande d'un produit particulier, parfois totalement original. L'entreprise doit s'organiser pour s'adapter aux besoins particuliers du client.
+Production par petites séries
+Production conçue sur le principe de l'assemblage de composants de façon répétée pour fabriquer de petites quantités de produits.
+Production en grandes séries
+Production conçue pour fabriquer des produits standardisés en grandes quantités.
+Production en flux poussés
+Est basée sur des prévisions et est effectuée en anticipation de la demande, ce qui peut entraîner des stocks élevés.
+Production en flux tendus
+Répond directement à la demande réelle, réduisant ainsi les stocks au minimum et améliorant l'efficacité.
+Fordisme
+Théorie d'organisation industrielle que l'on doit à Henry Ford, et visant à accroître la productivité par la standardisation des produits et par une nouvelle organisation du travail.
+Taylorisme
+Le taylorisme est une méthode d'organisation du travail industriel dont les caractéristiques principales sont la division horizontale et verticale du travail ainsi que le salaire au rendement.
+Toyotisme
+Le toyotisme est une stratégie industrielle post-fordiste fondée sur l'absence de stock, la production en flux tendu de petites quantités, le juste-à-temps et une réactivité très vive au marché.
+Compétitivité
+Capacité de produire à moindre coût tout en maintenant de la qualité.
+Réactivité
+Capacité de s'adapter rapidement aux changements du marché.
+Flexibilité
+Capacité de s'ajuster aux différentes exigences du marché.
+Qualité totale
+Approche de gestion de la qualité axée sur l'amélioration continue et la satisfaction du client.
+Qualité d'un produit
+Mesure de la conformité d'un produit aux normes et aux attentes du client.
+Lean management
+Méthode de gestion et d'organisation du travail qui vise à améliorer les performances d'une entreprise et, plus particulièrement, la qualité et la rentabilité de sa production.
+Organisation virtuelle
+Structure dynamique rassemblant des individus ou des entreprises à travers le monde, collaborant grâce aux technologies numériques.
+PGI (progiciel de gestion intégré)
+Puissant système informatique composé d'une série de modules appelés aussi applications dédiées à la gestion de l'entreprise. Il permet de couvrir l'ensemble des besoins de gestion d'une entreprise.
+Système d'information
+Ensemble de ressources et de dispositifs permettant de collecter, stocker, traiter et diffuser les informations nécessaires au fonctionnement d'une organisation (administration, entreprise).
+Standardisation
+Procédure qui consiste à développer, promouvoir et éventuellement imposer des technologies et des processus fondés sur des normes et compatibles, dans un secteur d'activité donné.
+Ajustement mutuel
+Coordonner les tâches par de simples discussions informelles basées sur la négociation et le compromis.
+Être efficace
+Atteindre les objectifs fixés
+Être efficient
+Atteindre les objectifs fixés en minimisant les ressources utilisées.
+Bénéfice
+Revenus obtenus par une entreprise après
+Marge 🍩
+Différence entre le coût de production d'un produit et son prix de vente
+prix de revient
+Coût total pour produire un bien ou un service
+Oligopole
+Situation où un petit nbre d'entreprises contrôlent la plupart du marché pour un produit ou service spécifique
+Économie d'échelle
+Réduction des coûts unitaires de production résultant de l'augmentation de la quantité produite
+Cycle économique
+Les fluctuations périodiques de l'activité économique
+Taux d'intérêt
+CMB de % ça me coûter d'avoir fait un prêt comme une grosse merde
+Compte de résultat
+Document regroupant sur 1 an la différence entre les produits et les charges
+Seuil de rentabilité
+Chiffre d'affaire minimum pour que l'entreprise fasse des bénéfices
+Lever de fonds
+de l'argent svp les investisseurs et tkt t'aura des trucs
+Micro-trading
+Exploiter les premieres cotations du marché boursier pour dégager un maximum de bénéfices
+Prêt d'honneur
+Pas d'intérêt et wola tkt je te rembourse
+bail
+location d'une machine

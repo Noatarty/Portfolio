@@ -1,0 +1,1 @@
+<li><a href="fichier.php?region=<?php echo urlencode($nom) ?>"<?php echo htmlentities($nom)?></a></li>

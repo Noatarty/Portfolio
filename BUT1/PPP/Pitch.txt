@@ -1,0 +1,12 @@
+Pitch
+
+Projet de formation a présenté : Jeu du sudoku et son algorithme de résolution
+
+Situation:
+une association (les têtes a clics )interviennent dans les collèges pour sensibiler a l'utilisation de logiciel et en temps que stagiaire nous sommes chargés de créer un jeu du sudoku puis dans un second temps on nous demandera un algorithme de résolution des grilles.
+
+Tache:
+
+Action:
+
+Resultat

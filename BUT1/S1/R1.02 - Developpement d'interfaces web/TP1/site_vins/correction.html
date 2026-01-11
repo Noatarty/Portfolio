@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+    <title>Les vins de Touraine</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Présentation des différents vins de Touraine.">
+    <meta name="keywords" content="Vin,Vine,Localisation vins,Vines Locations">
+    <meta name="author" content="Pommereul Noa">
+    <!-- Lien vers votre fichier CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- Le style CSS s'applique ici pour l'en-tête -->
+        <h1 id="hautdepage">- Les grands vins de Touraine -</h1>
+        <hr>
+        <blockquote class="blockquote">
+            <br>
+            - Qu'est-ce que vous regardez ? C'est la carte routière ?
+            <br>
+            - Non ! C'est la carte des vins. C'est pour éviter les bouchons !-
+            <br>
+            <del>Fernand Reynaud</del> <ins>Raymond Devos</ins>
+            <br>
+            <p></p>
+        </blockquote>
+        <h2>Localisation des vins de Touraine</h2>
+        <figure>
+            <!-- Le style CSS pour l'image de la carte -->
+            <img src="images/cartes/cartetouraine.jpg" alt="ceci est une carte des vins disponible en région Touraine " title="Carte des vins de Touraine" usemap="#touraine">
+            <map name="touraine" id="touraine">
+                <area title="Vouvray" coords="288,59,16" shape="circle" href="#Vouvray" alt="Vouvray">
+                <area title="Bourgueil" coords="210,56,210,88,226,89,227,79,253,78,252,56" shape="poly" href="#Bourgueil" alt="Bourgueil">
+                <area title="Chinon" coords="228,80,271,103" shape="rect" href="#Chinon" alt="Chinon">
+            </map>
+            <figcaption>Carte des vins de Touraine</figcaption>
+        </figure>
+        <nav>
+            <ul>
+                <li><a href="#Bourgueil">Bourgueil</a></li>
+                <li><a href="#Chinon">Chinon</a></li>
+                <li><a href="#Vouvray">Vouvray</a>
+                    <ul>
+                        <li>demi-sec</li>
+                        <li>brut</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Présentation des appellations</h2>
+        <article>
+            <!-- Le style CSS pour les articles -->
+            <h3 class="vinrouge" id="Bourgueil">Bourgueil</h3>
+            <p><em>Friand et plaisant ou structuré et puissant :</em> deux personnalités de Bourgueil pour exprimer dans votre verre ses deux grands terroirs. Rabelais disait à son sujet, dans <cite>Gargantua</cite>, Beuvez tousjours, vous ne mourrez jamais</p>
+            <h4>Localisation :</h4>
+            <p>L'aire d'appellation s'étend sur <strong>7 communes</strong>. A cet endroit, la vallée de la Loire est composée de sols variés, depuis les alluvions près du fleuve jusqu'aux sols argilo-calcaires proches de la côte de <a href="#Tuffeau">tuffeau</a>.</p>
+            <br>
+            <img src="images/cartes/cartebourgueil.jpg" alt="ceci est une carte des vins de Bourgueil en région Touraine " title="Localisation des Bourgueil">
+            <h4>Superficie : 1 400 ha</h4>
+        </article>
+        <article>
+            <!-- Le style CSS pour les articles -->
+            <h3 class="vinrouge" id="Chinon">Chinon</h3>
+            <p><em>Capitale de la Rabelaisie et du tourisme <a href="#Bachique">Bachique</a>,</em> Chinon fête ses grands vins rouges tout en faisant tinter ses verres de rosé et de blanc.</p>
+            <h4>Localisation :</h4>
+            <p>L'aire d'appellation s'étend sur <strong>19 communes</strong>, de part et d'autre de la Vienne jusqu'à sa confluence avec la Loire.</p>
+            <br>
+            <img src="images/cartes/cartechinon.jpg" alt="ceci est une carte des vins Chinon en région Touraine " title="Localisation des Chinon">
+            <h4>Superficie : 2 300 ha</h4>
+        </article>
+        <article>
+            <!-- Le style CSS pour les articles -->
+            <h3 class="vinblanc" id="Vouvray">Vouvray</h3>
+            <p><em>Secs, tendres, mœlleux ou Fines bulles,</em> les blancs de Vouvray vous révèlent leur exceptionnelle diversité.</p>
+            <h4>Localisation :</h4>
+            <p>L'aire d'appellation s'ouvre aux limites Est de l'agglomération tourangelle et s'étend sur <strong>7 communes</strong> de la rive droite de la Loire et en bordure de son affluent, la Brenne.</p>
+            <br>
+            <img src="images/cartes/cartevouvray.jpg" alt="ceci est une carte des vins Vouvray en région Touraine " title="Localisation des Vouvray">
+            <h4>Superficie : 2 000 ha</h4>
+        </article>
+        <aside>
+            <!-- Le style CSS pour la zone "Glossaire" -->
+            <h2>Glossaire</h2>
+            <dl>
+                <dt>Bachique</dt>
+                <dd id="Bachique">Relatif à Bacchus</dd>
+                <dt>Tuffeau</dt>
+                <dd id="Tuffeau">Roche calcaire poreuse</dd>
+            </dl>
+        </aside>
+        <aside>
+            <!-- Le style CSS pour la zone "Classement des vins" -->
+            <h2>Classement des vins</h2>
+            <table>
+                <caption>Millésimes des vins de Touraine</caption>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th colspan="4">Années</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>2012</th>
+                        <th>2013</th>
+                        <th>2014</th>
+                        <th>2015</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Rouge</th>
+                        <td>15</td>
+                        <td>18</td>
+                        <td>14</td>
+                        <td>17</td>
+                    </tr>
+                    <tr>
+                        <th>Blanc</th>
+                        <td>12</td>
+                        <td>17</td>
+                        <td>15</td>
+                        <td>15</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Qualité</th>
+                        <td>
+                            <img src="images/etoile.png" height="20" width="20">
+                        </td>
+                        <td>
+                            <img src="images/etoile.png" height="20" width="20">
+                            <img src="images/etoile.png" height="20" width="20">
+                            <img src="images/etoile.png" height="20" width="20">
+                        </td>
+                        <td>
+                            <img src="images/etoile.png" height="20" width="20">
+                            <img src="images/etoile.png" height="20" width="20">
+                        </td>
+                        <td>
+                            <img src="images/etoile.png" height="20" width="20">
+                            <img src="images/etoile.png" height="20" width="20">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </aside>
+        <video src="videos/vendanges.mp4"
+               controls="controls"
+               preload="auto"
+               poster="videos/vendanges.png"></video>
+        <h2>Liens</h2>
+        <nav><a href="vin_nantais.html">Les vins du Pays Nantais</a> - <a href="vin_anjou_saumur.html">Les vins d'Anjou-Saumur</a> - <a href="index.html">Les vins du Centre</a></nav>
+        <a href="#hautdepage"><img src="images/fleche.gif" alt="ceci est une flèche ramenant en haut de la page " title="Retourner en haut" ></a>
+    </main>
+    <footer> <!-- Il faut utiliser "footer" au lieu de "Footer" -->
+        <hr>
+        <p>Page réalisée par les étudiants de DU Groupe <sub>1 et 2</sub> le 1<sup>er</sup> septembre</p>
+        <address>
+            Pour contacter le webmaster :
+            <a href="mailto:james.bond@scotl-yard.uk">james.bond@scotl-yard.uk</a>
+        </address>
+        <p>Page sponsorisée par <a href="https://www.nicolas.com/fr/VINS/c/01/">Les vins Nicolas</a></p>
+    </footer>
+    <!-- Vos scripts JavaScript -->
+    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="../date-touraine.js"></script>
+    <script src="../verif.js"></script>
+</body>
+</html>

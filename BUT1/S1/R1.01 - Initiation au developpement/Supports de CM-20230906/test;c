@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void moyenne(int v1, int v2, float *adr_moy) ;
+int main(){
+    int nb1, nb2;
+    float moyenne;
+    printf(" entrer deux entiers : ") ;
+    scanf("%d %d",&nb1,&nb2);
+    moyenne(nb1, nb2, &moyenne) ; // Appel de la procédure
+    printf("la moyenne de %d et %d est %f", nb1, nb2, moyenne) ;
+    return 0 ;
+}
+// définition de la procedure
+void moyenne(int v1, int v2, float *adr_moy){
+*adr_moy = (v1 + v2)/2.0;
+}

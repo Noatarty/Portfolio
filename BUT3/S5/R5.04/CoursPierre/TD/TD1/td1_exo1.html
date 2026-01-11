@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>Dessin SVG dynamique</title>
+  <!-- voir https://greensock.com/docs/v3/Installation#installer -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+</head>
+<body>
+  <!-- dessin SVG créé et modifié par les scripts JS -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+        width="960" height="540"
+        viewBox="0 0 16 9"
+        id="dessin">
+        <!-- <line x1="1" y1="1" x2="15" y2="8" stroke="red" stroke-width="1"/>
+        <line x1="15" y1="1" x2="1" y2="8" stroke="green" stroke-width="1.25"/> -->
+        <rect x="0" y="0" width="16" height="9" fill="LightCyan"/>
+  </svg>
+
+  <!-- utilisation du mixin SVGelement -->
+  <script src="svgelement.js"></script>
+
+  <script>
+// compléments à la librairie Math
+Math.radians = (deg) => deg * Math.PI / 180
+Math.degrees = (rad) => rad / Math.PI * 180
+
+
+    // ici, il y aura les scripts JS pour créer, modifier et animer l'image SVG (enlever ce commentaire)
+  </script>
+</body>
+</html>

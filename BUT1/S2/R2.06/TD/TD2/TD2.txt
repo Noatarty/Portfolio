@@ -1,0 +1,144 @@
+// Exercice 1
+
+CREATE TABLE COMPETENCE(
+	code_comp VARCHAR(10) PRIMARY KEY,
+	libel_comp VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE EMPLOYE(
+	matricule_emp VARCHAR(10) PRIMARY KEY,
+	nomp_emp VARCHAR(50) NOT NULL,
+	prenom_emp VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE possede(
+	code_comp VARCHAR(10),
+	matricule_emp VARCHAR(10),
+
+	CONSTRAINT possede_pk PRIMARY KEY (code_comp, matricule_emp),
+	CONSTRAINT possede_fk1 FOREIGN KEY (code_comp) REFERENCES COMPETENCE(code_comp),
+	CONSTRAINT possede_fk2 FOREIGN KEY (matricule_emp) REFERENCES EMPLOYE(matricule_emp)
+);
+
+CREATE TABLE AFFAIRE(
+	no_affaire INT PRIMARY KEY
+);
+
+CREATE TABLE intervenir(
+	code_comp VARCHAR(10),
+	matricule_emp VARCHAR(10),
+	no_affaire INT,
+
+	CONSTRAINT intervenir_pk PRIMARY KEY (code_comp, matricule_emp, no_affaire),
+	CONSTRAINT intervenir_fk1 FOREIGN KEY (code_comp, matricule_emp) REFERENCES possede(code_comp, matricule_emp),
+	CONSTRAINT intervenir_fk1 FOREIGN KEY (no_affaire) REFERENCES AFFAIRE(no_affaire)
+);
+
+// Exercice 2
+
+VAR MAISON REAL RELATION{
+	no_proj_con CHARACTER,
+	typ_maison CHARACTER,
+	surface INT} KEY {no_proj_con};
+
+VAR ENTREPRISE REAL RELATION{
+	code_ent CHARACTER,
+	nom_ent CHARACTER,
+	adresse_ent CHARACTER,
+	tel_ent CHARACTER} KEY {code_ent};
+
+VAR LOT_TRAVAUX REAL RELATION{
+	no_lot CHARACTER,
+	libelle_lot CHARACTER} KEY {no_lot};
+
+VAR offres REAL RELATION{
+	no_proj_con CHARACTER,
+	code_ent CHARACTER,
+	no_lot CHARACTER} KEY {no_proj_con, code_ent, no_lot};
+CONSTRAINT offres_FK1 offres {no_proj_con} <= MAISON {no_proj_con};
+CONSTRAINT offres_FK2 offres {code_ent} <= ENTREPRISE {code_ent};
+CONSTRAINT offres_FK3 offres {no_lot} <= LOT_TRAVAUX {no_lot};
+
+VAR attribution REAL RELATION{
+	no_proj_con CHARACTER,
+	code_ent CHARACTER,
+	no_lot CHARACTER} KEY {no_proj_con, no_lot};
+CONSTRAINT attribution_FK1 attribution <= offres;
+
+// Exercice 3 - 1
+
+VAR CLUB REAL RELATION{
+	nom CHAR,
+	adresse CHAR,
+	ville CHAR} KEY {nom};
+
+VAR PRATIQUANT REAL RELATION{
+	idpratiquant CHAR,
+	nom CHAR} KEY {idpartiquant, nom};
+CONSTRAINT PRATIQUANT_FK1 PRATIQUANT {nom} <= CLUB {nom};
+
+VAR LICENCIE REAL RELATION{
+	no_licence CHAR,
+	idpratiquant CHAR,
+	nom CHAR} KEY {no_licence} KEY {id_pratiquant, nom};
+CONSTRAINT LICENCIE_FK1 LICENCIE {idpratiquant, nom} <= PRATIQUANT {idpratiquant, nom};
+
+// - 2
+
+VAR COMPETITION REAL RELATION{
+	num_compet INT,
+	date_compet DATE} KEY {num_compet};
+
+VAR COMPETITEUR REAL RELATION{
+	idCompetiteur INT,
+	num_compet INT} KEY {idCompetiteur, num_compet};
+CONSTRAINT COMPETITEUR_FK_COMPETITION COMPETITEUR {num_compet} <= COMPETITION {num_compet};
+
+VAR EPREUVE REAL RELATION{
+	heure_epr TIME,
+	num_epreuve INT,
+	num_compet INT} KEY {heure_epr} KEY {num_epreuve, num_compet};
+CONSTRAINT EPREUVE_FK_COMPETITION EPREUVE {num_compet} <= COMPETION {num_compet};
+
+VAR participe REAL RELATION{
+	idCompetiteur INT,
+	num_epreuve INT,
+	num_compet INT} KEY {num_epreuve, num_compet};
+CONSTRAINT participe_FK_COMPETITEUR participe {idCompetiteur,num_compet} <= COMPETITEUR {idCompetiteur,num_compet};
+CONSTRAINT participe_FK_EPREUVE participe {num_epreuve,num_compet} <= EPREUVE {num_epreuve,num_compet};
+
+// - 3
+
+VAR COMPETITION REAL RELATION{
+	num_compet INT,
+	date_compet DATE} KEY {num_compet};
+
+VAR COMPETITEUR REAL RELATION{
+	idCompetiteur INT,
+	num_compet INT} KEY {idCompetiteur, num_compet};
+CONSTRAINT COMPETITEUR_FK_COMPETITION COMPETITEUR {num_compet} <= COMPETITION {num_compet};
+
+VAR EPREUVE REAL RELATION{
+	heure_epr TIME,
+	num_epreuve INT,
+	num_compet INT} KEY {heure_epr} KEY {num_epreuve, num_compet};
+CONSTRAINT EPREUVE_FK_COMPETITION EPREUVE {num_compet} <= COMPETION {num_compet};
+
+VAR LIGNE_EAU REAL RELATION{
+	no_ligne INT} KEY {no_ligne};
+
+VAR participe REAL RELATION{
+	idCompetiteur INT,
+	num_epreuve INT,
+	num_compet INT,
+	no_ligne INT} KEY {idCompetiteur, num_epreuve, num_compet} KEY {num_compet, num_epreuve, no_ligne};
+CONSTRAINT participe_FK_COMPETITEUR participe {idCompetiteur,num_compet} <= COMPETITEUR {idCompetiteur,num_compet};
+CONSTRAINT participe_FK_EPREUVE participe {num_epreuve,num_compet} <= EPREUVE {num_epreuve,num_compet};
+CONSTRAINT participe_FK_LIGNE_EAU participe {no_ligne} <= LIGNE_EAU;
+
+VAR gagne REAL RELATION{
+	idCompetiteur INT,
+	num_compet INT,
+	num_epreuve INT,
+	chrono TIME} KEY {num_compet, num_epreuve};
+CONSTRAINT gagne_FK_participe gagne {idCompetiteur,num_compet, num_epreuve} <= participe {idCompetiteur,num_compet, num_epreuve};

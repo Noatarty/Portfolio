@@ -1,0 +1,6 @@
+id,nom,adresse,numero_telephone
+1,Dupont,,0612345678
+2,Martin,12 rue des Lilas,0033612345678
+3,Durand,45 avenue de Paris,+33612345679
+4,Doe,NULL,061234567
+5,Test,"10 rue de la Paix",not_a_number

@@ -1,0 +1,161 @@
+// TD 14 Révisions
+
+// PART 4 Récursivité
+
+// Ex1
+
+procedure inverse() c'est
+debut
+    a : entier
+    écrireEcran("Donnez une valeur");   
+    lireClavier(a);
+    si (a!=-1) alors
+        inverse();
+        écrireEcran(a);
+    finsi
+fin
+
+// Ex2
+
+//a-itérative
+fonction PGCD(entF n1:entier,entF n2:entier) délivre entier c'est
+début
+    tant que (n1!=n2) faire
+        si (n1>n2) alors
+            n1:n1-n2;
+        sinon
+            n2:n2-n1;
+        finsi
+    finfaire
+    retourne n1
+fin
+
+//b-récursive
+fonction PGCD_rec(entF n1:entier,entF n2:entier) délivre entier c'est
+début
+    resultat:entier;
+    si (n1==n2) alors
+        resultat:=n1;
+    sinonsi(n1>n2) alors
+        resulat:=PGCD_rec(entE n1-n2,entE n2);
+    sinon
+        resulat:=PGCD_rec(entE n1,entE n2-n1);
+    finsi
+    retourne résultat
+fin
+
+// Ex3
+
+procédure suite(sortF un:entier,sortF vn:entier,entF n:entier) c'est
+début
+    u,v:entier;
+    si (n==0) alors
+        un:=1;
+        vn:=1;
+    sinon
+        suite(sortE u,sortE v,entE n-1);
+        un:=v+2*u;
+        vn:=4*v+u;
+    finsi
+fin
+
+// PART 3 Piles
+
+// A
+constante entier N := 30;
+
+type t_fct = structure
+début
+    c_nomF: chaîne(N);
+    c_nbParametres: entier;
+fin
+
+constante entier MAXF := 20;
+type t_tabFct = tableau[MAXF] de t_fct;
+type t_tpile = structure
+début
+    c_pile: t_tabFct;
+    c_ip :entier;
+fin
+
+fonction init() délivre t_tpile c'est
+début
+    pile:t_tpile;
+    (pile.c_ip):=0;
+    retourne pile
+fin
+// B
+fonction pileVide(entF pile:t_tpile) délivre booléen c'est
+début
+    retourne (pile.c_ip==0);
+fin
+// C
+
+// PART 1 Tableau 1D
+
+constante entier MAXNUM :=3;
+constante entier MAXPERS :=10;
+
+type t_tabNumeros tableau[MAXNUM] de entier ;
+type t_personne = structure
+début
+    c_nom : chaine(30) ;
+    c_liste : t tabNumeros ;
+    c_nbComptes : entier;
+fin
+type t_tabPersonnes = tableau[MAXPERS] de t_personne ;
+
+
+procédure permuter(entF/sortF p1:t_personne,entF/sortF p2:t_personne) c'est
+début
+    t_personne tmp;
+    tmp:=p1;
+    p1:=p2;
+    p2:=tmp;
+fin
+
+procédure afficherPersonne(entF p:t_personne) c'est
+début
+    i:entier;
+    ecrireEcran("Nom :"+p.c_nom);
+    pour i de 1 à p.c_nbComptes faire
+        écrireEcran("Numero de compte: "+p.c_liste[i]);
+    finfaire
+fin
+
+procédure triNaif(entF/sortF t:t_tabPersonnes,entF nbElt:entier) c'est
+début
+    i,j:entier;
+    mini:entier;
+    pour i de 1 à nbElt faire
+        mini:=i;
+        pour j de i à nbElt faire
+            si (t[j].c_nom < t[mini].c_nom) alors
+                mini:=j;
+            finsi
+        finfaire
+        permuter(entE/sortE t[i],entE/sortE t[mini]);
+    finfaire
+fin
+
+procédure AfficherTableau(entF nbPers:entier,entF t:t_tabPersonnes) c'est
+début
+    i:entier;
+    pour i de 1 à nbPers pas de delta faire
+        afficherPersonne(t[i]);
+    finfaire
+fin
+
+
+programme Trie c'est
+constante t_tabPersonnes BANQUE := {{"toto",{21,25,12},3},{"dupont",{56},1},{"albert",{19,123,111},3},{"alfred",{19,123,111},3}};
+début
+    banque:t_tabPersonnes;
+    i:entier;
+    pour i de 1 à 4 faire
+        banque[i]:=BANQUE[i];
+    finfaire
+    AfficherTableau(entE 4,entE banque);
+    triNaif(entE/sortE banque,entE 4);
+    AfficherTableau(entE 4,entE banque);
+fin

@@ -1,0 +1,167 @@
+﻿!!! NE MODIFIEZ PAS LA STRUCTURE DE CE FICHIER !!!
+
+Nom : POMMEREUL
+Prénom : Noa
+Groupe TP : E2
+
+
+Exercice 1.2 (mettre V1, V2 et V3 à zéro)
+----------------------------------------------------------------
+LD R0, 0 ; Charge la valeur zéro dans le registre R0
+
+ST R0, [V1] ; Met à zéro la variable V1
+ST R0, [V2] ; Met à zéro la variable V2
+ST R0, [V3] ; Met à zéro la variable V3
+
+HLT ; Arrête l'exécution du programme
+
+V1: DB 12
+V2: DB 98
+V3: DB $C3 ; nombre en base 16
+----------------------------------------------------------------
+
+
+Exercice 1.3 (recopier V1 dans V2 et V3)
+----------------------------------------------------------------
+
+LD R0, [V1] ; 
+ST R0, [V2] ; 
+ST R0, [V3] ; 
+
+HLT ; Arrête l'exécution du programme
+
+V1: DB 12
+V2: DB 98
+V3: DB $C3 ; nombre en base 16
+----------------------------------------------------------------
+
+
+Exercice 1.4 (permutation V1 -> V2 -> V3 -> V1)
+----------------------------------------------------------------
+LD R0, [V1] ; Stocker la valeur de V1 dans R0 (registre temporaire)
+LD R1, [V2] ; Stocker la valeur de V2 dans R1 (pour déplacement vers V3)
+ST R0, [V2] ; Déplacer la valeur de V1 vers V2
+LD R0, [V3] ; Stocker la valeur de V3 dans R0 (pour déplacement vers V1)
+ST R1, [V3] ; Déplacer la valeur de V2 vers V3
+ST R0, [V1] ; Déplacer la valeur de V3 vers V1
+
+HLT ; Arrête l'exécution du programme
+
+V1: DB 12
+V2: DB 98
+V3: DB $C3 ; nombre en base 16
+----------------------------------------------------------------
+
+
+Exercice 2.1 (dessin d'un alien)
+----------------------------------------------------------------
+ ; mettre le DSKY en mode 8 = LCD matriciel
+        LD  R0, 8
+        OUT R0, 255         ; port 255 = choix du mode du DSKY = 8
+        ; recopier les données sur le port 8
+        LD  R0, [donnees+0]
+        OUT R0, 8
+        LD  R0, [donnees+1]
+        OUT R0, 8
+        LD  R0, [donnees+2]
+        OUT R0, 8
+        LD  R0, [donnees+3]
+        OUT R0, 8
+        LD  R0, [donnees+4]
+        OUT R0, 8
+        LD  R0, [donnees+5]
+        OUT R0, 8
+        LD  R0, [donnees+6]
+        OUT R0, 8
+        LD  R0, [donnees+7]
+        OUT R0, 8
+        LD  R0, [donnees+8]
+        OUT R0, 8
+        LD  R0, [donnees+9]
+        OUT R0, 8
+        LD  R0, [donnees+10]
+        OUT R0, 8
+        HLT
+
+donnees:
+        ;de gauche a droite et de bas en haut
+        DB %01110000
+        DB %00011000
+        DB %01111101
+        DB %10110110
+        DB %10111100
+        DB %00111100;
+        DB %10111100
+        DB %10110110
+        DB %01111101
+        DB %00011000
+        DB %01110000
+----------------------------------------------------------------
+
+
+Exercice 2.2 (dessin d'un alien avec l'amélioration)
+----------------------------------------------------------------
+; mettre le DSKY en mode 8 = LCD matriciel
+        LD  R0, 8
+        OUT R0, 255         ; port 255 = choix du mode du DSKY = 8
+        ; recopier les données sur le port 8
+        LD R1, 0
+repeter:
+        LD  R0, [R1+donnees]
+        OUT R0, 8
+        INC R1              ; R1++
+jusqua:
+        CMP R1, 10
+        BLS repeter
+        HLT
+
+donnees:
+        DB %01110000
+        DB %00011000
+        DB %01111101
+        DB %10110110
+        DB %10111100
+        DB %00111100;
+        DB %10111100
+        DB %10110110
+        DB %01111101
+        DB %00011000
+        DB %01110000
+----------------------------------------------------------------
+
+
+Exercice 3.1 (questions)
+Quelle est la retenue maximale qu'on peut avoir en additionnant des octets :
+Avec cette retenue + 255 + 255, quel est le nombre à mettre en bas :
+-------------------------------------------------------------------
+En base 10, la plus grande retenue possible lors de l'addition de deux chiffres est 1.
+En utilisant des octets (représentant des chiffres dans la base 256), la valeur maximale d'un octet est 255. Lorsque l'on ajoute deux octets maximum (255 + 255), cela donne :
+  255
++ 255
+-----
+  510
+Dans ce cas, le résultat de 255 + 255 est 510. La valeur maximale que peut avoir une retenue dans cette addition est donc 1 (retenue de 1).
+Si l'on a déjà une retenue de 1 lors de l'addition de 255 + 255, cela donne :
+    1    (retenue)
+  255
++ 255
+-----
+  511
+Ainsi, la plus grande retenue possible lors de l'addition de deux octets (255 + 255 avec une retenue de 1) est 1.
+
+Exercice 3.3 (addition 16 bits)
+----------------------------------------------------------------
+COLLEZ VOTRE PROGRAMME ENTRE CES DEUX LIGNES
+----------------------------------------------------------------
+
+
+Exercice 3.4 (soustraction 16 bits)
+----------------------------------------------------------------
+COLLEZ VOTRE PROGRAMME ENTRE CES DEUX LIGNES
+----------------------------------------------------------------
+
+
+Exercice 3.5 (décalage à gauche 16 bits)
+----------------------------------------------------------------
+COLLEZ VOTRE PROGRAMME ENTRE CES DEUX LIGNES
+----------------------------------------------------------------

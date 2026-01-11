@@ -1,0 +1,39 @@
+constante entier N := 100;
+constante entier MAX_ELT := 10;
+constante entier VAL_MAX := 99;
+
+type t_tablo = tableau[N] de entier;
+
+procédure gene(sortF tab : tableau);
+
+procédure init(sorF tab : tableau) c'est
+début
+    pour i de 0 à VAL_MAX faire
+        tab[i] := 0;
+        i++;
+    finfaire
+fin
+procédure triComptage(entF tab : tableau de entier, sortF tabRes : tableau de entier) c'est
+début
+    tabTemp : tableau[VAL_MAX];
+    j,nbElement,indice : entier;
+    init(tabTemp);
+    pour indice de 1 à MAX_ELT pas de 1 faire
+        tabTemp[tab[indice]]+=1;
+    finfaire
+    pour indice de 0 à VAL_MAX faire
+        si (tabTemp[indice]!=0) alors
+            pour j de 1 à tabTemp[indice] pas de 1 faire
+                tabRes[nbElement+1]=indice;
+                nbElement+=1;
+            finfaire
+        finsi
+    finfaire
+fin
+
+
+
+procédure triRempDec(entF tab) c'est
+début
+    
+fin

@@ -1,0 +1,171 @@
+1)
+TUTORIAL D :
+
+VAR CENTRES REAL RELATION{
+  nom_centre CHARACTER,
+  capacite_centre INT,
+  nom_pays CHARACTER} KEY {nom_centre};
+
+VAR STAGES REAL RELATION{
+  no_stage INT,
+  niveau_stage CHARACTER,
+  nom_centre CHARACTER} KEY {no_stage};
+CONSTRAINT STAGES_fk1 STAGES{nom_centre}<=CENTRES{nom_centre};
+
+VAR CLIENTS REAL RELATION{
+  no_client INT,
+  nom CHARACTER,
+  prenom CHARACTER,
+  adresse CHARACTER,
+  code_postal CHARACTER,
+  ville CHARACTER,
+  tel_client CHARACTER} KEY {no_client};
+
+VAR INSCRIPTIONS REAL RELATION{
+  no_stage INT,
+  no_client INT,
+  date_inscription DATE} KEY {no_stage, no_client};
+CONSTRAINT INSCRIPTIONS_fk1 INSCRIPTIONS{no_stage}<=STAGES{no_stage};
+CONSTRAINT INSCRIPTIONS_fk2 INSCRIPTIONS{no_client}<=CLIENTS{no_client};
+
+SQL :
+
+CREATE TABLE centres(
+  nom_centre VARCHAR(50) PRIMARY KEY,
+  capacite_centre INT NOT NULL,
+  nom_pays VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE stages(
+  no_stage INT PRIMARY KEY,
+  niveau_stage VARCHAR(20) NOT NULL,
+  nom_centre VARCHAR(50) NOT NULL,
+
+  CONSTRAINT stages_fk_centres FOREIGN KEY (nom_centre) REFERENCES centres(nom_centre)
+);
+
+CREATE TABLE clients(
+  no_client INT PRIMARY KEY,
+  nom VARCHAR(30) NOT NULL,
+  prenom VARCHAR(30) NOT NULL,
+  adresse VARCHAR(50) NOT NULL,
+  code_postal VARCHAR(5) NOT NULL,
+  ville VARCHAR(40) NOT NULL,
+  tel_client VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE inscriptions(
+  no_stage INT,
+  no_client INT,
+  date_inscription VARCHAR(20) NOT NULL,
+
+  CONSTRAINT inscriptiond_pk PRIMARY KEY (no_stage, no_client)
+);
+
+2)
+TUTORIAL D :
+
+VAR fournisseur REAL RELATION{
+  no_fournisseur INT,
+  nom CHARACTER,
+  ville CHARACTER,
+  budget FLOAT} KEY {no_fournisseur};
+
+VAR projet REAL RELATION{
+  no_projet INT,
+  nom_projet CHARACTER,
+  budget_projet FLOAT,
+  ville_projet CHARACTER} KEY {no_projet};
+
+VAR article REAL RELATION{
+  no_article INT,
+  nom_article CHARACTER,
+  couleur CHARACTER,
+  prix FLOAT} KEY {no_article};
+
+VAR nomenclature REAL RELATION{
+  no_composant INT,
+  no_compose INT} KEY {no_composant, no_compose};
+  CONSTRAINT nomenclature_fk1 nomenclature{no_composant}<=article{no_article} RENAME {no_article AS no_composant};
+  CONSTRAINT nomenclature_fk2 nomenclature{no_compose}<=article{no_article} RENAME {no_article AS no_compose};
+  CONSTRAINT nomenclature_ck IS_EMPTY(nomenclature WHERE composant=compose);
+
+VAR dotation REAL RELATION{
+  no_fournisseur INT,
+  no_projet INT,
+  no_article INT,
+  quantite_dot INT} KEY {no_fournisseur, no_article, no_projet};
+  CONSTRAINT dotation_fk1 dotation{no_fournisseur}<=fournisseur{no_fournisseur};
+  CONSTRAINT dotation_fk2 dotation{no_projet}<=projet{no_projet};
+  CONSTRAINT dotation_fk3 dotation{no_article}<=article{no_article};
+
+SQL :
+
+CREATE TABLE fournisseur(
+  no_fournisseur INT PRIMARY KEY,
+  nom VARCHAR(30) NOT NULL,
+  ville VARCHAR(50) NOT NULL,
+  budget NUMERIC(9,2) NOT NULL
+);
+
+CREATE TABLE projet(
+  no_projet INT PRIMARY KEY,
+  nom_projet VARCHAR(30) NOT NULL,
+  budget_projet NUMERIC(9,2) NOT NULL,
+  ville_projet VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE article(
+  no_article INT PRIMARY KEY,
+  nom_article VARCHAR(30) NOT NULL,
+  couleur VARCHAR(20) NOT NULL,
+  prix NUMERIC(9,2) NOT NULL
+);
+
+CREATE TABLE nomenclature(
+  no_composant INT,
+  no_compose INT,
+
+  CONSTRAINT nomenclature_pk PRIMARY KEY (no_composant, no_compose),
+  CONSTRAINT nomenclature_fk1 FOREIGN KEY (no_composant) REFERENCES article(no_article),
+  CONSTRAINT nomenclature_fk2 FOREIGN KEY (no_compose) REFERENCES article(no_article),
+  CONSTRAINT nomenclature_ck CHECK(no_composant<>no_compose)
+);
+
+CREATE TABLE dotation(
+  no_fournisseur INT,
+  no_projet INT,
+  no_article INT,
+  quantite_dot INT,
+
+  CONSTRAINT dotation_pk PRIMARY KEY (no_fournisseur, no_projet, no_article),
+  CONSTRAINT dotation_fk1 FOREIGN KEY (no_fournisseur) REFERENCES fournisseur(no_fournisseur),
+  CONSTRAINT dotation_fk2 FOREIGN KEY (no_projet) REFERENCES projet(no_projet),
+  CONSTRAINT dotation_fk3 FOREIGN KEY (no_article) REFERENCES article(no_article)
+);
+
+3)
+CREATE TABLE cours_d_eau(
+  nom_ce VARCHAR(30) PRIMARY KEY,
+  longueur INT NOT NULL
+);
+
+CREATE TABLE mer(
+  nom_m VARCHAR(75) PRIMARY KEY,
+  surface INT NOT NULL
+);
+
+CREATE TABLE affluent(
+  nom_ce VARCHAR(30) PRIMARY KEY,
+  conflue VARCHAR(30) NOT NULL,
+  CONSTRAINT affluent_heritage FOREIGN KEY (nom_ce) REFERENCES cours_d_eau(nom_ce),
+  CONSTRAINT affluent_conflue FOREIGN KEY (conflue) REFERENCES cours_d_eau(nom_ce),
+  CONSTRAINT affluent_ck CHECK(nom_ce<>conflue)
+);
+
+CREATE TABLE fleuve(
+  nom_ce VARCHAR(30) PRIMARY KEY,
+  nom_m VARCHAR(75) NOT NULL,
+  CONSTRAINT fleuve_heritage FOREIGN KEY (nom_ce) REFERENCES cours_d_eau(nom_ce),
+  CONSTRAINT fleuve_fk1 FOREIGN KEY (nom_m) REFERENCES mer(nom_m)
+);

@@ -1,0 +1,12 @@
+A) Quelle est l’adresse de l’octet situé 3e ligne, et 5e colonne ? 
+25
+Où est situé l’octet d’adresse 56 en hexadécimal : ligne ? 6 et colonne ? 6
+
+B) Cliquez sur la ligne 50, colonne 03 et saisissez 45. Vous voyez apparaître un E côté texte ASCII.
+C’est parce que le code ASCII de E est 45 en hexadécimal.
+
+C) Cliquez en dessous du E dans la partie texte ASCII et tapez le mot « Bonjour ! » (sans vous
+soucier du nombre de caractères de la ligne). Vous verrez les codes de ces caractères dans la partie
+gauche. 
+Quel est le code du caractère j ? 6A
+Quel est le code du caractère espace ? 20
